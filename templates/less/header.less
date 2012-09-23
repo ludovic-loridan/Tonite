@@ -6,7 +6,6 @@
 @import "metrics.less";
 @import "constants.less";
 
-@borderThickness: 4px;
 @headerHeight: 50px;
 
 @catchLineColor: @lightGray;
@@ -24,11 +23,11 @@ header#mainHeader {
 
     .headerStencil {
         position: fixed;
-        top: @borderThickness;
+        top: @gradientBorderThickness;
         left: 0;
 
         width: 100%;
-        line-height: @headerHeight - @borderThickness;
+        line-height: @headerHeight - @gradientBorderThickness;
 
         background-color: @mainBackground;
         vertical-align: middle;

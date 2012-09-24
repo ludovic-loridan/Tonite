@@ -1,0 +1,58 @@
+/*========
+  = Chat =
+  ======== */
+
+@import "palette.less";
+
+.chatBubble {
+    width: 250px;
+    margin-top: 20px;
+
+    font-size: 13px;
+    color: white;
+
+    position: relative;
+
+    p {
+        padding: 10px;
+    }
+
+    // In bubbles
+    &.in {
+        background-color: @channel2Color;
+    }
+
+    &.in:before {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: -10px;
+        left: 20px;
+
+        width: 0; 
+        height: 0; 
+        border-right: 9px solid transparent;
+        
+        border-bottom: 10px solid @channel2Color;
+    }
+
+    // Out bubbles
+    &.out {
+        background-color: lighten(@channel2Color,15%);
+        margin-left: 30px
+    }
+
+    &.out:before {
+        content: " ";
+        display: block;
+        position: absolute;
+        bottom: -10px;
+        right: 20px;
+
+        width: 0; 
+        height: 0; 
+        border-left: 9px solid transparent;
+        
+        border-top: 10px solid lighten(@channel2Color,15%);
+    }
+}

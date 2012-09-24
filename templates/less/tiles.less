@@ -1,0 +1,57 @@
+/*======================
+  =     Tiles style    =
+  ====================== */
+
+@import "palette.less";
+@import "metrics.less";
+@import "elements.less";
+
+@tileHeight: 160px;
+@tilePadding: 10px;
+
+@flagThickness: 20px;
+
+@fontColor: #FFFFFF;
+@flagColor: #FF5C26;
+
+.tile {
+    position: relative;
+    width: @tileWidth - @tilePadding * 2;
+    height: @tileHeight - @tilePadding * 2;
+    background-color: black;
+    padding: @tilePadding;
+    color: @fontColor;
+    font-size: 14px;
+    overflow: hidden;
+
+    .flag {
+        background-color: @flagColor;
+        width: 80px;
+        height: @flagThickness;
+        line-height: @flagThickness + 3;
+        text-transform: capitalize;
+        text-align: center;
+        font-size: 12px;
+        font-weight: bold;
+        .rotation(45deg);
+        position: absolute;
+        top: 8px;
+        right: -23px;
+    }
+
+    .title {
+        font-weight: bold;
+        font-size: 24px;
+    }
+
+    .info {
+        position: absolute;
+        bottom: @tilePadding;
+        max-width: @tileWidth - @tilePadding * 2;
+        background: transparent url(../images/icon_bubble.png) no-repeat left bottom;
+        padding-left: 22px;
+        line-height: 18px;
+        &:before{content: open-quote;}
+        &:after{content: close-quote;}
+    }
+}

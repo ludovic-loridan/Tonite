@@ -1,0 +1,115 @@
+/*===================
+  = Program details =
+  =================== */
+
+@import "palette.less";
+
+@progressBarWidth: 300px;
+@progressBarTagWidth: 50px;
+@progressBarHeight : 8px;
+
+article.programDetails {
+
+    // Title
+    & > h1 {
+        font-size: 35px;
+        color: @channel2Color;
+        margin: 7px 0;
+        font-weight: bold;
+    }
+
+    // Details
+    & > ul.programCharacteristics {
+        
+        font-size: 16px;
+        font-weight: bold;
+
+        margin: 7px 0;
+        padding: 0;
+
+        li {
+            display: inline-block;
+            list-style: none;
+            margin-right: 5px;
+
+            &:before {
+                content: "|";
+                margin-right: 5px;
+            }
+        }
+
+        li:first-child:before {
+            content: none;
+        }
+    }
+
+    & > .now {
+        display: inline-block;
+
+        background-color: @channel2Color;
+        color: white;
+
+        font-size: 16px;
+        font-weight: bold;
+
+        padding: 5px 25px;
+        margin: 7px 0;
+    }
+
+    & > .programProgress {
+        width: 100%;
+        max-width: @progressBarWidth + 2 * @progressBarTagWidth;
+        height: 20px;
+        line-height: 20px;
+
+        margin: 20px 0;
+        position: relative;
+
+        font-size: 12px;
+        font-weight: bold;
+
+        .beginning {
+            position: absolute;
+            left: 0;
+            width: @progressBarTagWidth;
+        }
+
+        .end {
+            position: absolute;
+            right: 0;
+            width: @progressBarTagWidth;
+            text-align: right;
+        }
+
+        .progressBar {
+            position: absolute;
+            width: @progressBarWidth;
+            height: @progressBarHeight;
+
+            top: 5px;
+            left: @progressBarTagWidth;
+
+            background: @ultraLightGray;
+
+            .progression {
+                background: @gray;
+                height: @progressBarHeight;
+            }
+        }
+    }
+
+    // Description
+    .programDescription {
+        p {
+            font-size: 13px;
+            color: @gray;
+        }
+    }
+
+    // Image
+    .programImage {
+        float: right;
+        margin: 10px;
+    }
+
+}

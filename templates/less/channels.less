@@ -1,0 +1,31 @@
+/*======================
+  =     Tiles style    =
+  ====================== */
+
+@import "palette.less";
+@import "metrics.less";
+@import "elements.less";
+
+#channels {
+    white-space: nowrap;
+}
+
+.channel {
+    display: inline-block;
+    margin: 0px @channelHorizontalMargin;
+    width: @tileWidth;
+    font-size: 14px;
+
+    & > .title {
+        font-size: 250%;
+        color: @gray;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .channel {
+        margin: 0px 20px;
+        width: 250px;
+        font-size: 12px;
+    }
+}

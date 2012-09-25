@@ -2,56 +2,92 @@
   =     Tiles style    =
   ====================== */
 
-@import "palette.less";
+@import "tiles_colors.less";
 @import "metrics.less";
 @import "elements.less";
 
+// tile metrics
 @tileHeight: 160px;
+@tileMinHeight: 100px;
 @tilePadding: 10px;
 
+// flag metrics
 @flagThickness: 20px;
 
+// colors
 @fontColor: #FFFFFF;
 @flagColor: #FF5C26;
 
 .tile {
     position: relative;
-    width: @tileWidth - @tilePadding * 2;
     height: @tileHeight - @tilePadding * 2;
-    background-color: black;
+    margin-top: @tileVerticalSpacing;
     padding: @tilePadding;
+    background-color: black;
     color: @fontColor;
-    font-size: 14px;
     overflow: hidden;
+    cursor: pointer;
 
     .flag {
-        background-color: @flagColor;
+        display: none;
+        position: absolute;
         width: 80px;
         height: @flagThickness;
         line-height: @flagThickness + 3;
+        top: 8px;
+        right: -23px;
         text-transform: capitalize;
         text-align: center;
         font-size: 12px;
         font-weight: bold;
         .rotation(45deg);
-        position: absolute;
-        top: 8px;
-        right: -23px;
+        background-color: @flagColor;
     }
 
     .title {
         font-weight: bold;
-        font-size: 24px;
+        font-size: 170%;
     }
 
     .info {
         position: absolute;
         bottom: @tilePadding;
         max-width: @tileWidth - @tilePadding * 2;
-        background: transparent url(../images/icon_bubble.png) no-repeat left bottom;
-        padding-left: 22px;
-        line-height: 18px;
-        &:before{content: open-quote;}
-        &:after{content: close-quote;}
+        line-height: 16px;
+        white-space: nowrap;
+        
+        &.message {
+            background: transparent url(../images/icon_bubble.png) no-repeat left bottom;
+            padding-left: 22px;
+            &:before {content: open-quote;}
+            &:after {content: close-quote;}
+        }
+
+        &.time {
+            background: transparent url(../images/icon_time.png) no-repeat left bottom;
+            padding-left: 22px;
+            &:after {content: "...";}
+        }
+    }
+
+    &:hover:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        .inner-shadow(0, 0, 5px, rgba(255, 255, 255, 0.6));
     }
 }
+
+@media screen and (max-height: 640px) {
+    .tile {
+        height: @tileMinHeight - @tilePadding * 2;
+    }
+}
+
+.before .flag { }
+.now .flag { display: inline; }
+.after .flag { }

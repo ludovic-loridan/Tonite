@@ -75,7 +75,7 @@
 
     // In bubbles
     &.in {
-        background-color: @channel2Color;
+        background-color: @gray;
     }
 
     &.in:before {
@@ -83,12 +83,12 @@
         left: @bubbleTailPosition;
 
         border-right: @bubbleTailWidth solid transparent;
-        border-bottom: @bubbleTailHeight solid @channel2Color;
+        border-bottom: @bubbleTailHeight solid @gray;
     }
 
     // Out bubbles
     &.out {
-        background-color: lighten(@channel2Color,15%);
+        background-color: lighten(@gray,15%);
         margin-left: @bubbleInOutGap;
     }
 
@@ -97,7 +97,7 @@
         right: @bubbleTailPosition;
 
         border-left: @bubbleTailWidth solid transparent;
-        border-top: @bubbleTailHeight solid lighten(@channel2Color,15%);
+        border-top: @bubbleTailHeight solid lighten(@gray,15%);
     }
 }
 
@@ -143,4 +143,160 @@
     &:focus { 
         outline: none; // Disable the "non-metro" blue halo in webkit browsers
     }
+}
+
+/*==========
+  = Colors =
+  ========== */
+
+.chatWidget.channel1, .channel1 .chatWidget {
+    .chatBubble.in  { background-color: @channel1Color; }
+    .chatBubble.out { background-color: lighten(@channel1Color,15%); }
+
+    .chatBubble.in:before { border-bottom-color: @channel1Color;}
+    .chatBubble.out:before { border-top-color: lighten(@channel1Color,15%);}
+}
+
+.chatWidget.channel2, .channel2 .chatWidget {
+    .chatBubble.in {background-color: @channel2Color;}
+    .chatBubble.out {background-color: lighten(@channel2Color, 15%);}
+
+    .chatBubble.in:before { border-bottom-color: @channel2Color; }
+    .chatBubble.out:before { border-top-color: lighten(@channel2Color, 15%);}
+}
+
+.chatWidget.channel3, .channel3 .chatWidget {
+    .chatBubble.in {background-color: @channel3Color;}
+    .chatBubble.out {background-color: lighten(@channel3Color, 15%);}
+
+    .chatBubble.in:before { border-bottom-color: @channel3Color; }
+    .chatBubble.out:before { border-top-color: lighten(@channel3Color, 15%);}
+}
+
+.chatWidget.channel4, .channel4 .chatWidget {
+    .chatBubble.in {background-color: @channel4Color;}
+    .chatBubble.out {background-color: lighten(@channel4Color, 15%);}
+
+    .chatBubble.in:before { border-bottom-color: @channel4Color; }
+    .chatBubble.out:before { border-top-color: lighten(@channel4Color, 15%);}
+}
+
+.chatWidget.channel5, .channel5 .chatWidget {
+    .chatBubble.in {background-color: @channel5Color;}
+    .chatBubble.out {background-color: lighten(@channel5Color, 15%);}
+
+    .chatBubble.in:before { border-bottom-color: @channel5Color; }
+    .chatBubble.out:before { border-top-color: lighten(@channel5Color, 15%);}
+}
+
+.chatWidget.channel6, .channel6 .chatWidget {
+    .chatBubble.in {background-color: @channel6Color;}
+    .chatBubble.out {background-color: lighten(@channel6Color, 15%);}
+
+    .chatBubble.in:before { border-bottom-color: @channel6Color; }
+    .chatBubble.out:before { border-top-color: lighten(@channel6Color, 15%);}
+}
+
+.chatWidget.channel7, .channel7 .chatWidget {
+    .chatBubble.in {background-color: @channel7Color;}
+    .chatBubble.out {background-color: lighten(@channel7Color, 15%);}
+
+    .chatBubble.in:before { border-bottom-color: @channel7Color; }
+    .chatBubble.out:before { border-top-color: lighten(@channel7Color, 15%);}
+}
+
+.chatWidget.channel8, .channel8 .chatWidget {
+    .chatBubble.in {background-color: @channel8Color;}
+    .chatBubble.out {background-color: lighten(@channel8Color, 15%);}
+
+    .chatBubble.in:before { border-bottom-color: @channel8Color; }
+    .chatBubble.out:before { border-top-color: lighten(@channel8Color, 15%);}
+}
+
+.chatWidget.channel9, .channel9 .chatWidget {
+    .chatBubble.in {background-color: @channel9Color;}
+    .chatBubble.out {background-color: lighten(@channel9Color, 15%);}
+
+    .chatBubble.in:before { border-bottom-color: @channel9Color; }
+    .chatBubble.out:before { border-top-color: lighten(@channel9Color, 15%);}
+}
+
+.chatWidget.channel10, .channel10 .chatWidget {
+    .chatBubble.in {background-color: @channel10Color;}
+    .chatBubble.out {background-color: lighten(@channel10Color, 15%);}
+
+    .chatBubble.in:before { border-bottom-color: @channel10Color; }
+    .chatBubble.out:before { border-top-color: lighten(@channel10Color, 15%);}
+}
+
+.chatWidget.channel11, .channel11 .chatWidget {
+    .chatBubble.in {background-color: @channel11Color;}
+    .chatBubble.out {background-color: lighten(@channel11Color, 15%);}
+
+    .chatBubble.in:before { border-bottom-color: @channel11Color; }
+    .chatBubble.out:before { border-top-color: lighten(@channel11Color, 15%);}
+}
+
+.chatWidget.channel12, .channel12 .chatWidget {
+    .chatBubble.in {background-color: @channel12Color;}
+    .chatBubble.out {background-color: lighten(@channel12Color, 15%);}
+
+    .chatBubble.in:before { border-bottom-color: @channel12Color; }
+    .chatBubble.out:before { border-top-color: lighten(@channel12Color, 15%);}
+}
+
+.chatWidget.channel13, .channel13 .chatWidget {
+    .chatBubble.in {background-color: @channel13Color;}
+    .chatBubble.out {background-color: lighten(@channel13Color, 15%);}
+
+    .chatBubble.in:before { border-bottom-color: @channel13Color; }
+    .chatBubble.out:before { border-top-color: lighten(@channel13Color, 15%);}
+}
+
+.chatWidget.channel14, .channel14 .chatWidget {
+    .chatBubble.in {background-color: @channel14Color;}
+    .chatBubble.out {background-color: lighten(@channel14Color, 15%);}
+
+    .chatBubble.in:before { border-bottom-color: @channel14Color; }
+    .chatBubble.out:before { border-top-color: lighten(@channel14Color, 15%);}
+}
+
+.chatWidget.channel15, .channel15 .chatWidget {
+    .chatBubble.in {background-color: @channel15Color;}
+    .chatBubble.out {background-color: lighten(@channel15Color, 15%);}
+
+    .chatBubble.in:before { border-bottom-color: @channel15Color; }
+    .chatBubble.out:before { border-top-color: lighten(@channel15Color, 15%);}
+}
+
+.chatWidget.channel16, .channel16 .chatWidget {
+    .chatBubble.in {background-color: @channel16Color;}
+    .chatBubble.out {background-color: lighten(@channel16Color, 15%);}
+
+    .chatBubble.in:before { border-bottom-color: @channel16Color; }
+    .chatBubble.out:before { border-top-color: lighten(@channel16Color, 15%);}
+}
+
+.chatWidget.channel17, .channel17 .chatWidget {
+    .chatBubble.in {background-color: @channel17Color;}
+    .chatBubble.out {background-color: lighten(@channel17Color, 15%);}
+
+    .chatBubble.in:before { border-bottom-color: @channel17Color; }
+    .chatBubble.out:before { border-top-color: lighten(@channel17Color, 15%);}
+}
+
+.chatWidget.channel18, .channel18 .chatWidget {
+    .chatBubble.in {background-color: @channel18Color;}
+    .chatBubble.out {background-color: lighten(@channel18Color, 15%);}
+
+    .chatBubble.in:before { border-bottom-color: @channel18Color; }
+    .chatBubble.out:before { border-top-color: lighten(@channel18Color, 15%);}
+}
+
+.chatWidget.channel19, .channel19 .chatWidget {
+    .chatBubble.in {background-color: @channel19Color;}
+    .chatBubble.out {background-color: lighten(@channel19Color, 15%);}
+
+    .chatBubble.in:before { border-bottom-color: @channel19Color; }
+    .chatBubble.out:before { border-top-color: lighten(@channel19Color, 15%);}
 }

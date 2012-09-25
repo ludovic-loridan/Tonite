@@ -1,8 +1,38 @@
-/*================
-  = Chat Bubbles =
-  ================ */
-
 @import "palette.less";
+
+
+/*  = Chat Widget and positions = */
+@chatWidgetPadding: 10px;
+@chatFormHeight: 55px;
+
+.chatWidget {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 500px;
+    height: 100%;
+    padding-bottom:  @chatFormHeight;
+    box-sizing: border-box;
+}
+
+.chatBubbles {
+    position: absolute;
+    height: 100%;
+    box-sizing: border-box;
+    padding: @chatWidgetPadding;
+    overflow-y: scroll;
+}
+
+.chatForm {
+    position: absolute;
+    height: 55px;
+    bottom: 0;
+    margin-bottom: @bubbleTailHeight + @chatWidgetPadding;
+}
+
+
+/*  = Chat Bubbles =  */
 
 @bubbleWidth       : 250px;
 
@@ -16,7 +46,7 @@
 
 .chatBubble {
     width: @bubbleWidth;
-    margin-top: @bubbleVMargin;
+    margin-bottom: @bubbleVMargin;
 
     font-size: 13px;
     color: white;
@@ -26,6 +56,10 @@
     p {
         margin: 0;
         padding: @bubblePadding;
+    }
+
+    &:first-child {
+        margin-top: @bubbleVMargin;
     }
 
     // Bubble tail
@@ -65,16 +99,15 @@
     }
 }
 
-/*==============
-  = Chat input =
-  ============== */
+
+/*  = Chat input =  */
+
 @chatInputBackgroundColor : white;
 
 .chatForm {
-    position: relative;
     width: @bubbleWidth;
 
-    margin-left: @bubbleInOutGap;
+    margin-left: @bubbleInOutGap + @chatWidgetPadding;
 
     // Bubble tail
     &:before {

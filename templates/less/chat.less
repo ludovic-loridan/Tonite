@@ -2,7 +2,7 @@
 
 
 /*  = Chat Widget and positions = */
-@chatWidgetPadding: 10px;
+@chatWidgetPadding: 0px;
 @chatFormHeight: 55px;
 
 .chatWidget {
@@ -18,7 +18,9 @@
 
 .chatBubbles {
     position: absolute;
-    height: 100%;
+    top: 0;
+    bottom: 55px;
+    
     box-sizing: border-box;
     padding: @chatWidgetPadding;
     overflow-y: scroll;

@@ -1,12 +1,22 @@
-/*========
-  = Chat =
-  ======== */
+/*================
+  = Chat Bubbles =
+  ================ */
 
 @import "palette.less";
 
+@bubbleWidth       : 250px;
+
+@bubblePadding     : 10px;
+@bubbleVMargin     : 20px;
+@bubbleInOutGap    : 30px;
+
+@bubbleTailWidth   : 9px;
+@bubbleTailHeight  : 10px;
+@bubbleTailPosition: 20px;
+
 .chatBubble {
-    width: 250px;
-    margin-top: 20px;
+    width: @bubbleWidth;
+    margin-top: @bubbleVMargin;
 
     font-size: 13px;
     color: white;
@@ -14,7 +24,17 @@
     position: relative;
 
     p {
-        padding: 10px;
+        margin: 0;
+        padding: @bubblePadding;
+    }
+
+    // Bubble tail
+    &:before {
+        content: " ";
+        display: block;
+        position: absolute;
+        width: 0; 
+        height: 0;
     }
 
     // In bubbles
@@ -23,36 +43,69 @@
     }
 
     &.in:before {
-        content: " ";
-        display: block;
-        position: absolute;
-        top: -10px;
-        left: 20px;
+        top: -@bubbleTailHeight;
+        left: @bubbleTailPosition;
 
-        width: 0; 
-        height: 0; 
-        border-right: 9px solid transparent;
-        
-        border-bottom: 10px solid @channel2Color;
+        border-right: @bubbleTailWidth solid transparent;
+        border-bottom: @bubbleTailHeight solid @channel2Color;
     }
 
     // Out bubbles
     &.out {
         background-color: lighten(@channel2Color,15%);
-        margin-left: 30px
+        margin-left: @bubbleInOutGap;
     }
 
     &.out:before {
+        bottom: -@bubbleTailHeight;
+        right: @bubbleTailPosition;
+
+        border-left: @bubbleTailWidth solid transparent;
+        border-top: @bubbleTailHeight solid lighten(@channel2Color,15%);
+    }
+}
+
+/*==============
+  = Chat input =
+  ============== */
+@chatInputBackgroundColor : white;
+
+.chatForm {
+    position: relative;
+    width: @bubbleWidth;
+
+    margin-left: @bubbleInOutGap;
+
+    // Bubble tail
+    &:before {
         content: " ";
         display: block;
         position: absolute;
-        bottom: -10px;
-        right: 20px;
-
         width: 0; 
-        height: 0; 
-        border-left: 9px solid transparent;
-        
-        border-top: 10px solid lighten(@channel2Color,15%);
+        height: 0;
+
+        bottom: -@bubbleTailHeight;
+        right: @bubbleTailPosition;
+
+        border-left: @bubbleTailWidth solid transparent;
+        border-top: @bubbleTailHeight solid @chatInputBackgroundColor;
+    }
+}
+
+.chatInput {
+    position: relative;
+    width: @bubbleWidth - (2 * @bubblePadding);
+
+    font-size: 13px;
+
+    margin-top: @bubbleVMargin;
+    margin-bottom: 0;
+    padding: @bubblePadding;
+
+    border: 0;
+    background: @chatInputBackgroundColor;
+
+    &:focus { 
+        outline: none; // Disable the "non-metro" blue halo in webkit browsers
     }
 }

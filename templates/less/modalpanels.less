@@ -5,6 +5,7 @@
 @import "palette.less";
 @import "metrics.less";
 @import "zindexes.less";
+@import "modalpanels_colors.less";
 
 @primaryTopPadding : 30px;
 @primaryLeftPadding: 50px;
@@ -37,7 +38,7 @@
         width: 100%;
         height: @gradientBorderThickness;
 
-        background-color: @channel2Color;
+        background-color: @gray;
     }
 
     & > .closeButton {
@@ -70,9 +71,12 @@
         position: absolute;
 
         height: 100%;
+
+        left: 0;
+        right: 0;
         
         margin: @primaryTopPadding @primaryRightPadding 0 @primaryLeftPadding;
-        overflow-y: scroll;
+        overflow-y: auto;
 
     }
 
@@ -92,14 +96,14 @@
 
     z-index: @z-secondaryModal;
 
-    background: @ultraLightGray;
+    background: @secondaryModalBackground;
 
     // Special Elements
     & > .title {
         display: none;
     }
 
-    & > .closeButton {
+    & > .foldButton {
         position: absolute;
         width: @secondaryCloseButtonWidth;
         height: 100%;
@@ -107,25 +111,38 @@
         top: 0;
         left: 0;
 
-        background: darken(@ultraLightGray,5%);
+        background-color: darken(@ultraLightGray,5%);
+        background-repeat: no-repeat;
+        background-position: center center;
         border: 0;
 
         padding: 0;
         font-size: 15px;
         color: white;
+        text-align: center;
+
 
         &:hover {
-            background: darken(@ultraLightGray,10%);
+            background-color: darken(@ultraLightGray,10%);
             cursor: pointer;
+        }
+
+        &.foldState {
+            background-image: url(../images/icon_fold.png);
+        }
+
+        &.unfoldState {
+            background-image: url(../images/icon_unfold.png);
         }
     }
 
     // Content
     & > .content {
-        margin-top: @secondaryPadding;
-        margin-bottom: @secondaryPadding;
-        margin-left: @secondaryPadding + @secondaryCloseButtonWidth;
-        margin-right: @secondaryPadding;
+        position: absolute;
+        top: @secondaryPadding;
+        bottom: @secondaryPadding;
+        left: @secondaryPadding + @secondaryCloseButtonWidth;
+        right: @secondaryPadding;
     }
 
 }

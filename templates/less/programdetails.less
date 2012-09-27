@@ -16,11 +16,12 @@ article.programDetails {
     // DESCRIPTION
     & > .programDescription {
         width: 58%;
+        float: left;
 
         & > h1 {
             font-size: 35px;
             color: @gray;
-            margin: 7px 0;
+            margin: 0 0 7px 0;
             font-weight: bold;
         }
 
@@ -104,8 +105,6 @@ article.programDetails {
                 }
             }
         }
-
-
     }
 
     // Synopsis
@@ -124,7 +123,15 @@ article.programDetails {
         max-width: @programImageWidth;
     }
 
+    @media screen and (max-width: 880px) {
+        & > .programDescription {
+            float: none;
+            width: 100%;
+        }
+
+        .programImage {
+            float: none;
+            width: 100%;
+        }
+    }
 }
-
-
-

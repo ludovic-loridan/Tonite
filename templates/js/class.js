@@ -1,5 +1,8 @@
 /*
+    ========
     Class.js
+    ========
+    
     An helper to write better looking classes with JS.
     Provides a function Class.create that creates a "class".
 
@@ -7,6 +10,7 @@
 */
 
 {
+
 Class = {
 
     create : function(className,properties,methods,initializer,staticMethods) {

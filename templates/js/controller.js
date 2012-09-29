@@ -1,75 +1,38 @@
-/*=============================================================
-  = controller.js is the basis of every controller we'll make =
-  ============================================================= */
+/*
+    =================
+    = controller.js =
+    =================
 
-Class.create(className,properties,methods,initializer,staticMethods);
+    A template to create all our controllers.
+
+    Author : Ludovic Loridan
+
+*/
+
+(function () {
 
 var className = "Controller";
 
-var initializer = function () {
-    ...
-};
-
-var properties = ["attribute1","attribute2"];
+var properties = ["model","view"];
 
 var methods = {
-    method1 : function() {
-
-    },
-
-    method2 : function() {
-
+    create : function() {
+        // Method that use the model to create the DOM Elements
+        // return document.createElementWithAttributes("p","monattribut","mavaleur");
     }
 };
 
-var staticMethods = {
-    staticMethod1 : function() {
+var initializer = function (model,view) {
+    if (!hasAValue(this.view)) { view = this.create(); }
 
-    }
+    this.model = model;
+    this.view = view;
 };
 
+var staticMethods = {};
 
+var staticProperties = {};
 
-function Controller (arg1, arg2, arg3) {
+Class.create(className,properties,methods,initializer,staticMethods,staticProperties);
 
-    // Properties
-    var p1 = null;
-    var p2 = null;
-
-    if (typeof Controller.initialized == "undefined") {
-
-        // Classic getters/setters
-        Controller.prototype.getP1 : function() {
-            return p1;
-        };
-
-        Controller.prototype.setP1 : function(value) {
-            return (p1 = value);
-        };
-
-        // Initializer
-        Controller.prototype.init : function(arg1,arg2,arg3) {
-            ...
-        };
-
-        // Instance methods
-        Controller.prototype.myMethod : function() {
-            return "something";
-        };
-
-        // Static methods
-        Controller.myStatic : function () {
-
-        }
-
-        Controller.initialized = true;
-            
-    }
-
-    // Definition of getters and setters
-    this.__defineGetter__("p1",Controller.prototype.getP1);
-    this.__defineSetter__("p1",Controller.prototype.setP1);
-
-    this.init(arg1,arg2,arg3);
-
-}
+})();

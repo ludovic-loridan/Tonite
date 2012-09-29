@@ -25,6 +25,7 @@ var methods = {
         return tonightPrograms;
     },
 
+    // Private
     loadTonightPrograms : function() {
 
         this.tonightPrograms = [];
@@ -43,7 +44,7 @@ var initializer = function (name) {
     this.name = name;
     this.id = Channel.channelIdFromName(name);
     this.tonightPrograms = [];
-    
+
     Channel.instancedChannels[name] = this;
 };
 

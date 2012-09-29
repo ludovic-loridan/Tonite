@@ -9,7 +9,7 @@
     Author: Ludovic Loridan
 */
 
-{
+(function () {
 
 Class = {
 
@@ -34,42 +34,42 @@ Class = {
 //
 
 function nullIsEmptyFunction(obj) {
-    if (obj == null || typeof(obj) == "undefined") {
+    if (obj === null || typeof(obj) === "undefined") {
         return function () {};
     }
     return obj;
 }
 
 function nullIsEmptyArray(obj) {
-    if (obj == null || typeof(obj) == "undefined") {
+    if (obj === null || typeof(obj) === "undefined") {
         return [];
     }
     return obj;
 }
 
 function storeClassArguments(className,properties,methods,initializer,staticMethods) {
-    Class.className = className;
-    Class.properties = properties;
-    Class.methods = methods;
-    Class.initializer = initializer;
+    Class.className     = className;
+    Class.properties    = properties;
+    Class.methods       = methods;
+    Class.initializer   = initializer;
     Class.staticMethods = staticMethods;
 }
 
 function unnulizeClassArguments () {
-    Class.properties = nullIsEmptyArray(Class.properties);
-    Class.methods = nullIsEmptyArray(Class.methods);
-    Class.initializer = nullIsEmptyFunction(Class.initializer);
+    Class.properties    = nullIsEmptyArray(Class.properties);
+    Class.methods       = nullIsEmptyArray(Class.methods);
+    Class.initializer   = nullIsEmptyFunction(Class.initializer);
     Class.staticMethods = nullIsEmptyArray(Class.staticMethods);
 }
 
 function classArgumentsAreValid () {
-    var validite = 
-        (typeof(Class.className)       === "string")
-         && (typeof(Class.properties)      === "object")
-         && (typeof(Class.methods)         === "object")
-         && (typeof(Class.initializer)     === "function")
-         && (typeof(Class.staticMethods)   === "object");
-    return validite;
+    var validity =
+         (typeof(Class.className)     === "string")  &&
+         (typeof(Class.properties)    === "object")  &&
+         (typeof(Class.methods)       === "object")  &&
+         (typeof(Class.initializer)   === "function")&&
+         (typeof(Class.staticMethods) === "object");
+    return validity;
 }
 
 
@@ -85,7 +85,7 @@ function generateClassCode() {
     addInstanceInitializaterCall();
 }
 
-// 1 - PROPERTIES DECLARATION 
+// 1 - PROPERTIES DECLARATION
 function addPropertiesDeclaration() {
     for (var i = 0; i < Class.properties.length; i++) {
         Class.classCode += "var "+Class.properties[i]+" = null; \n";
@@ -158,7 +158,7 @@ function addGetterAndSetterDeclaration() {
     for (var i = 0; i < Class.properties.length; i++) {
         addGetterDeclaration(Class.properties[i]);
         addSetterDeclaration(Class.properties[i]);
-    };
+    }
 }
 
 function addGetterDeclaration(propertyName) {
@@ -180,7 +180,7 @@ function getConstructorArguments() {
     var constructorArguments = [];
 
     for (var i = 1; i <= Class.initializer.length; i++) {
-        constructorArguments.push("arg"+i);    
+        constructorArguments.push("arg"+i);
     }
 
     return constructorArguments;
@@ -215,4 +215,4 @@ function addStaticMethodDeclaration(methodName,method) {
     eval(Class.className+"."+methodName+"="+method.toString()+";");
 }
 
-}
+})();

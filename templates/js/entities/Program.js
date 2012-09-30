@@ -13,7 +13,7 @@
 
 var className = "Program";
 
-var properties = ["id", "title", "subtitle", "description", "genre", "subgenre", "start", "stop", "channel"];
+var properties = ["id", "title", "subtitle", "description", "genre", "subgenre", "year", "start", "stop", "channel"];
 
 var methods = {
     // -- Getters & Setters --

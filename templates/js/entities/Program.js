@@ -16,9 +16,10 @@ var className = "Program";
 var properties = ["id", "title", "subtitle", "description", "genre", "subgenre", "start", "stop", "channel"];
 
 var methods = {
+    // -- Getters & Setters --
     // Returns an unique id for this program
     getId : function() {
-        return this.channel.id.toString()+"_"+this.start+"_"+this.stop;
+        return this.channel.id.toString()+"_"+this.start.getTime()+"_"+this.stop.getTime();
     },
 
     setId : function(value) {
@@ -34,13 +35,49 @@ var methods = {
 
         channel = potentialChannel;
         return channel;
+    },
+
+    // -- Date management --
+
+    setStart : function(newStartDate) {
+        if (!(newStartDate instanceof Date)) {
+            newStartDate = Date.dateFromISO(newStartDate);
+        }
+
+        start = newStartDate;
+        return start;
+    },
+
+    setStop : function(newStopDate) {
+        if (!(newStopDate instanceof Date)) {
+            newStopDate = Date.dateFromISO(newStopDate);
+        }
+
+        stop = newStopDate;
+        return stop;
+    },
+
+    isToCome : function() {
+        var now = Date.now();
+        return (now < this.start);
+    },
+
+    isNow : function() {
+        var now = Date.now();
+        return (now >= this.start) && (now < this.stop);
+    },
+
+    isPast : function() {
+        var now = Date.now();
+        return (now >= this.stop);
     }
+
 };
 
 var initializer = function (title,start,stop,channel) {
     this.title   = title;
-    this.start   = parseInt(start,10);
-    this.stop    = parseInt(stop,10);
+    this.start   = start;
+    this.stop    = stop;
     this.channel = channel;
 
     Program.instancedPrograms[this.id] = this;

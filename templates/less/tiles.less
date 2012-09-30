@@ -49,17 +49,23 @@
         font-size: 170%;
     }
 
+    @characteristicHeight : 25px;
     .characteristics {
         list-style: none;
         padding: 0;
         margin: 0;
-        height: 25px;
-        line-height: 25px;
+        height: @characteristicHeight;
+        line-height: @characteristicHeight;
 
         overflow: hidden;
 
         li {
-            height: 25px;
+            height: @characteristicHeight;
+            .transition(0.5s,ease-out);
+        }
+
+        li.disappeared {
+            margin-top: -@characteristicHeight;
         }
     }
 

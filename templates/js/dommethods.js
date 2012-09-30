@@ -21,11 +21,15 @@ HTMLElement.prototype.setAttributes = function() {
     return this;
 };
 
+// ---------------------------------------------- //
+// -- Creation/Modification/Deletion of nodes  -- //
+// ---------------------------------------------- //
+
 document.createElementWithAttributes = function(name) {
     var newElement = document.createElement(name);
 
     var attributes = Arguments.slice(arguments,1);
-    HTMLElement.prototype.setAttributes.apply(newElement, attributesp);
+    HTMLElement.prototype.setAttributes.apply(newElement, attributes);
 
     return newElement;
 };
@@ -39,3 +43,78 @@ HTMLElement.prototype.addElement = function(name) {
 
     return newElement;
 };
+
+HTMLElement.prototype.removeAllChildren = function() {
+    var child = this.children;
+    for (var i = 0; i < child.length; i++) {
+        this.removeChild(child[i]);
+    }
+    return this;
+};
+
+// --------------------------- //
+// -- Text content of nodes -- //
+// --------------------------- //
+
+HTMLElement.prototype.addTextNode = function (text) {
+    var textNode = document.createTextNode(text);
+    this.appendChild(textNode);
+    return textNode;
+};
+
+HTMLElement.prototype.getTextNode = function() {
+    var childs = this.childNodes;
+    for (var i = 0; i < childs.length; i++) {
+        if (childs[i].nodeType === Node.TEXT_NODE) {
+            return childs[i];
+        }
+    }
+
+    return null;
+};
+
+HTMLElement.prototype.getOrAddTextNode = function() {
+    var textNode = this.getTextNode();
+    if (!hasAValue(textNode)) {
+        textNode = this.addTextNode();
+    }
+    return textNode;
+};
+
+HTMLElement.prototype.setText = function(text) {
+    var textNode = this.getOrAddTextNode();
+    textNode.data = text;
+    return this;
+};
+
+
+// --------------------- //
+// -- UL Manipulation -- //
+// --------------------- //
+
+HTMLUListElement.prototype.addListItem = function(text) {
+    var li = this.addElement("li");
+    li.setText(text.toString());
+    this.appendChild(li);
+};
+
+HTMLUListElement.prototype.addListItemsWithArray = function(items) {
+    for (var i = 0; i < items.length; i++) {
+        this.addListItem(items[i]);
+    }
+
+    return this;
+};
+
+// Wait a list of items
+HTMLUListElement.prototype.addListItems = function() {
+    if (typeof(arguments[0]) === "object") {
+        return this.addListItemsWithArray(arguments[0]);
+    }
+
+    for (var i = 0; i < arguments.length; i++) {
+        this.addListItem(arguments[i]);
+    }
+    return this;
+};
+

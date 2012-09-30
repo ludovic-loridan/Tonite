@@ -104,6 +104,7 @@ var methods = {
         this.HTMLTitle = this.view.addElement("div","class","title");
         this.HTMLCharacteristics = this.view.addElement("ul","class","characteristics");
         this.HTMLInfo = this.view.addElement("div","class","info time");
+        this.view.controller = this;
         return this.view;
     }
 };

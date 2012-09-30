@@ -45,9 +45,9 @@ HTMLElement.prototype.addElement = function(name) {
 };
 
 HTMLElement.prototype.removeAllChildren = function() {
-    var child = this.children;
-    for (var i = 0; i < child.length; i++) {
-        this.removeChild(child[i]);
+    var child = this.childNodes;
+    while (this.hasChildNodes()) {
+        this.removeChild(child[0]);
     }
     return this;
 };

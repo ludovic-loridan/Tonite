@@ -35,10 +35,12 @@ String.prototype.capitalized = function() {
         return new Date(comp.year,comp.month,comp.day,comp.hour,comp.minutes,comp.seconds);
     };
 
-    Date.prototype.getHoursMinutesString = function() {
+    Date.prototype.getHoursMinutesString = function(separator) {
+        if (!hasAValue(separator)) {separator = ":";}
+
         var hoursString = this.getHours();
         var minutesString = this.getMinutes();
-        return hoursString+":"+minutesString;
+        return hoursString+separator+minutesString;
     };
 
 }());

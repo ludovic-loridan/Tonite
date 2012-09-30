@@ -13,7 +13,7 @@
 
 var className = "TileController";
 
-var properties = ["program","view","HTMLTitle","HTMLCharacteristics","HTMLInfo"];
+var properties = ["program","view","HTMLTitle","HTMLCharacteristics","HTMLInfo","characteristicsCyclingInterval"];
 
 var methods = {
 
@@ -57,6 +57,20 @@ var methods = {
         this.subscribeAllCharacteristicsToTransitionListener();
     },
 
+    goToNextCharacteristic : function() {
+        this.hideFirstCharacteristic();
+    },
+
+    startCharacteristicsCycling : function() {
+        var cyclingFunction = TileController.getCyclingFunction(this);
+        this.characteristicsCyclingInterval = setInterval(cyclingFunction, 3000);
+    },
+
+    stopCharacteristicsCycling : function () {
+        clearInterval(this.characteristicsCyclingInterval);
+        this.characteristicsCyclingInterval = null;
+    },
+
     // @Private
     subscribeAllCharacteristicsToTransitionListener : function() {
         var lis = this.HTMLCharacteristics.children;
@@ -82,9 +96,7 @@ var methods = {
         firstLi.classList.remove("disappeared");
     },
 
-    goToNextCharacteristic : function() {
-        this.hideFirstCharacteristic();
-    },
+    
 
     // -- HTML Generation --
     createView : function() {
@@ -99,6 +111,7 @@ var methods = {
 var initializer = function (program) {
     this.createView();
     this.program = program;
+    this.startCharacteristicsCycling();
 };
 
 var staticMethods = {
@@ -106,6 +119,10 @@ var staticMethods = {
         if (evt.propertyName === "margin-top") {
             this.tile.moveTopCharacteristicToBottom();
         }
+    },
+
+    getCyclingFunction : function(tile) {
+        return function() {tile.goToNextCharacteristic();};
     }
 
 };

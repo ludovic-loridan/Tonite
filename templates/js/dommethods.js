@@ -118,3 +118,14 @@ HTMLUListElement.prototype.addListItems = function() {
     return this;
 };
 
+
+// ---------------- //
+// -- Transition -- //
+// ---------------- //
+HTMLElement.prototype.whenTransitionEndsDo = function(callback) {
+    this.addEventListener("transitionEnd", callback);
+    this.addEventListener("webkitTransitionEnd", callback);
+    this.addEventListener("mozTransitionEnd", callback);
+};
+
+

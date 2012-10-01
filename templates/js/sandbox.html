@@ -18,9 +18,11 @@
 <body>
     
     <script type="text/javascript">
-        tf1 = Channel.channelFromName("TF1");
-        prog = tf1.tonightPrograms[0];
+        var start = new Date(Date.now() + 2000);
+        var stop = new Date(Date.now() + 4000);
+        prog = new Program("The Office",start,stop,Channel.channelFromName("TF1"));
         prog.subtitle = "Episode de ouf";
+        
         tc = new TileController(prog);
         document.body.appendChild(tc.view);
     </script>

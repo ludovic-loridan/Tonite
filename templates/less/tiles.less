@@ -69,26 +69,29 @@
         }
     }
 
-    .info {
+    .time {
         position: absolute;
         bottom: @tilePadding;
         max-width: @tileWidth - @tilePadding * 2;
-        line-height: 16px;
         white-space: nowrap;
-        
-        &.message {
-            background: transparent url(../images/icon_bubble.png) no-repeat left bottom;
-            padding-left: 22px;
-            &:before {content: open-quote;}
-            &:after {content: close-quote;}
-        }
 
-        &.time {
-            background: transparent url(../images/icon_time.png) no-repeat left bottom;
-            padding-left: 22px;
-            &:after {content: "...";}
-        }
+        padding-left: 25px;
+        background: transparent url(../images/icon_time.png) no-repeat left center;    
     }
+
+    &.now .time { display: none; }
+
+ 
+        
+    .message {
+        background: transparent url(../images/icon_bubble.png) no-repeat left center;
+        
+        &:before {content: open-quote;}
+        &:after {content: close-quote;}
+    }
+
+
+
 
     &:hover:after {
         content: "";

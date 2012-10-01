@@ -10,11 +10,18 @@ String.prototype.capitalized = function() {
     return this[0].toUpperCase() + this.substr(1);
 };
 
+String.prototype.addZeros = function(nbDigits) {
+    var string = this;
+    while (string.length < nbDigits) {
+        string = '0'+string;
+    }
+    return string;
+};
 
 /*  = Date extensions = */
 (function() {
 
-
+    // ---- ISO -> Date ----
     function getDateComponents (iso) {
         var dateComponents = {};
 
@@ -39,8 +46,32 @@ String.prototype.capitalized = function() {
         if (!hasAValue(separator)) {separator = ":";}
 
         var hoursString = this.getHours();
-        var minutesString = this.getMinutes();
+        var minutesString = (this.getMinutes()).toString().addZeros(2);
         return hoursString+separator+minutesString;
+    };
+
+    // ---- Remaining String ----
+    Date.prototype.getMinutesString = function() {
+        var nbMinutes = this.getMinutes();
+
+        var minutesLabel = " minute";
+        if (nbMinutes > 1) { minutesLabel += "s"; }
+
+        return nbMinutes+minutesLabel;
+    };
+
+
+    // Ex : "29 minutes", "2h20"
+    Date.prototype.getPeriodString = function() {
+        var period = new Date(this.getTime() - 3600000);
+        if (period.getHours() > 0) {
+            return period.getHoursMinutesString("h");
+        } else if (period.getMinutes() > 0) {
+            return period.getMinutesString();
+        } else {
+            return "un instant";
+        }
+
     };
 
 }());

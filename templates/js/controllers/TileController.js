@@ -13,7 +13,8 @@
 
 var className = "TileController";
 
-var properties = ["program","view","HTMLTitle","HTMLCharacteristics","HTMLInfo","characteristicsCyclingInterval"];
+var properties = ["program","view","HTMLTitle","HTMLCharacteristics","HTMLTimeInfos",
+                  "characteristicsCyclingInterval","timeInfosUpdatingInterval"];
 
 var methods = {
 
@@ -29,17 +30,58 @@ var methods = {
     },
 
     updateView : function() {
-        // TODO : Those methods
         this.updateTitle();
         this.updateCharacteristics();
-        //this.updateTimeInfos();
+        this.updateTimeInfos();
     },
 
+    // -- Title --
     updateTitle : function () {
         this.HTMLTitle.setText(this.program.title);
     },
 
-    // -- Management of characteristics list --
+    // -- Time infos --
+    getRemainingTimeString : function() {
+        if (this.program.isPast()) {return "Oh non, c'est fini :'(";}
+        else if (this.program.isNow()) {return "";}
+        else {
+            var remainingMs = this.program.start.getTime() - Date.now();
+            var remainingTime = new Date(remainingMs);
+            return "Débute dans "+remainingTime.getPeriodString()+"...";
+        }
+    },
+
+    setTimeInfosText : function () {
+        this.HTMLTimeInfos.setText(this.getRemainingTimeString());
+    },
+
+    updateTileFlag : function () {
+        if (this.program.isPast()) { this.view.classList.add("past"); }
+        else { this.view.classList.remove("past"); }
+
+        if (this.program.isNow()) { this.view.classList.add("now"); }
+        else { this.view.classList.remove("now"); }
+
+        if (this.program.isToCome()) { this.view.classList.add("tocome"); }
+        else { this.view.classList.remove("tocome"); }
+    },
+
+    updateTimeInfos : function () {
+        this.setTimeInfosText();
+        this.updateTileFlag();
+    },
+
+    startTimeInfosUpdatingCycling : function() {
+        var cyclingFunction = TileController.getThisCallingFunction(this,"updateTimeInfos");
+        this.timeInfosUpdatingCyclingInterval = setInterval(cyclingFunction, 30 * 1000);
+    },
+
+    stopTimeInfosUpdatingCycling : function () {
+        clearInterval(this.timeInfosUpdatingCyclingInterval);
+        this.timeInfosUpdatingCyclingInterval = null;
+    },
+
+    // -- Characteristic List --
     // Returns an array
     getCharacteristicsFromModel : function () {
         var characteristics = [];
@@ -62,7 +104,7 @@ var methods = {
     },
 
     startCharacteristicsCycling : function() {
-        var cyclingFunction = TileController.getCyclingFunction(this);
+        var cyclingFunction = TileController.getThisCallingFunction(this,"goToNextCharacteristic");
         this.characteristicsCyclingInterval = setInterval(cyclingFunction, 3000);
     },
 
@@ -96,14 +138,12 @@ var methods = {
         firstLi.classList.remove("disappeared");
     },
 
-    
-
     // -- HTML Generation --
     createView : function() {
         this.view = document.createElementWithAttributes("div","class","tile");
         this.HTMLTitle = this.view.addElement("div","class","title");
         this.HTMLCharacteristics = this.view.addElement("ul","class","characteristics");
-        this.HTMLInfo = this.view.addElement("div","class","info time");
+        this.HTMLTimeInfos = this.view.addElement("div","class","time");
         this.view.controller = this;
         return this.view;
     }
@@ -113,6 +153,7 @@ var initializer = function (program) {
     this.createView();
     this.program = program;
     this.startCharacteristicsCycling();
+    this.startTimeInfosUpdatingCycling();
 };
 
 var staticMethods = {
@@ -122,8 +163,8 @@ var staticMethods = {
         }
     },
 
-    getCyclingFunction : function(tile) {
-        return function() {tile.goToNextCharacteristic();};
+    getThisCallingFunction : function(object,fun) {
+        return function() {(object[fun])();};
     }
 
 };

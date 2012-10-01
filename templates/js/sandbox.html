@@ -13,18 +13,15 @@
     <script src="entities/Channel.js" type="text/javascript"></script>
     <script src="entities/Program.js" type="text/javascript"></script>
     <script type="text/javascript" src="controllers/TileController.js"></script>
+    <script type="text/javascript" src="controllers/ChannelController.js"></script>
 </head>
 
 <body>
     
     <script type="text/javascript">
-        var start = new Date(Date.now() + 2000);
-        var stop = new Date(Date.now() + 4000);
-        prog = new Program("The Office",start,stop,Channel.channelFromName("TF1"));
-        prog.subtitle = "Episode de ouf";
-        
-        tc = new TileController(prog);
-        document.body.appendChild(tc.view);
+        c = Channel.channelFromName("TF1");
+        cc = new ChannelController(c);
+        document.body.appendChild(cc.view);
     </script>
 </body>
 </html>

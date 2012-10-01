@@ -88,7 +88,7 @@ var methods = {
         if (hasAValue(this.program.subtitle)) {characteristics.push(this.program.subtitle);}
         if (hasAValue(this.program.genre))    {characteristics.push(this.program.genre);}
         if (hasAValue(this.program.year))     {characteristics.push(this.program.year);}
-        if (hasAValue(this.program.start))    {characteristics.push(this.program.start.getHoursMinutesString());}
+        if (hasAValue(this.program.start))    {characteristics.push(this.program.start.getHoursMinutesString(" h "));}
         return characteristics;
     },
 
@@ -100,12 +100,19 @@ var methods = {
     },
 
     goToNextCharacteristic : function() {
-        this.hideFirstCharacteristic();
+        if (this.HTMLCharacteristics.childNodes.length > 1) {
+            this.hideFirstCharacteristic();
+        }
     },
 
     startCharacteristicsCycling : function() {
         var cyclingFunction = TileController.getThisCallingFunction(this,"goToNextCharacteristic");
         this.characteristicsCyclingInterval = setInterval(cyclingFunction, 3000);
+    },
+
+    startCharacteristicsCyclingWithDelay : function (delay) {
+        var startCyclingFunction = TileController.getThisCallingFunction(this,"startCharacteristicsCycling");
+        setTimeout(startCyclingFunction, delay);
     },
 
     stopCharacteristicsCycling : function () {
@@ -152,7 +159,7 @@ var methods = {
 var initializer = function (program) {
     this.createView();
     this.program = program;
-    this.startCharacteristicsCycling();
+    this.startCharacteristicsCyclingWithDelay(Math.naturalRandom(2000));
     this.startTimeInfosUpdatingCycling();
 };
 

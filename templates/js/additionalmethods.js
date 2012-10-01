@@ -6,6 +6,11 @@ function hasAValue(obj) {
 
 /*  = String extensions = */
 
+String.prototype.startsWith = function(str) {
+    var prefix = this.substring(0,str.length);
+    return str === prefix;
+};
+
 String.prototype.capitalized = function() {
     return this[0].toUpperCase() + this.substr(1);
 };
@@ -16,6 +21,13 @@ String.prototype.addZeros = function(nbDigits) {
         string = '0'+string;
     }
     return string;
+};
+
+/*  = Maths extensions = */
+Math.naturalRandom = function(end) {
+    var random = Math.random();
+    random = random * end;
+    return Math.round(random);
 };
 
 /*  = Date extensions = */

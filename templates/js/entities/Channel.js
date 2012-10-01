@@ -32,7 +32,10 @@ var methods = {
 
         // TODO : Do a real DB request to retrieve the programs.
         var p1 = new Program("New York, section criminelle",20120928001500,20120928010000,this);
+        p1.subtitle = "Une enquête pas très facile";
         var p2 = new Program("The Office",20120928010000,20120928015500,this);
+        p2.subtitle = "The Last Dundies";
+        p2.year = 2007;
         var p3 = new Program("Truc machin",20120928033000,20120928073000,this);
 
         this.tonightPrograms = [p1,p2,p3];

@@ -9,6 +9,7 @@
 @import "header_colors.less";
 
 @catchLineColor: @lightGray;
+@logoWidth: 59px;
 
 header#mainHeader {
 
@@ -22,33 +23,53 @@ header#mainHeader {
     z-index: @z-header;
 
     .headerStencil {
+        &:before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+
+            content: " ";
+
+            width:  @channelHorizontalMargin;
+            height: @headerHeight;
+
+            background-color: @mainBackground;
+        }
+
         position: fixed;
         top: @topModalBorderThickness;
         left: 0;
 
         width: 100%;
+        overflow: hidden;
         line-height: @headerHeight - @topModalBorderThickness;
 
-        background-color: @mainBackground;
         vertical-align: middle;
 
         z-index: @z-headerStencil;
 
         .logo {
-            display: inline-block;
-            vertical-align: -3px;
-
             margin-left: @channelHorizontalMargin;
             margin-right: 2px;
         }
 
         .catchLine {
-            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: @channelHorizontalMargin + @logoWidth;
+            right: 0;
+
+            height: @headerHeight;
+            box-sizing: border-box;
+
             font-size: 12px;
             margin: 0;
-            padding: 0;
-            
+            padding-top: 4px;
+            padding-left: 10px;
+
             color: @catchLineColor;
+            background-color: @mainBackground;
         }
     }
 

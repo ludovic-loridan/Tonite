@@ -3,6 +3,10 @@ function hasAValue(obj) {
     return (typeof(obj) !== "undefined") && obj !== null;
 }
 
+// Returns a function that call the function named "fun" on object
+function getThisCallingFunction(object,fun) {
+    return function() {(object[fun])();};
+}
 
 /*  = String extensions = */
 

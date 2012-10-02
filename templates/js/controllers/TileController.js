@@ -72,7 +72,7 @@ var methods = {
     },
 
     startTimeInfosUpdatingCycling : function() {
-        var cyclingFunction = TileController.getThisCallingFunction(this,"updateTimeInfos");
+        var cyclingFunction = getThisCallingFunction(this,"updateTimeInfos");
         this.timeInfosUpdatingCyclingInterval = setInterval(cyclingFunction, 30 * 1000);
     },
 
@@ -106,12 +106,12 @@ var methods = {
     },
 
     startCharacteristicsCycling : function() {
-        var cyclingFunction = TileController.getThisCallingFunction(this,"goToNextCharacteristic");
-        this.characteristicsCyclingInterval = setInterval(cyclingFunction, 3000);
+        var cyclingFunction = getThisCallingFunction(this,"goToNextCharacteristic");
+        this.characteristicsCyclingInterval = setInterval(cyclingFunction, 6000);
     },
 
     startCharacteristicsCyclingWithDelay : function (delay) {
-        var startCyclingFunction = TileController.getThisCallingFunction(this,"startCharacteristicsCycling");
+        var startCyclingFunction = getThisCallingFunction(this,"startCharacteristicsCycling");
         setTimeout(startCyclingFunction, delay);
     },
 
@@ -159,7 +159,7 @@ var methods = {
 var initializer = function (program) {
     this.createView();
     this.program = program;
-    this.startCharacteristicsCyclingWithDelay(Math.naturalRandom(2000));
+    this.startCharacteristicsCyclingWithDelay(Math.naturalRandom(6000));
     this.startTimeInfosUpdatingCycling();
 };
 
@@ -168,10 +168,6 @@ var staticMethods = {
         if (evt.propertyName === "margin-top") {
             this.tile.moveTopCharacteristicToBottom();
         }
-    },
-
-    getThisCallingFunction : function(object,fun) {
-        return function() {(object[fun])();};
     }
 
 };

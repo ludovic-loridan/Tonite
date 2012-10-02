@@ -6,7 +6,10 @@
 @import "metrics.less";
 @import "elements.less";
 
+
 #channels {
+    position: absolute;
+    top: 50%;
     white-space: nowrap;
 }
 
@@ -27,5 +30,12 @@
         margin: 0px 20px;
         width: 250px;
         font-size: 12px;
+    }
+}
+
+
+@media screen and (max-height: 640px) {
+    .channel .title {
+        font-size: 160%;
     }
 }

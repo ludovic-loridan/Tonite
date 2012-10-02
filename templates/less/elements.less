@@ -14,14 +14,14 @@
 .gradient(@color: #F5F5F5, @start: #EEE, @stop: #FFF) {
   background: @color;
   background: -webkit-gradient(linear,
-                               left bottom,
                                left top,
+                               right top,
                                color-stop(0, @start),
                                color-stop(1, @stop));
-  background: -ms-linear-gradient(bottom,
+  background: -ms-linear-gradient(right,
                                   @start,
                                   @stop);
-  background: -moz-linear-gradient(center bottom,
+  background: -moz-linear-gradient(center right,
                                    @start 0%,
                                    @stop 100%);
 }

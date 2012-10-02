@@ -5,8 +5,8 @@
 @import "palette.less";
 @import "metrics.less";
 @import "constants.less";
-
-@headerHeight: 50px;
+@import "zindexes.less";
+@import "header_colors.less";
 
 @catchLineColor: @lightGray;
 
@@ -16,10 +16,10 @@ header#mainHeader {
     top: 0;
     left: 0;
 
-    width: @channelWidth * @numberOfChannels;
+    width: @channelWidth;
     height: @headerHeight;
 
-    background-color: @channel1Color;
+    z-index: @z-header;
 
     .headerStencil {
         position: fixed;
@@ -31,6 +31,8 @@ header#mainHeader {
 
         background-color: @mainBackground;
         vertical-align: middle;
+
+        z-index: @z-headerStencil;
 
         .logo {
             display: inline-block;
@@ -50,4 +52,20 @@ header#mainHeader {
         }
     }
 
+    .headerGradient {
+
+        font-size: 0;
+        white-space: nowrap;
+        height: @headerHeight;
+
+        div {
+            display: inline-block;
+            height: @headerHeight;
+            width: @channelWidth;
+
+            &:first-child, &:last-child {
+                width: @channelWidth / 2;
+            }
+        }
+    }
 }

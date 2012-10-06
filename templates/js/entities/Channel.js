@@ -31,12 +31,12 @@ var methods = {
         this.tonightPrograms = [];
 
         // TODO : Do a real DB request to retrieve the programs.
-        var p1 = new Program("New York, section criminelle",20120928001500,20120928010000,this);
+        var p1 = new Program("New York, section criminelle",new Date(Date.now() - 1000 * 3600 * 2),new Date(Date.now() - 1000 * 3600 * 1),this);
         p1.subtitle = "Une enquête pas très facile";
-        var p2 = new Program("The Office",20120928010000,20120928015500,this);
+        var p2 = new Program("The Office",new Date(Date.now() - 1000 * 3600 * 1),new Date(Date.now() + 1000 * 1),this);
         p2.subtitle = "The Last Dundies";
         p2.year = 2007;
-        var p3 = new Program("Truc machin",20120928033000,20120928073000,this);
+        var p3 = new Program("Truc machin",new Date(Date.now() + 1000 * 12),new Date(Date.now() + 1000 * 3600 * 2),this);
 
         this.tonightPrograms = [p1,p2,p3];
     }
@@ -83,7 +83,7 @@ var staticMethods = {
 
 var staticProperties = {
 
-    channelList : ["TF1","France 2","France 3","Canal+","France 5","M6","Arte"],
+    channelList : ["TF1","France 2","France 3","Canal+","France 5","M6","Arte","D8","W9","TMC","NT1","NRJ12","LCP","France 4","BFM TV","I>Télé","D17","Gulli","France Ô"],
 
     instancedChannels : {}
 

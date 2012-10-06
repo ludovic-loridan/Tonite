@@ -21,7 +21,7 @@
   background: -ms-linear-gradient(right,
                                   @start,
                                   @stop);
-  background: -moz-linear-gradient(center right,
+  background: -moz-linear-gradient(center left,
                                    @start 0%,
                                    @stop 100%);
 }
@@ -133,4 +133,12 @@
   -o-transform: translate(@x, @y);
   -ms-transform: translate(@x, @y);
   transform: translate(@x, @y);
+}
+
+.rotatranslate(@deg:5deg,@x:0,@y:0) {
+  -moz-transform    : rotate(@deg) translate(@x, @y);
+  -webkit-transform : rotate(@deg) translate(@x, @y);
+  -o-transform      : rotate(@deg) translate(@x, @y);
+  -ms-transform     : rotate(@deg) translate(@x, @y);
+  transform         : rotate(@deg) translate(@x, @y);
 }

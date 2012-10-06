@@ -10,9 +10,13 @@
 */
 
 function main() {
-    var channelsList = new ChannelsListController(Channel.channelList);
-    document.body.appendChild(channelsList.view);
-    channelsList.centerView();
+    var channelsList = Channel.channelList;
+    var header = new HeaderController(channelsList);
+    var clc = new ChannelsListController(channelsList);
+    
+    document.body.appendChild(header.view);
+    document.body.appendChild(clc.view);
+    clc.centerView();
 }
 
 window.addEventListener("load",main);

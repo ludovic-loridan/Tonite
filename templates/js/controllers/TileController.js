@@ -13,7 +13,7 @@
 
 var className = "TileController";
 
-var properties = ["program","view","HTMLTitle","HTMLCharacteristics","HTMLTimeInfos",
+var properties = ["program","view","HTMLTitle","HTMLCharacteristics","HTMLTimeInfos", "HTMLImage",
                   "characteristicsCyclingInterval","timeInfosUpdatingInterval"];
 
 var methods = {
@@ -33,6 +33,7 @@ var methods = {
         this.updateTitle();
         this.updateCharacteristics();
         this.updateTimeInfos();
+        this.updateImage();
     },
 
     // -- Title --
@@ -145,9 +146,21 @@ var methods = {
         firstLi.classList.remove("disappeared");
     },
 
+    // -- Updating Image --
+    updateImage : function () {
+        this.HTMLImage.classList.remove("loaded");
+        this.HTMLImage.setAttribute("src",this.program.imageURL);
+    },
+
+
+
     // -- HTML Generation --
     createView : function() {
         this.view = document.createElementWithAttributes("div","class","tile");
+        
+        this.HTMLImage = this.view.addElement("img","alt","","class","background");
+        this.HTMLImage.addClassWhenLoaded();
+
         this.HTMLTitle = this.view.addElement("div","class","title");
         this.HTMLCharacteristics = this.view.addElement("ul","class","characteristics");
         this.HTMLTimeInfos = this.view.addElement("div","class","time");

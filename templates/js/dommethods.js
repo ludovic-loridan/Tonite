@@ -118,6 +118,19 @@ HTMLUListElement.prototype.addListItems = function() {
     return this;
 };
 
+// ------------------------ //
+// -- Loading management -- //
+// ------------------------ //
+HTMLElement.prototype.addLoadedClass = function() {
+    console.log("loaded");
+    this.classList.add("loaded");
+};
+
+HTMLElement.prototype.addClassWhenLoaded = function() {
+    console.log("added");
+    var classAdder = getThisCallingFunction(this,"addLoadedClass");
+    this.addEventListener("load",classAdder);
+};
 
 // ---------------- //
 // -- Transition -- //

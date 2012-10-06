@@ -13,7 +13,7 @@
 
 var className = "Program";
 
-var properties = ["id", "title", "subtitle", "description", "genre", "subgenre", "year", "start", "stop", "channel"];
+var properties = ["id", "title", "subtitle", "description", "genre", "subgenre", "year", "imageURL", "start", "stop", "channel"];
 
 var methods = {
     // -- Getters & Setters --
@@ -35,6 +35,19 @@ var methods = {
 
         channel = potentialChannel;
         return channel;
+    },
+
+    // TODO : Remove these methods
+    getImageURL : function() {
+        var random1 = Math.naturalRandom(20);
+        var random2 = Math.naturalRandom(20);
+        var w = 352 + random1;
+        var h = 272 + random2;
+        return "http://lorempixel.com/"+w+"/"+h+"/";
+    },
+
+    setImageURL : function () {
+        throw "Example image can not be set";
     },
 
     // -- Date management --

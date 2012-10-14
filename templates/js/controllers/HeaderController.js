@@ -69,7 +69,7 @@ var methods = {
     }
 };
 
-var initializer = function (channelsList,view) {
+var initializer = function (channelsList) {
     this.createView();
     this.channelsList = channelsList;
 };

@@ -13,7 +13,7 @@
 
 var className = "Program";
 
-var properties = ["id", "title", "subtitle", "description", "genre", "subgenre", "year", "imageURL", "start", "stop", "channel"];
+var properties = ["id", "title", "subtitle", "description", "genre", "subgenre", "year", "imageURL", "start", "stop", "duration", "channel"];
 
 var methods = {
     // -- Getters & Setters --
@@ -22,7 +22,7 @@ var methods = {
         return this.channel.id.toString()+"_"+this.start.getTime()+"_"+this.stop.getTime();
     },
 
-    setId : function(value) {
+    setId : function() {
         throw "Changing the id of a program is forbidden";
     },
 
@@ -68,6 +68,15 @@ var methods = {
 
         stop = newStopDate;
         return stop;
+    },
+
+    getDuration : function() {
+        var duration = new Date(this.stop - this.start);
+        return duration.getPeriodString();
+    },
+
+    setDuration : function() {
+        throw "Not Implemented";
     },
 
     isToCome : function() {

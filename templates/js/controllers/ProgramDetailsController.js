@@ -15,7 +15,8 @@ var className = "ProgramDetailsController";
 
 var properties = ["program","view",
                   "HTMLDescription", "HTMLTitle","HTMLCharacteristics","HTMLStatus","HTMLProgress",
-                  "HTMLSynopsis","HTMLImage"];
+                  "HTMLSynopsis","HTMLImage",
+                  "timeInfosUpdateInterval"];
 
 var methods = {
 
@@ -83,8 +84,23 @@ var methods = {
     },
 
     updateProgress : function () {
-        // TODO : Implement that
-        console.log("updateProgress is not implemented yet");
+        this.updateProgressStrings();
+        this.updateProgressCompletion();
+    },
+
+    updateProgressStrings : function () {
+        var barController = this.HTMLProgress.controller;
+        barController.startString = this.program.start.getHoursMinutesString(" h ");
+        barController.stopString = this.program.stop.getHoursMinutesString(" h ");
+    },
+
+    updateProgressCompletion : function () {
+        var barController = this.HTMLProgress.controller;
+        var duration = this.program.stop - this.program.start;
+        var elapsed = Date.now() - this.program.start;
+
+        var completion = (elapsed / duration) * 100;
+        barController.completion = completion;
     },
 
     updateSynopsis : function () {
@@ -99,6 +115,21 @@ var methods = {
         this.HTMLImage.setAttribute("src",this.program.imageURL);
     },
 
+    // -- Auto update --
+    startTimeInfosAutoUpdate : function () {
+        var updateFunction = getThisCallingFunction(this,"updateTimeInfos");
+        this.timeInfosUpdateInterval = setInterval(updateFunction, 20000);
+    },
+
+    stopTimeInfosAutoUpdate : function () {
+        clearInterval(this.timeInfosUpdateInterval);
+        this.timeInfosUpdateInterval = null;
+    },
+
+    updateTimeInfos : function () {
+        this.updateStatus();
+        this.updateProgressCompletion();
+    },
 
     // -- HTML Generation --
     createView : function() {
@@ -115,8 +146,16 @@ var methods = {
         this.HTMLTitle           = this.HTMLDescription.addElement("h1");
         this.HTMLCharacteristics = this.HTMLDescription.addElement("ul","class","programCharacteristics");
         this.HTMLStatus          = this.HTMLDescription.addElement("p","class","status");
-        // TODO : this.HTMLProgress ?
+
+        this.createProgressBar();
+
         this.HTMLSynopsis        = this.HTMLDescription.addElement("p","class","programSynopsis");
+    },
+
+    createProgressBar : function () {
+        var barController = new ProgressBarController("--","--",0);
+        this.HTMLProgress = barController.view;
+        this.HTMLDescription.appendChild(this.HTMLProgress);
     },
 
     createImagePart : function () {
@@ -129,6 +168,7 @@ var methods = {
 var initializer = function (newProgram) {
     this.createView();
     this.program = newProgram;
+    this.startTimeInfosAutoUpdate();
 };
 
 var staticMethods = {

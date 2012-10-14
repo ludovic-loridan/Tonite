@@ -62,7 +62,7 @@ article.programDetails {
             margin: 7px 0;
         }
 
-        & > .programProgress {
+        & > .progressBar {
             width: 100%;
             max-width: @progressBarWidth + 2 * @progressBarTagWidth;
             height: 20px;
@@ -74,14 +74,14 @@ article.programDetails {
             font-size: 12px;
             font-weight: bold;
 
-            .beginning {
+            .startString {
                 position: absolute;
                 top: 0;
                 left: 0;
                 width: @progressBarTagWidth;
             }
 
-            .end {
+            .stopString {
                 position: absolute;
                 top: 0;
                 right: 0;
@@ -89,7 +89,7 @@ article.programDetails {
                 text-align: right;
             }
 
-            .progressBar {
+            .bar {
                 position: relative;
                 height: @progressBarHeight;
 
@@ -99,7 +99,7 @@ article.programDetails {
 
                 background: @ultraLightGray;
 
-                .progression {
+                .completion {
                     background: @gray;
                     height: @progressBarHeight;
                 }

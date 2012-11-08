@@ -9,21 +9,12 @@
     <script src="less/less.js" type="text/javascript"></script>
 </head>
 
-<body>
+<body class="modalDisplayed modalVisible">
     <button id="overlay"></button>
     <div id="primaryModal" class="channel2">
         <div class="title">Blabla</div>
-        <div class="topModal">
-            <button class="closeButton"></button>
-            <div id="tabs">
-                <button class="tabButton active">Détails</button><!--
-                --><button class="tabButton">Live chat</button>
-            </div>
-        </div>
-
         <div id="secondaryModal">
             <div class="title">TrucTruc</div>
-            <button class="foldButton foldState"></button>
             <div class="content">
                 <div class="chatWidget">
                     <div class="chatBubbles">
@@ -59,6 +50,14 @@
                 </div>
             </div>
         </div>
+        <button class="foldButton foldState"></button>
+        <div class="topModal">
+            <button class="closeButton"></button>
+            <div id="tabs">
+                <button class="tabButton">Détails</button><!--
+                --><button class="tabButton">Live chat</button>
+            </div>
+        </div>
         <div class="content">
             <article class="programDetails">
                 <div class="programDescription">
@@ -68,14 +67,14 @@
                         <li>France 2</li>
                         <li>1h34</li>
                     </ul>
-                    <p class="now">En cours</p>
+                    <p class="status">En cours</p>
 
-                    <div class="programProgress">
-                        <span class="beginning">20h50</span>
-                        <div class="progressBar">
-                            <div class="progression" style="width:45%"></div>
+                    <div class="progressBar">
+                        <span class="startString">23 h 02</span>
+                        <div class="bar">
+                            <div class="completion" style="width: 62.52291666666666%; "></div>
                         </div>
-                        <span class="end">22h24</span>
+                        <span class="stopString">23 h 03</span>
                     </div>
 
                     <div class="programSynopsis">

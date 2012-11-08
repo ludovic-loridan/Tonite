@@ -77,11 +77,7 @@
   -webkit-opacity: @opacity;
   opacity: @opacity;
 }
-.transition-duration(@duration: 0.2s) {
-  -moz-transition-duration: @duration;
-  -webkit-transition-duration: @duration;
-  transition-duration: @duration;
-}
+
 .rotation(@deg:5deg){
   -webkit-transform: rotate(@deg);
   -moz-transform: rotate(@deg);
@@ -97,6 +93,32 @@
   -moz-transition: all @duration @ease;
   transition: all @duration @ease;
 }
+
+.transition-property(@properties) {
+  transition-property: @properties;
+  -moz-transition-property: @properties;
+  -webkit-transition-property: @properties;
+}
+
+.transition-timing-function(@ease:ease-out) {
+  transition-timing-function: @ease;
+  -moz-transition-timing-function: @ease;
+  -webkit-transition-timing-function: @ease;
+}
+
+.transition-duration(@duration: 0.2s) {
+  -moz-transition-duration: @duration;
+  -webkit-transition-duration: @duration;
+  transition-duration: @duration;
+}
+
+.transition-delay(@delay: 0s) {
+  transition-delay: @delay;
+  -moz-transition-delay: @delay;
+  -webkit-transition-delay: @delay;
+}
+
+
 .inner-shadow(@horizontal:0, @vertical:1px, @blur:2px, @color) {
   -webkit-box-shadow: inset @horizontal @vertical @blur @color;
   -moz-box-shadow: inset @horizontal @vertical @blur @color;

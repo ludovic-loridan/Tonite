@@ -6,7 +6,7 @@
 @import "../metrics.less";
 @import "../zindexes.less";
 @import "../elements.less";
-@import "modalpanels_transitions";
+@import "modalpanels_transitions.less";
 
 @primaryTopPadding : 30px;
 @primaryLeftPadding: 50px;
@@ -208,7 +208,7 @@
 #primaryModal {
     display: none;
     right: -100%;
-    .transition-property(right);
+    .transition-property("right");
     .transition-duration(@durationPrimaryOpenClose);
     .transition-timing-function(ease-out);
 

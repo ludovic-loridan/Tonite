@@ -23,7 +23,7 @@
                       "view",
                       "HTMLOverlay", "HTMLPrimary", "HTMLSecondary",
                       "HTMLPrimaryContent", "HTMLSecondaryContent",
-                      "HTMLFoldButton", "HTMLCloseButton",
+                      "HTMLFoldButton", "HTMLCloseButton", "HTMLCloseButtonTop",
                       "HTMLTabs", "HTMLPrimaryTab", "HTMLSecondaryTab"];
 
     var methods = {
@@ -32,6 +32,14 @@
         // --                       --
         // -- ModalPanel open/close --
         // --                       --
+
+        openPrimary : function () {
+            this.isOpened = true;
+        },
+
+        closePrimary : function () {
+            this.isOpened = false;
+        },
 
         setIsOpened : function (newValue) {
             isOpened = newValue;
@@ -88,6 +96,22 @@
         // -- Secondary open/close  --
         // --                       --
 
+        openSecondary : function () {
+            this.secondaryIsOpened = true;
+        },
+
+        closeSecondary : function () {
+            this.secondaryIsOpened = false;
+        },
+
+        toggleSecondary : function () {
+            if (this.secondaryIsOpened) {
+                this.closeSecondary();
+            } else {
+                this.openSecondary();
+            }
+        },
+
         setSecondaryIsOpened : function (newValue) {
             secondaryIsOpened = newValue;
             this.updateSecondaryModalState();
@@ -121,12 +145,21 @@
         // --                 --
         installEventListeners: function () {
             this.installTransitionEventListener();
+            this.installButtonsListeners();
         },
 
         installTransitionEventListener : function () {
             var transitionOnModalFunc = getThisCallingFunction(this, "modalHasTransited");
             this.HTMLPrimary.addTransitionCallback(transitionOnModalFunc);
         },
+
+        installButtonsListeners : function () {
+            this.HTMLFoldButton.addEventListener("click", getThisCallingFunction(this, "toggleSecondary"));
+            this.HTMLCloseButton.addEventListener("click", getThisCallingFunction(this, "closePrimary"));
+            this.HTMLCloseButtonTop.addEventListener("click", getThisCallingFunction(this, "closePrimary"));
+            this.HTMLOverlay.addEventListener("click", getThisCallingFunction(this, "closePrimary"));
+        },
+
 
 
         // --                                  --
@@ -144,7 +177,8 @@
             this.HTMLSecondaryContent = this.HTMLSecondary.querySelector(".content");
 
             this.HTMLFoldButton = this.HTMLPrimary.querySelector(".foldButton");
-            this.HTMLCloseButton = this.HTMLPrimary.querySelector(".topModal > .closeButton");
+            this.HTMLCloseButton = this.view.querySelector("#primaryModal > .closeButton");
+            this.HTMLCloseButtonTop = this.HTMLPrimary.querySelector(".topModal > .closeButton");
            
             this.HTMLTabs = document.getElementById("tabs");
             this.HTMLPrimaryTab = this.HTMLTabs.querySelector(".tabButton:nth-child(1)");

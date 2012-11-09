@@ -40,10 +40,8 @@
 
         updatePrimaryModalState: function () {
             if (this.isOpened) {
-                console.log("will open");
                 this.displayModal();
             } else {
-                console.log("will close");
                 this.unshowModal();
             }
         },
@@ -81,8 +79,26 @@
             }
 
             if (!(this.isOpened)) {
-                // console.log(this.isOpened);
                 this.undisplayModal();
+            }
+        },
+
+
+        // --                       --
+        // -- Secondary open/close  --
+        // --                       --
+
+        setSecondaryIsOpened : function (newValue) {
+            secondaryIsOpened = newValue;
+            this.updateSecondaryModalState();
+        },
+
+        updateSecondaryModalState: function () {
+            if (this.secondaryIsOpened) {
+                console.log("is closed");
+                this.HTMLSecondary.classList.remove("closed");
+            } else {
+                this.HTMLSecondary.classList.add("closed");
             }
         },
 
@@ -165,6 +181,7 @@
         // --               --
         initialState : function () {
             this.isOpened = false;
+            this.secondaryIsOpened = true;
         }
     };
 

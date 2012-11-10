@@ -18,7 +18,7 @@
 
     var className = "ModalPanelController";
 
-    var properties = ["primaryController", "secondaryController", "view",
+    var properties = ["primaryController", "secondaryController", "view", "CSSClass",
                       "isOpened", "secondaryIsOpened",
                       "view",
                       "HTMLOverlay", "HTMLPrimary", "HTMLSecondary",
@@ -128,7 +128,7 @@
 
 
         // --                           --
-        // -- Sync with Two Controllers --
+        // -- Setting of  Controllers   --
         // --                           --
 
         setPrimaryController : function (newPrimaryController) {
@@ -161,6 +161,15 @@
 
         emptySecondaryContent: function () {
             this.HTMLSecondaryContent.removeAllChildren();
+        },
+
+        // --                --
+        // -- Class changing --
+        // --                --
+        setCSSClass: function (newClass) {
+            this.HTMLPrimary.classList.remove(this.CSSClass);
+            this.HTMLPrimary.classList.add(newClass);
+            CSSClass = newClass;
         },
 
 

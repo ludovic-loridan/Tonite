@@ -127,18 +127,55 @@
         },
 
 
+        // --                           --
         // -- Sync with Two Controllers --
-        setPrimaryController : function () {
-            // TODO
+        // --                           --
+
+        setPrimaryController : function (newPrimaryController) {
+            if (this.primaryController !== newPrimaryController) {
+                primaryController = newPrimaryController;
+                this.updatePrimaryView();
+            }
         },
 
-        setSecondaryController : function () {
-            // TODO
+        setSecondaryController : function (newSecondaryController) {
+            if (this.secondaryController !== newSecondaryController) {
+                secondaryController = newSecondaryController;
+                this.updateSecondaryView();
+            }
         },
+
+        updatePrimaryView : function () {
+            this.emptyPrimaryContent();
+            this.HTMLPrimaryContent.appendChild(this.primaryController.view);
+        },
+
+        updateSecondaryView : function () {
+            this.emptySecondaryContent();
+            this.HTMLSecondaryContent.appendChild(this.secondaryController.view);
+        },
+
+        emptyPrimaryContent: function () {
+            this.HTMLPrimaryContent.removeAllChildren();
+        },
+
+        emptySecondaryContent: function () {
+            this.HTMLSecondaryContent.removeAllChildren();
+        },
+
+
+        // --            --
+        // -- Total Sync --
+        // --            --
 
         updateView : function () {
-            // TODO
+            this.updatePrimaryView();
+            this.updateSecondaryView();
+            this.updatePrimaryModalState();
+            this.updateSecondaryModalState();
         },
+
+
 
         // --                 --
         // -- Event Listeners --
@@ -173,7 +210,7 @@
             this.HTMLPrimary = document.getElementById("primaryModal");
             this.HTMLSecondary = document.getElementById("secondaryModal");
 
-            this.HTMLPrimaryContent = this.HTMLPrimary.querySelector(".content");
+            this.HTMLPrimaryContent = this.view.querySelector("#primaryModal > .content");
             this.HTMLSecondaryContent = this.HTMLSecondary.querySelector(".content");
 
             this.HTMLFoldButton = this.HTMLPrimary.querySelector(".foldButton");

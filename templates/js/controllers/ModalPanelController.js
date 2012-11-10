@@ -148,11 +148,13 @@
         updatePrimaryView : function () {
             this.emptyPrimaryContent();
             this.HTMLPrimaryContent.appendChild(this.primaryController.view);
+            this.updatePrimaryTab();
         },
 
         updateSecondaryView : function () {
             this.emptySecondaryContent();
             this.HTMLSecondaryContent.appendChild(this.secondaryController.view);
+            this.updateSecondaryTab();
         },
 
         emptyPrimaryContent: function () {
@@ -161,6 +163,16 @@
 
         emptySecondaryContent: function () {
             this.HTMLSecondaryContent.removeAllChildren();
+        },
+
+        updatePrimaryTab : function () {
+            var tabTitle = hasAValueOr(this.primaryController.title, "Primary");
+            this.HTMLPrimaryTab.setText(tabTitle);
+        },
+
+        updateSecondaryTab : function () {
+            var tabTitle = hasAValueOr(this.secondaryController.title, "Secondary");
+            this.HTMLSecondaryTab.setText(tabTitle);
         },
 
         // --                --
@@ -201,9 +213,16 @@
 
         installButtonsListeners : function () {
             this.HTMLFoldButton.addEventListener("click", getThisCallingFunction(this, "toggleSecondary"));
-            this.HTMLCloseButton.addEventListener("click", getThisCallingFunction(this, "closePrimary"));
-            this.HTMLCloseButtonTop.addEventListener("click", getThisCallingFunction(this, "closePrimary"));
-            this.HTMLOverlay.addEventListener("click", getThisCallingFunction(this, "closePrimary"));
+
+            var closePrimaryFunction = getThisCallingFunction(this, "closePrimary");
+            this.HTMLCloseButton.addEventListener("click", closePrimaryFunction);
+            this.HTMLCloseButtonTop.addEventListener("click", closePrimaryFunction);
+            this.HTMLOverlay.addEventListener("click", closePrimaryFunction);
+
+            var openSecondaryFunction = getThisCallingFunction(this, "openSecondary");
+            var closeSecondaryFunction = getThisCallingFunction(this, "closeSecondary");
+            this.HTMLPrimaryTab.addEventListener("click", closeSecondaryFunction);
+            this.HTMLSecondaryTab.addEventListener("click", openSecondaryFunction);
         },
 
 

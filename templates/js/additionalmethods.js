@@ -3,6 +3,14 @@ function hasAValue(obj) {
     return (typeof(obj) !== "undefined") && obj !== null;
 }
 
+function hasAValueOr(obj, defaultValue) {
+    if (hasAValue(obj)) {
+        return obj;
+    } else {
+        return defaultValue;
+    }
+}
+
 // Returns a function that call the function named "fun" on object
 function getThisCallingFunction(object, fun) {
     return function (evt) {(object[fun])(evt); };

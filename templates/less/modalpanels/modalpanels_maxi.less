@@ -155,6 +155,7 @@
     left: 40px;
     display: none;
     font-size: 0;
+    white-space: nowrap;
 
     & > .tabButton {
         width: 50%;
@@ -169,6 +170,7 @@
 
         white-space: nowrap;
         position: relative;
+        display: inline-block;
 
         &:hover {
             cursor: pointer;
@@ -234,6 +236,8 @@
 }
 
 .modalDisplayed {
+    overflow-x: hidden;
+
     #primaryModal, #secondaryModal, #overlay {
         display: block;
     }

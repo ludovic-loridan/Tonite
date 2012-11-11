@@ -8,6 +8,7 @@
     Author : Ludovic Loridan
 
 */
+
 (function () {
 
 var className = "ChannelController";

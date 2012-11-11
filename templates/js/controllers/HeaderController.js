@@ -76,8 +76,6 @@ var initializer = function (channelsList) {
 
 var staticMethods = {
 
-
-
 };
 
 var staticProperties = {};

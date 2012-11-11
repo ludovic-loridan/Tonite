@@ -51,8 +51,8 @@ var methods = {
     updateCharacteristics : function () {
         this.HTMLCharacteristics.removeAllChildren();
         
-        if (hasAValue(this.program.genre)) {
-            this.HTMLCharacteristics.addListItem(this.program.genre);
+        if (hasAValue(this.program.category)) {
+            this.HTMLCharacteristics.addListItem(this.program.category);
         }
 
         this.HTMLCharacteristics.addListItem(this.program.channel.name);

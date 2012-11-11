@@ -10,6 +10,9 @@
 */
 
 function main() {
+    var xmlParser = new XMLParser("20121111");
+    xmlParser.parseData()
+
     var channelsList = Channel.channelList;
     var header = new HeaderController(channelsList);
     var clc = new ChannelsListController(channelsList);

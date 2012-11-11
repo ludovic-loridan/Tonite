@@ -87,7 +87,7 @@ var methods = {
     getCharacteristicsFromModel : function () {
         var characteristics = [];
         if (hasAValue(this.program.subtitle)) {characteristics.push(this.program.subtitle);}
-        if (hasAValue(this.program.genre))    {characteristics.push(this.program.genre);}
+        if (hasAValue(this.program.category))    {characteristics.push(this.program.category);}
         if (hasAValue(this.program.year))     {characteristics.push(this.program.year);}
         if (hasAValue(this.program.start))    {characteristics.push(this.program.start.getHoursMinutesString(" h "));}
         return characteristics;

@@ -34,6 +34,11 @@ String.prototype.addZeros = function (nbDigits) {
     return string;
 };
 
+/*  = Element extensions = */
+Element.prototype.getData = function () {
+    return this.childNodes[0].data;
+}
+
 /*  = Maths extensions = */
 Math.naturalRandom = function (end) {
     var random = Math.random();

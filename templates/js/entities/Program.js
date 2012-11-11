@@ -13,7 +13,7 @@
 
 var className = "Program";
 
-var properties = ["id", "title", "subtitle", "description", "genre", "subgenre", "year", "imageURL", "start", "stop", "duration", "channel"];
+var properties = ["id", "title", "subtitle", "description", "category", "year", "imageURL", "start", "stop", "duration", "channel"];
 
 var methods = {
     // -- Getters & Setters --
@@ -35,19 +35,6 @@ var methods = {
 
         channel = potentialChannel;
         return channel;
-    },
-
-    // TODO : Remove these methods
-    getImageURL : function() {
-        var random1 = Math.naturalRandom(20);
-        var random2 = Math.naturalRandom(20);
-        var w = 352 + random1;
-        var h = 272 + random2;
-        return "http://lorempixel.com/"+w+"/"+h+"/";
-    },
-
-    setImageURL : function () {
-        throw "Example image can not be set";
     },
 
     // -- Date management --
@@ -117,6 +104,40 @@ var staticMethods = {
         }
 
         return potentialProgram;
+    },
+
+    programFromXML : function(channel, program) {
+        //console.log(program);
+        var title = program.getElementsByTagName("title")[0].getData();
+        var start = program.getAttribute("start");
+        var stop = program.getAttribute("stop");
+
+        instance = new Program(title, start, stop, channel);
+
+        var childs = program.childNodes;
+        
+        for(var i = 0; i < childs.length; i++) {
+            if(childs[i].childNodes.length <= 1) {
+                switch(childs[i].tagName) {
+                    case "desc":
+                        instance.description = childs[i].getData();
+                        break;
+                    case "category":
+                        instance.category = instance.category ? instance.category + " : " + childs[i].getData() : childs[i].getData();
+                    case "icon":
+                        instance.imageURL = childs[i].getAttribute("src");
+                        break;
+                    case "sub-title":
+                        instance.subtitle = childs[i].getData();
+                        break;
+                    case "date":
+                        instance.year = childs[i].getData();
+                        break;
+                }
+            }
+        }
+
+        return instance;
     }
 };
 

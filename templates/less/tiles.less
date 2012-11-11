@@ -77,12 +77,15 @@
 
         overflow: hidden;
 
-        position: relative;
+        position: absolute;
         z-index: @z-tileContent;
 
         li {
             height: @characteristicHeight;
-            .transition(0.5s,ease-out);
+            .transition-property("margin-top");
+            .transition-timing-function(ease-out);
+            .transition-duration(0.5s);
+            /*.transition(0.5s,ease-out);*/
         }
 
         li.disappeared {

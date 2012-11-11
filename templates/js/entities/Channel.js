@@ -37,6 +37,7 @@ var methods = {
         p2.subtitle = "The Last Dundies";
         p2.year = 2007;
         var p3 = new Program("Truc machin",new Date(Date.now() + 1000 * 12),new Date(Date.now() + 1000 * 3600 * 2),this);
+        p3.subtitle = "Bidule";
 
         this.tonightPrograms = [p1,p2,p3];
     }

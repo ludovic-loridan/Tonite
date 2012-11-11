@@ -11,56 +11,6 @@
 
 (function () {
 
-<<<<<<< HEAD
-var className = "ProgramDetailsController";
-
-var properties = ["program","view",
-                  "HTMLDescription", "HTMLTitle","HTMLCharacteristics","HTMLStatus","HTMLProgress",
-                  "HTMLSynopsis","HTMLImage",
-                  "timeInfosUpdateInterval"];
-
-var methods = {
-
-    // -- Sync with Model --
-    setProgram : function(newProgram) {
-        if (!(newProgram instanceof Program)) {
-            throw "Error : Given object is not a program.";
-        }
-
-        program = newProgram;
-        this.updateView();
-    },
-
-    updateView : function() {
-        this.updateDescription();
-        this.updateImage();
-    },
-
-    // -- Sync of the description part --
-    updateDescription : function() {
-        this.updateTitle();
-        this.updateCharacteristics();
-        this.updateStatus();
-        this.updateProgress();
-        this.updateSynopsis();
-    },
-
-    updateTitle : function() {
-        this.HTMLTitle.setText(this.program.title);
-    },
-
-    updateCharacteristics : function () {
-        this.HTMLCharacteristics.removeAllChildren();
-        
-        if (hasAValue(this.program.category)) {
-            this.HTMLCharacteristics.addListItem(this.program.category);
-        }
-
-        this.HTMLCharacteristics.addListItem(this.program.channel.name);
-
-        if (hasAValue(this.program.duration)) {
-            this.HTMLCharacteristics.addListItem(this.program.duration);
-=======
     var className = "ProgramDetailsController";
 
     var properties = ["program", "view", "title",
@@ -210,7 +160,6 @@ var methods = {
 
         createImagePart : function () {
             this.HTMLImage           = this.view.addElement("img", "class", "programImage");
->>>>>>> 9216bf1fde5f2e90324a09841618f3c755ce44b7
         }
 
 

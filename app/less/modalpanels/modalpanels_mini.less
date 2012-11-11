@@ -1,0 +1,65 @@
+@import "../metrics.less";
+@import "../elements.less";
+
+@media screen and (max-width: 660px) {
+
+    body #primaryModal {
+        overflow: hidden;
+        width: 100%;
+
+        & > .content {
+            width: 100%;
+            padding-left: @primaryRightPadding;
+            margin-right: 0;
+
+            .transition-property(left);
+            .transition-duration(0.5s);
+            left: -100%;
+        }
+
+        & > .closeButton {
+            display: none;
+        }
+
+        // Special elements 
+        & > .topModal {
+            height: 40px;
+
+            & > .closeButton {
+                display: inline;
+            }
+        }
+
+        .foldButton {
+            right: 100%;
+        }
+    }
+
+    body #tabs {
+        display: block;
+    }
+
+    body #secondaryModal {
+        display: block;
+        width: 100%;       
+        right: -100%;
+
+        .content {
+            top: @secondaryPadding + @tabBarHeight;
+            left: @secondaryPadding;
+        }
+
+        &.closed {
+            right: -100%;
+            margin-right: 0;
+
+            ~ .content {
+                left: 0;
+            }
+
+            ~.foldButton {
+                right: -@secondaryCloseButtonWidth;
+            }
+        }
+    }
+}

@@ -1,0 +1,168 @@
+/*======================
+  =     Tiles style    =
+  ====================== */
+
+@import "tiles_colors.less";
+@import "metrics.less";
+@import "elements.less";
+@import "zindexes.less";
+
+// tile metrics
+@tileHeight: 160px;
+@tileMinHeight: 100px;
+@tilePadding: 10px;
+
+// flag metrics
+@flagThickness: 20px;
+
+// colors
+@fontColor: #FFFFFF;
+@flagColor: #FF5C26;
+
+.tile {
+    position: relative;
+    height: @tileHeight - @tilePadding * 2;
+    margin-top: @tileVerticalSpacing;
+    padding: @tilePadding;
+    background-color: black;
+    color: @fontColor;
+    overflow: hidden;
+    cursor: pointer;
+
+    .transition;
+
+    // now flag
+    &:before {
+        content: "now";
+        position: absolute;
+        width: 80px;
+        height: @flagThickness;
+        line-height: @flagThickness + 3;
+        top: 8px;
+        right: -23px;
+        text-transform: capitalize;
+        text-align: center;
+        font-size: 12px;
+        font-weight: bold;
+        background-color: @flagColor;
+        display: none;
+        .rotation(45deg);
+
+        z-index: @z-tileContent;
+    }
+
+    &.now:before {
+        display: block;
+    }
+
+    &.past {
+        opacity: 0.7;
+    }
+
+    .title {
+        font-weight: bold;
+        font-size: 170%;
+
+        position: relative;
+        z-index: @z-tileContent;
+    }
+
+    @characteristicHeight : 25px;
+    .characteristics {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        height: @characteristicHeight;
+        line-height: @characteristicHeight;
+
+        overflow: hidden;
+
+        position: absolute;
+        z-index: @z-tileContent;
+
+        li {
+            height: @characteristicHeight;
+            .transition-property("margin-top");
+            .transition-timing-function(ease-out);
+            .transition-duration(0.5s);
+            /*.transition(0.5s,ease-out);*/
+        }
+
+        li.disappeared {
+            margin-top: -@characteristicHeight;
+        }
+    }
+
+    .time {
+        position: absolute;
+        bottom: @tilePadding;
+        max-width: @tileWidth - @tilePadding * 2;
+        white-space: nowrap;
+
+        padding-left: 25px;
+        background: transparent url(../images/icon_time.png) no-repeat left center;
+        height: 20px;
+
+        z-index: @z-tileContent;
+    }
+
+    &.now .time { display: none; }
+
+ 
+        
+    .message {
+        background: transparent url(../images/icon_bubble.png) no-repeat left center;
+        
+        &:before {content: open-quote;}
+        &:after {content: close-quote;}
+
+        z-index: @z-tileContent;
+    }
+
+
+    &:hover:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: @z-tileContent;
+        top: 0px;
+        left: 0px;
+        .inner-shadow(0, 0, 5px, rgba(255, 255, 255, 0.9));
+    }
+
+    // Background image
+    .background {
+        position: absolute;
+        width: 100%;
+        min-height: @tileMinHeight;
+
+        top: 0;
+        left: 0;
+
+        z-index: @z-tileImage;
+        visibility: hidden;
+        opacity: 0;
+        .transition(1s);
+    }
+
+    // &.now {
+        .background.loaded {
+            visibility: visible;
+            opacity: 0.5;
+        }
+    //}
+
+
+}
+
+@media screen and (max-height: 640px) {
+    .tile {
+        height: @tileMinHeight - @tilePadding * 2;
+
+        .background {
+            top: -40px;
+        }
+    }
+}

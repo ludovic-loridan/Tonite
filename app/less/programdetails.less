@@ -1,0 +1,135 @@
+/*===================
+  = Program details =
+  =================== */
+
+@import "palette.less";
+@import "programdetails_colors.less";
+
+@progressBarWidth: 300px;
+@progressBarTagWidth: 50px;
+@progressBarHeight : 8px;
+
+@programImageWidth: 360px;
+
+article.programDetails {
+
+    // DESCRIPTION
+    & > .programDescription {
+        width: 58%;
+        float: left;
+
+        & > h1 {
+            font-size: 35px;
+            color: @gray;
+            margin: 0 0 7px 0;
+            font-weight: bold;
+        }
+
+        & > ul.programCharacteristics {
+
+            font-size: 16px;
+            font-weight: bold;
+
+            margin: 7px 0;
+            padding: 0;
+
+            li {
+                display: inline-block;
+                list-style: none;
+                margin-right: 5px;
+
+                &:before {
+                    content: "|";
+                    margin-right: 5px;
+                }
+            }
+
+            li:first-child:before {
+                content: none;
+            }
+        }
+
+        & > .status {
+            display: inline-block;
+
+            background-color: @gray;
+            color: white;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            padding: 5px 25px;
+            margin: 7px 0;
+        }
+
+        & > .progressBar {
+            width: 100%;
+            max-width: @progressBarWidth + 2 * @progressBarTagWidth;
+            height: 20px;
+            line-height: 20px;
+
+            margin: 20px 0;
+            position: relative;
+
+            font-size: 12px;
+            font-weight: bold;
+
+            .startString {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: @progressBarTagWidth;
+            }
+
+            .stopString {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: @progressBarTagWidth;
+                text-align: right;
+            }
+
+            .bar {
+                position: relative;
+                height: @progressBarHeight;
+
+                top: 5px;
+                margin-left: @progressBarTagWidth;
+                margin-right: @progressBarTagWidth;
+
+                background: @ultraLightGray;
+
+                .completion {
+                    background: @gray;
+                    height: @progressBarHeight;
+                }
+            }
+        }
+    }
+
+    // Synopsis
+    .programSynopsis {
+        font-size: 13px;
+        line-height: 1.4;
+        color: @gray;
+    }
+
+    // Image
+    .programImage {
+        float: right;
+        width:40%;
+        max-width: @programImageWidth;
+    }
+
+    @media screen and (max-width: 880px) {
+        & > .programDescription {
+            float: none;
+            width: 100%;
+        }
+
+        .programImage {
+            float: none;
+            width: 100%;
+        }
+    }
+}

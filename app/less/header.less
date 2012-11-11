@@ -1,0 +1,92 @@
+/*===============
+  = Header.less =
+  =============== */
+
+@import "palette.less";
+@import "metrics.less";
+@import "constants.less";
+@import "zindexes.less";
+@import "header_colors.less";
+
+@catchLineColor: @lightGray;
+@logoWidth: 59px;
+
+header#mainHeader {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: @channelWidth;
+    height: @headerHeight;
+
+    z-index: @z-header;
+
+    .headerStencil {
+        &:before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+
+            content: " ";
+
+            width:  @channelHorizontalMargin;
+            height: @headerHeight;
+
+            background-color: @mainBackground;
+        }
+
+        position: fixed;
+        top: @topModalBorderThickness;
+        left: 0;
+
+        width: 100%;
+        overflow: hidden;
+        line-height: @headerHeight - @topModalBorderThickness;
+
+        vertical-align: middle;
+
+        z-index: @z-headerStencil;
+
+        .logo {
+            margin-left: @channelHorizontalMargin;
+            margin-right: 2px;
+        }
+
+        .catchLine {
+            position: absolute;
+            top: 0;
+            left: @channelHorizontalMargin + @logoWidth;
+            right: 0;
+
+            height: @headerHeight;
+            box-sizing: border-box;
+
+            font-size: 12px;
+            margin: 0;
+            padding-top: 4px;
+            padding-left: 10px;
+
+            color: @catchLineColor;
+            background-color: @mainBackground;
+        }
+    }
+
+    .headerGradient {
+
+        font-size: 0;
+        white-space: nowrap;
+        height: @headerHeight;
+
+        div {
+            display: inline-block;
+            height: @headerHeight;
+            width: @channelWidth;
+
+            &:first-child, &:last-child {
+                width: @channelWidth / 2;
+            }
+        }
+    }
+}

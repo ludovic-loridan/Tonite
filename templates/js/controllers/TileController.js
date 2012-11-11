@@ -30,10 +30,17 @@
         },
 
         updateView : function () {
+            this.updateId();
             this.updateTitle();
             this.updateCharacteristics();
             this.updateTimeInfos();
             this.updateImage();
+        },
+
+        // -- Id --
+        updateId : function () {
+            var tileId = "program_" + this.program.id;
+            this.view.setAttribute("id",tileId);
         },
 
         // -- Title --
@@ -106,8 +113,20 @@
             }
         },
 
+        // There is no need to cycle through characteristics if the tile is not visible.
+        // It's an optimization.
+        goToNextCharacteristicIfTileIsVisible : function () {
+            if (this.tileIsVisible()) {
+                this.goToNextCharacteristic();
+            }
+        },
+
+        tileIsVisible : function () {
+            return this.view.isInTheViewport();
+        },
+
         startCharacteristicsCycling : function () {
-            var cyclingFunction = getThisCallingFunction(this, "goToNextCharacteristic");
+            var cyclingFunction = getThisCallingFunction(this, "goToNextCharacteristicIfTileIsVisible");
             this.characteristicsCyclingInterval = setInterval(cyclingFunction, 6000);
         },
 

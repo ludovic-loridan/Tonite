@@ -19,7 +19,7 @@ var methods = {
 
     parseData : function() {
         var request = new XMLHttpRequest();
-        request.open("GET", "http://localhost/tonite/app/data/" + this.date + ".xml", false);
+        request.open("GET", "./data/" + this.date + ".xml", false);
         request.send();
 
         var xml = request.responseXML;

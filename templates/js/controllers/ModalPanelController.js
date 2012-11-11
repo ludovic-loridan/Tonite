@@ -18,7 +18,7 @@
 
     var className = "ModalPanelController";
 
-    var properties = ["primaryController", "secondaryController", "view",
+    var properties = ["primaryController", "secondaryController", "view", "CSSClass",
                       "isOpened", "secondaryIsOpened",
                       "view",
                       "HTMLOverlay", "HTMLPrimary", "HTMLSecondary",
@@ -127,18 +127,76 @@
         },
 
 
-        // -- Sync with Two Controllers --
-        setPrimaryController : function () {
-            // TODO
+        // --                           --
+        // -- Setting of  Controllers   --
+        // --                           --
+
+        setPrimaryController : function (newPrimaryController) {
+            if (this.primaryController !== newPrimaryController) {
+                primaryController = newPrimaryController;
+                this.updatePrimaryView();
+            }
         },
 
-        setSecondaryController : function () {
-            // TODO
+        setSecondaryController : function (newSecondaryController) {
+            if (this.secondaryController !== newSecondaryController) {
+                secondaryController = newSecondaryController;
+                this.updateSecondaryView();
+            }
         },
+
+        updatePrimaryView : function () {
+            this.emptyPrimaryContent();
+            this.HTMLPrimaryContent.appendChild(this.primaryController.view);
+            this.updatePrimaryTab();
+        },
+
+        updateSecondaryView : function () {
+            this.emptySecondaryContent();
+            this.HTMLSecondaryContent.appendChild(this.secondaryController.view);
+            this.updateSecondaryTab();
+        },
+
+        emptyPrimaryContent: function () {
+            this.HTMLPrimaryContent.removeAllChildren();
+        },
+
+        emptySecondaryContent: function () {
+            this.HTMLSecondaryContent.removeAllChildren();
+        },
+
+        updatePrimaryTab : function () {
+            var tabTitle = hasAValueOr(this.primaryController.title, "Primary");
+            this.HTMLPrimaryTab.setText(tabTitle);
+        },
+
+        updateSecondaryTab : function () {
+            var tabTitle = hasAValueOr(this.secondaryController.title, "Secondary");
+            this.HTMLSecondaryTab.setText(tabTitle);
+        },
+
+        // --                --
+        // -- Class changing --
+        // --                --
+        setCSSClass: function (newClass) {
+            this.HTMLPrimary.classList.remove(this.CSSClass);
+            this.HTMLPrimary.classList.add(newClass);
+            CSSClass = newClass;
+        },
+
+
+        // --            --
+        // -- Total Sync --
+        // --            --
 
         updateView : function () {
-            // TODO
+            this.updatePrimaryView();
+            this.updateSecondaryView();
+            this.updatePrimaryModalState();
+            this.updateSecondaryModalState();
         },
+
+
 
         // --                 --
         // -- Event Listeners --
@@ -155,9 +213,16 @@
 
         installButtonsListeners : function () {
             this.HTMLFoldButton.addEventListener("click", getThisCallingFunction(this, "toggleSecondary"));
-            this.HTMLCloseButton.addEventListener("click", getThisCallingFunction(this, "closePrimary"));
-            this.HTMLCloseButtonTop.addEventListener("click", getThisCallingFunction(this, "closePrimary"));
-            this.HTMLOverlay.addEventListener("click", getThisCallingFunction(this, "closePrimary"));
+
+            var closePrimaryFunction = getThisCallingFunction(this, "closePrimary");
+            this.HTMLCloseButton.addEventListener("click", closePrimaryFunction);
+            this.HTMLCloseButtonTop.addEventListener("click", closePrimaryFunction);
+            this.HTMLOverlay.addEventListener("click", closePrimaryFunction);
+
+            var openSecondaryFunction = getThisCallingFunction(this, "openSecondary");
+            var closeSecondaryFunction = getThisCallingFunction(this, "closeSecondary");
+            this.HTMLPrimaryTab.addEventListener("click", closeSecondaryFunction);
+            this.HTMLSecondaryTab.addEventListener("click", openSecondaryFunction);
         },
 
 
@@ -173,7 +238,7 @@
             this.HTMLPrimary = document.getElementById("primaryModal");
             this.HTMLSecondary = document.getElementById("secondaryModal");
 
-            this.HTMLPrimaryContent = this.HTMLPrimary.querySelector(".content");
+            this.HTMLPrimaryContent = this.view.querySelector("#primaryModal > .content");
             this.HTMLSecondaryContent = this.HTMLSecondary.querySelector(".content");
 
             this.HTMLFoldButton = this.HTMLPrimary.querySelector(".foldButton");

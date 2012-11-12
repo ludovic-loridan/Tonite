@@ -72,8 +72,8 @@ var methods = {
     },
 
     addTilesFromChannel : function() {
-        for (var i = 0; i < this.channel.tonightPrograms.length; i++) {
-            this.addTileForProgram(this.channel.tonightPrograms[i]);
+        for (var i = 0; i < this.channel.programs.length; i++) {
+            this.addTileForProgram(this.channel.programs[i]);
         }
     },
 

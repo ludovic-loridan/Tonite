@@ -38,15 +38,9 @@ var methods = {
 
     addChannelsFromModel : function () {
         for (var i = 0; i < this.channelsList.length; i++) {
-            var channelName = this.channelsList[i];
-            this.addChannelNamed(channelName);
+            var channelController = new ChannelController(this.channelsList[i]);
+            this.view.appendChild(channelController.view);
         }
-    },
-
-    addChannelNamed : function (channelName) {
-        var channel = Channel.channelFromName(channelName);
-        var channelController = new ChannelController(channel);
-        this.view.appendChild(channelController.view);
     },
 
     // -- HTML Generation --

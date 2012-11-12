@@ -78,6 +78,24 @@ Math.naturalRandom = function (end) {
         return new Date(comp.year, comp.month, comp.day, comp.hour, comp.minutes, comp.seconds);
     };
 
+    Date.prototype.toISO = function(limit) {
+        limit = limit || 12;
+
+        var minute = this.getMinutes();
+        var hour = this.getHours();
+        var day = this.getDate();
+        var month = this.getMonth() + 1;
+        var year = this.getFullYear();
+
+        if(minute < 10) minute = '0' + minute;
+        if(hour < 10) hour = '0' + hour;
+        if(day < 10) day = '0' + day;
+        if(month < 10) month = '0' + month;
+
+        var iso = year.toString() + month.toString() + day.toString() + hour.toString() + minute.toString();
+        return iso.substr(0, limit);
+    }
+
     Date.prototype.getHoursMinutesString = function (separator) {
         if (!hasAValue(separator)) {separator = ":"; }
 
@@ -95,7 +113,6 @@ Math.naturalRandom = function (end) {
 
         return nbMinutes + minutesLabel;
     };
-
 
     // Ex : "29 minutes", "2h20"
     Date.prototype.getPeriodString = function () {

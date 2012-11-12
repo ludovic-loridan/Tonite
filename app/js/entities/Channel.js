@@ -10,97 +10,59 @@
 
 */
 
-(function () {
+(function() {
 
-var className = "Channel";
+    var className = "Channel";
 
-var properties = ["id","name","tonightPrograms"];
+    var properties = ["id", "name", "programs"];
 
-var methods = {
-    getTonightPrograms : function () {
-        if (tonightPrograms.length === 0) {
-            this.loadTonightPrograms();
-        }
+    var methods = {
 
-        return tonightPrograms;
-    },
+        loadProgramsFromXML: function(programs) {
 
-    // Private
-    loadTonightPrograms : function() {
-
-        // TODO : Do a real DB request to retrieve the programs.
-        /*var p1 = new Program("New York, section criminelle",new Date(Date.now() - 1000 * 3600 * 2),new Date(Date.now() - 1000 * 3600 * 1),this);
-        p1.subtitle = "Une enquête pas très facile";
-        var p2 = new Program("The Office",new Date(Date.now() - 1000 * 3600 * 1),new Date(Date.now() + 1000 * 1),this);
-        p2.subtitle = "The Last Dundies";
-        p2.year = 2007;
-        p2.category = "test";
-        var p3 = new Program("Truc machin",new Date(Date.now() + 1000 * 12),new Date(Date.now() + 1000 * 3600 * 2),this);
-        p3.subtitle = "Bidule";
-
-        this.tonightPrograms = [p1,p2,p3];*/
-    },
-
-    loadTonightProgramsFromXML: function(programs) {
-
-        for(var i = 0; i < programs.length; i++) {
-            if(i < 3) {
-                program = Program.programFromXML(this, programs[i]);
-                this.tonightPrograms.push(program);
+            for(var i = 0; i < programs.length; i++) {
+                if(i < 1) {
+                    program = Program.programFromXML(this, programs[i]);
+                    this.programs.push(program);
+                }
             }
         }
-    }
 
-};
+    };
 
-var initializer = function (name) {
-    this.name = name;
-    this.id = Channel.channelIdFromName(name);
-    this.tonightPrograms = [];
+    var initializer = function(name) {
+            this.name = name;
+            this.id = Channel.channelIdFromName(name);
+            this.programs = [];
+        };
 
-    Channel.instancedChannels[name] = this;
-};
+    var staticMethods = {
 
-var staticMethods = {
+        // Channel ids (ex : "TF1" -> 1, "Gulli" -> 18)
+        channelIdFromName: function(name) {
+            var potentialId = Channel.channelList.indexOf(name) + 1;
+            if(potentialId !== 0) {
+                return potentialId;
+            } else {
+                return Channel.manageUnknownChannelNamed(name);
+            }
+        },
 
-    // Instances channel only if necessary
-    channelFromName : function(name) {
-        if (hasAValue(Channel.instancedChannels[name])) {
-            return Channel.instancedChannels[name];
-        } else {
-            return new Channel(name);
+        // returns id of the new channel name
+        manageUnknownChannelNamed: function(name) {
+            Channel.channelList.push(name);
+            return Channel.channelList.length;
         }
-    },
 
-    // -- Channel ids --
-    // ex : "TF1" -> 1, "Gulli" -> 18
-    channelIdFromName : function(name) {
-        var potentialId = Channel.channelList.indexOf(name) + 1;
-        if (potentialId !== 0) {
-            return potentialId;
-        } else {
-            return Channel.manageUnknownChannelNamed(name);
-        }
-    },
+    };
 
-    // returns id of the new channel name
-    manageUnknownChannelNamed : function(name) {
-        Channel.channelList.push(name);
-        return Channel.channelList.length;
-    }
+    var staticProperties = {
 
-};
+        channelList: [],
 
-var staticProperties = {
-
-    //channelList : ["TF1","France 2","France 3","Canal+","France 5","M6","Arte","D8","W9","TMC","NT1","NRJ12","LCP","France 4","BFM TV","I>Télé","D17","Gulli","France Ô"],
-    channelList : [],
-
-    instancedChannels : {}
-
-};
+    };
 
 
-Class.create(className,properties,methods,initializer,staticMethods,staticProperties);
+    Class.create(className, properties, methods, initializer, staticMethods, staticProperties);
 
 })();

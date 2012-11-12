@@ -25,10 +25,14 @@ var methods = {
         var xml = request.responseXML;
         var channels = xml.getElementsByTagName("channel");
 
+        var channelsList = [];
         for(var i = 0; i < channels.length; i++) {
             var channel = new Channel(channels[i].getAttribute("name"))
-            channel.loadTonightProgramsFromXML(channels[i].childNodes);
+            channel.loadProgramsFromXML(channels[i].childNodes);
+            channelsList.push(channel);
         }
+
+        return channelsList;
     }
 
 };

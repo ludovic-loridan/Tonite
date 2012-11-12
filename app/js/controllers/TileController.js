@@ -168,7 +168,8 @@
         // -- Updating Image --
         updateImage : function () {
             this.HTMLImage.classList.remove("loaded");
-            this.HTMLImage.setAttribute("src", this.program.imageURL);
+            if(this.program.imageURL) // if imageURL set
+                this.HTMLImage.setAttribute("src", this.program.imageURL);
         },
 
         // --                                 --
@@ -221,7 +222,7 @@
             var mpc = ModalPanelController.getController();
 
             mpc.primaryController = pdc;
-            mpc.CSSClass = "channel" + relatedProgram.channel.id;
+            mpc.CSSClass = "channel" + relatedProgram.channel_id;
             mpc.openPrimary();
         }
 

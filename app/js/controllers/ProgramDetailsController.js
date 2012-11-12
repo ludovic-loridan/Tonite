@@ -55,7 +55,7 @@
                 this.HTMLCharacteristics.addListItem(this.program.genre);
             }
 
-            this.HTMLCharacteristics.addListItem(this.program.channel.name);
+            this.HTMLCharacteristics.addListItem(Channel.channelNameFromId(this.program.channel_id));
 
             if (hasAValue(this.program.duration)) {
                 this.HTMLCharacteristics.addListItem(this.program.duration);

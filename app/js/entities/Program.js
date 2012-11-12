@@ -13,30 +13,21 @@
 
     var className = "Program";
 
-    var properties = ["id", "date", "title", "subtitle", "description", "category", "year", "imageURL", "start", "stop", "duration", "channel"];
+    var properties = ["id", "date", "title", "subtitle", "description", "category", "year", "imageURL", "start", "stop", "duration", "channel_id"];
 
     var methods = {
         // -- Getters & Setters --
         // Returns a unique id for this program
         getId: function() {
-            return this.channel.id.toString() + "_" + this.start.toISO();
+            return this.channel_id + "_" + this.start.toISO();
         },
 
         setId: function() {
             throw "Changing the id of a program is forbidden";
         },
 
-        // Channel can be a string or a channel object
-        setChannel: function(value) {
-            var potentialChannel = value;
+        getChannel: function(value) {
 
-            //if (typeof(potentialChannel) === "string") { potentialChannel = Channel.channelFromName(value); }
-            if(!(potentialChannel instanceof Channel)) {
-                throw "Error setting the channel : " + value + " is not a valid channel.";
-            }
-
-            channel = potentialChannel;
-            return channel;
         },
 
         // -- Date management --
@@ -92,18 +83,18 @@
 
     };
 
-    var initializer = function(title, start, stop, channel) {
+    var initializer = function(title, start, stop, channel_id) {
             this.title = title;
             this.start = start;
             this.stop = stop;
-            this.channel = channel;
+            this.channel_id = channel_id;
 
             Program.instancedPrograms[this.id] = this;
         };
 
     var staticMethods = {
 
-        programFromId: function(id) {
+        /*programFromId: function(id) {
             var potentialProgram = Program.instancedPrograms[id];
 
             if(!(hasAValue(potentialProgram))) {
@@ -111,10 +102,9 @@
             }
 
             return potentialProgram;
-        },
+        },*/
 
         programFromXML: function(channel, program) {
-            //console.log(program);
             var title = program.getElementsByTagName("title")[0].getData();
             var start = program.getAttribute("start");
             var stop = program.getAttribute("stop");
@@ -144,6 +134,15 @@
                 }
             }
 
+            return instance;
+        },
+
+        programFromIndexedDB: function(program) {
+            var instance = new Program(program.title, program.start, program.stop, program.channel_id);
+            for(var key in program) {
+                if(key != "id" && key != "date" && key != "duration")
+                    instance[key] = program[key];
+            }
             return instance;
         }
     };

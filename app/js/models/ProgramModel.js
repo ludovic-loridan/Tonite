@@ -32,7 +32,7 @@
             index.openCursor(singleKeyRange).onsuccess = function(e) {
                 var cursor = e.target.result;
                 if(cursor) {
-                    programs.push(cursor.value);
+                    programs.push(Program.programFromIndexedDB(cursor.value));
                     cursor.continue();
                 }
                 else {

@@ -21,8 +21,9 @@
         loadProgramsFromXML: function(programs) {
 
             for(var i = 0; i < programs.length; i++) {
-                if(i < 1) {
+                if(i < 3) {
                     program = Program.programFromXML(this, programs[i]);
+                    program.channel_id = this.id;
                     this.programs.push(program);
                 }
             }
@@ -48,10 +49,19 @@
             }
         },
 
+        channelNameFromId: function(id) {
+            return Channel.channelList[id];
+        },
+
         // returns id of the new channel name
         manageUnknownChannelNamed: function(name) {
             Channel.channelList.push(name);
             return Channel.channelList.length;
+        },
+
+        channelFromIndexedDB: function(channel) {
+            var instance = new Channel(channel.name);
+            return instance;
         }
 
     };

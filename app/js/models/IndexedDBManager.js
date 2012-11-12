@@ -40,7 +40,7 @@
             var db = e.target.result;
             // creates channel object store
             var channelObjectStore = db.createObjectStore("channel", {
-                keyPath: "name"
+                keyPath: "id"
             });
             // creates program object store
             var channelObjectStore = db.createObjectStore("program", {

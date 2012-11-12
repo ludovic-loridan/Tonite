@@ -94,22 +94,17 @@
 
     var staticMethods = {
 
-        /*programFromId: function(id) {
+        programFromId: function(id) {
             var potentialProgram = Program.instancedPrograms[id];
-
-            if(!(hasAValue(potentialProgram))) {
-                // TODO : Load the program from DB
-            }
-
             return potentialProgram;
-        },*/
+        },
 
-        programFromXML: function(channel, program) {
+        programFromXML: function(channel_id, program) {
             var title = program.getElementsByTagName("title")[0].getData();
             var start = program.getAttribute("start");
             var stop = program.getAttribute("stop");
 
-            instance = new Program(title, start, stop, channel);
+            instance = new Program(title, start, stop, channel_id);
 
             var childs = program.childNodes;
 

@@ -1,0 +1,68 @@
+CACHE MANIFEST
+# 2012-11-12:v3
+
+# Explicitly cached 'master entries'.
+CACHE:
+index.html
+css/tonitestyle.css
+fonts/Roboto-Italic-webfont.eot
+fonts/Roboto-Italic-webfont.svg
+fonts/Roboto-Italic-webfont.ttf
+fonts/Roboto-Italic-webfont.woff
+fonts/Roboto-Light-webfont.eot
+fonts/Roboto-Light-webfont.svg
+fonts/Roboto-Light-webfont.ttf
+fonts/Roboto-Light-webfont.woff
+fonts/Roboto-LightItalic-webfont.eot
+fonts/Roboto-LightItalic-webfont.svg
+fonts/Roboto-LightItalic-webfont.ttf
+fonts/Roboto-LightItalic-webfont.woff
+fonts/Roboto-Medium-webfont.eot
+fonts/Roboto-Medium-webfont.svg
+fonts/Roboto-Medium-webfont.ttf
+fonts/Roboto-Medium-webfont.woff
+fonts/Roboto-MediumItalic-webfont.eot
+fonts/Roboto-MediumItalic-webfont.svg
+fonts/Roboto-MediumItalic-webfont.ttf
+fonts/Roboto-MediumItalic-webfont.woff
+fonts/Roboto-Regular-webfont.eot
+fonts/Roboto-Regular-webfont.svg
+fonts/Roboto-Regular-webfont.ttf
+fonts/Roboto-Regular-webfont.woff
+images/icon_bubble.png
+images/icon_close.png
+images/icon_close_w.png
+images/icon_fold.png
+images/icon_time.png
+images/icon_unfold.png
+images/tonitelogo.png
+images/tonitestencillogo.png
+js/dommethods.js
+js/additionalmethods.js
+js/class.js
+js/entities/Channel.js
+js/entities/Program.js
+js/controllers/ProgressBarController.js
+js/controllers/ProgramDetailsController.js
+js/controllers/TileController.js
+js/controllers/ChannelController.js
+js/controllers/ChannelsListController.js
+js/controllers/HeaderController.js
+js/controllers/ModalPanelController.js
+js/models/IndexedDBManager.js
+js/models/ChannelModel.js
+js/models/ProgramModel.js
+js/models/DataLoader.js
+js/models/XMLParser.js
+js/main.js
+
+
+# Resources that require the user to be online.
+NETWORK:
+*
+
+# static.html will be served if main.py is inaccessible
+# offline.jpg will be served in place of all images in images/large/
+# offline.html will be served in place of all other .html files
+FALLBACK:
+http://programme-tv.premiere.fr/* images/tonitelogo.png

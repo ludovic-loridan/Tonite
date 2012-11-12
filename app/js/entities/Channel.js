@@ -22,8 +22,7 @@
 
             for(var i = 0; i < programs.length; i++) {
                 if(i < 3) {
-                    program = Program.programFromXML(this, programs[i]);
-                    program.channel_id = this.id;
+                    program = Program.programFromXML(this.id, programs[i]);
                     this.programs.push(program);
                 }
             }

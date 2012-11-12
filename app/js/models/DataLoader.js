@@ -31,7 +31,7 @@
             // retrieve programs from indexedDB
             ProgramModel.getProgramsForDate(date, function(programs) {
                 if(programs.length == 0) {
-                    console.log("retrieval from xml");
+                    console.log("data loaded from xml");
                     var xmlParser = new XMLParser(date);
                     var channelsList = xmlParser.parseData();
 
@@ -39,18 +39,9 @@
                     callback(channelsList);
 
                     // store all data for future offline use
-                    for(var i = 0; i < channelsList.length; i++) {
-                        var channel = channelsList[i];
-                        // store channel in indexedDB
-                        ChannelModel.storeChannel(channel);
-                        for(var j = 0; j < channel.programs.length; j++) {
-                            var program = channel.programs[j];
-                            // store program in indexedDB
-                            ProgramModel.storeProgram(program);
-                        }
-                    }
+                    DataLoader.storeChannels(channelsList);
                 } else {
-                    console.log("retrieval from indexedDB");
+                    console.log("data loaded from indexedDB");
 
                     ChannelModel.getChannels(function(channels) {
                         // map programs to channels
@@ -68,6 +59,19 @@
                     }, true);
                 }
             });
+        },
+
+        storeChannels: function(channelsList){
+            for(var i = 0; i < channelsList.length; i++) {
+                var channel = channelsList[i];
+                // store channel in indexedDB
+                ChannelModel.storeChannel(channel);
+                for(var j = 0; j < channel.programs.length; j++) {
+                    var program = channel.programs[j];
+                    // store program in indexedDB
+                    ProgramModel.storeProgram(program);
+                }
+            }
         }
     };
 

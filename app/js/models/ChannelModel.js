@@ -47,7 +47,7 @@
             var db = IndexedDBManager.database;
             var objectStore = db.transaction(["channel"], "readwrite").objectStore("channel");
             objectStore.put(channel);
-            console.log("store channel " + channel.id);
+            console.log("channel stored");
         }
 
     };

@@ -19,12 +19,13 @@
     var className = "ModalPanelController";
 
     var properties = ["primaryController", "secondaryController", "view", "CSSClass",
-                      "isOpened", "secondaryIsOpened",
+                      "isOpened", "secondaryIsOpened", "userWantsSecondaryOpened",
                       "view",
                       "HTMLOverlay", "HTMLPrimary", "HTMLSecondary",
                       "HTMLPrimaryContent", "HTMLSecondaryContent",
                       "HTMLFoldButton", "HTMLCloseButton", "HTMLCloseButtonTop",
-                      "HTMLTabs", "HTMLPrimaryTab", "HTMLSecondaryTab"];
+                      "HTMLTabs", "HTMLPrimaryTab", "HTMLSecondaryTab",
+                      "isSplit"];
 
     var methods = {
 
@@ -98,10 +99,25 @@
 
         openSecondary : function () {
             this.secondaryIsOpened = true;
+            this.userWantsSecondaryOpened = true;
         },
 
         closeSecondary : function () {
             this.secondaryIsOpened = false;
+            this.userWantsSecondaryOpened = false;
+        },
+
+        switchToSecondaryTab : function() {
+            if (ModalPanelController.isTabbed()) {
+                this.secondaryIsOpened = true;
+                this.userWantsSecondaryOpened = true;
+            }
+        },
+
+        switchToPrimaryTab : function () {
+            if (ModalPanelController.isTabbed()) {
+                this.secondaryIsOpened = false;
+            }
         },
 
         toggleSecondary : function () {
@@ -204,6 +220,7 @@
         installEventListeners: function () {
             this.installTransitionEventListener();
             this.installButtonsListeners();
+            this.installSplitStatusCheckingListeners();
         },
 
         installTransitionEventListener : function () {
@@ -219,13 +236,43 @@
             this.HTMLCloseButtonTop.addEventListener("click", closePrimaryFunction);
             this.HTMLOverlay.addEventListener("click", closePrimaryFunction);
 
-            var openSecondaryFunction = getThisCallingFunction(this, "openSecondary");
-            var closeSecondaryFunction = getThisCallingFunction(this, "closeSecondary");
-            this.HTMLPrimaryTab.addEventListener("click", closeSecondaryFunction);
-            this.HTMLSecondaryTab.addEventListener("click", openSecondaryFunction);
+            var switchPrimaryFunction = getThisCallingFunction(this, "switchToPrimaryTab");
+            var switchSecondaryFunction = getThisCallingFunction(this, "switchToSecondaryTab");
+            this.HTMLPrimaryTab.addEventListener("click", switchPrimaryFunction);
+            this.HTMLSecondaryTab.addEventListener("click", switchSecondaryFunction);
+        },
+
+        installSplitStatusCheckingListeners : function () {
+            var checkSplitStatusChangeFunction = getThisCallingFunction(this, "checkSplitStatusChange");
+            window.addEventListener("resize", checkSplitStatusChangeFunction);
         },
 
 
+        // --              --
+        // -- Split events --
+        // --              --
+        updateSplitStatus: function() {
+            this.isSplit = ModalPanelController.isSplit();
+        },
+
+        checkSplitStatusChange : function () {
+            var oldSplitStatus = this.isSplit;
+            this.updateSplitStatus();
+            var newSplitStatus = this.isSplit;
+
+            if (oldSplitStatus !== newSplitStatus) {
+                this.splitStatusHasChanged();
+            }
+        },
+
+        splitStatusHasChanged : function() {
+            if (this.isSplit) {
+                this.secondaryIsOpened = this.userWantsSecondaryOpened;
+            } else {
+                this.secondaryIsOpened = false;
+            }
+        },
+        
 
         // --                                  --
         // -- Matching of properties with HTML --
@@ -310,6 +357,14 @@
 
         hasBeenInstanced : function () {
             return (ModalPanelController.singleton !== null);
+        },
+
+        isTabbed : function () {
+            return (document.body.offsetWidth <= 660);
+        },
+
+        isSplit : function () {
+            return !(ModalPanelController.isTabbed());
         }
 
     };

@@ -826,7 +826,7 @@ header#mainHeader .headerGradient div:last-child {
   height: 40px;
   border: 0;
   padding: 0;
-  background: transparent url(../../images/icon_close_w.png) center center no-repeat;
+  background: transparent url(../images/icon_close_w.png) center center no-repeat;
   display: none;
 }
 #primaryModal > .topModal > .closeButton:hover {
@@ -841,7 +841,7 @@ header#mainHeader .headerGradient div:last-child {
   left: 0;
   background-color: #eeeeee;
   border: 0;
-  background-image: url(../../images/icon_close.png);
+  background-image: url(../images/icon_close.png);
   background-repeat: no-repeat;
   background-position: 11px 12px;
 }
@@ -904,7 +904,7 @@ header#mainHeader .headerGradient div:last-child {
   color: white;
   text-align: center;
   z-index: 5;
-  background-image: url(../../images/icon_fold.png);
+  background-image: url(../images/icon_fold.png);
   transition-property: "right, z-index";
   -moz-transition-property: "right, z-index";
   -webkit-transition-property: "right, z-index";
@@ -1052,7 +1052,7 @@ header#mainHeader .headerGradient div:last-child {
   margin-right: 10px;
 }
 #secondaryModal.closed ~ .foldButton {
-  background-image: url(../../images/icon_unfold.png);
+  background-image: url(../images/icon_unfold.png);
   right: 0;
 }
 #secondaryModal.closed ~ .topModal > #tabs > .tabButton:nth-child(2):after {

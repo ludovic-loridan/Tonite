@@ -338,6 +338,7 @@
             this.matchWithView();
             this.installEventListeners();
             this.initialState();
+            this.checkSplitStatusChange();
             ModalPanelController.singleton = this;
         }
     };

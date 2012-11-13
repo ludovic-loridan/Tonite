@@ -8,31 +8,37 @@
 @font-face {
   font-family: 'RobotoLight';
   src: url('../fonts/Roboto-Regular-webfont.eot');
-  src: url('../fonts/Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-Regular-webfont.woff') format('application/x-font-woff'), url('../fonts/Roboto-Regular-webfont.ttf') format('truetype'), url('../fonts/Roboto-Regular-webfont.svg#RobotoRegular') format('svg');
+  src: url('../fonts/Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-Regular-webfont.woff') format('woff'), url('../fonts/Roboto-Regular-webfont.ttf') format('truetype'), url('../fonts/Roboto-Regular-webfont.svg#RobotoRegular') format('svg');
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: 'RobotoLight';
   src: url('../fonts/Roboto-Italic-webfont.eot');
-  src: url('../fonts/Roboto-Italic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-Italic-webfont.woff') format('application/x-font-woff'), url('../fonts/Roboto-Italic-webfont.ttf') format('truetype'), url('../fonts/Roboto-Italic-webfont.svg#RobotoItalic') format('svg');
+  src: url('../fonts/Roboto-Italic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-Italic-webfont.woff') format('woff'), url('../fonts/Roboto-Italic-webfont.ttf') format('truetype'), url('../fonts/Roboto-Italic-webfont.svg#RobotoItalic') format('svg');
   font-weight: bold;
   font-style: italic;
 }
 @font-face {
   font-family: 'RobotoLight';
   src: url('../fonts/Roboto-Light-webfont.eot');
-  src: url('../fonts/Roboto-Light-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-Light-webfont.woff') format('application/x-font-woff'), url('../fonts/Roboto-Light-webfont.ttf') format('truetype'), url('../fonts/Roboto-Light-webfont.svg#RobotoLight') format('svg');
+  src: url('../fonts/Roboto-Light-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-Light-webfont.woff') format('woff'), url('../fonts/Roboto-Light-webfont.ttf') format('truetype'), url('../fonts/Roboto-Light-webfont.svg#RobotoLight') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'RobotoLight';
   src: url('../fonts/Roboto-LightItalic-webfont.eot');
-  src: url('../fonts/Roboto-LightItalic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-LightItalic-webfont.woff') format('application/x-font-woff'), url('../fonts/Roboto-LightItalic-webfont.ttf') format('truetype'), url('../fonts/Roboto-LightItalic-webfont.svg#RobotoLightItalic') format('svg');
+  src: url('../fonts/Roboto-LightItalic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-LightItalic-webfont.woff') format('woff'), url('../fonts/Roboto-LightItalic-webfont.ttf') format('truetype'), url('../fonts/Roboto-LightItalic-webfont.svg#RobotoLightItalic') format('svg');
   font-weight: normal;
   font-style: italic;
 }
+/*=======================
+  = Channel main colors =
+  ======================= */
+/*===========================
+  = Application main colors =
+  =========================== */
 * {
   font-family: "RobotoLight", sans-serif;
 }
@@ -820,7 +826,7 @@ header#mainHeader .headerGradient div:last-child {
   height: 40px;
   border: 0;
   padding: 0;
-  background: transparent url(../images/icon_close_w.png) center center no-repeat;
+  background: transparent url(../../images/icon_close_w.png) center center no-repeat;
   display: none;
 }
 #primaryModal > .topModal > .closeButton:hover {
@@ -835,7 +841,7 @@ header#mainHeader .headerGradient div:last-child {
   left: 0;
   background-color: #eeeeee;
   border: 0;
-  background-image: url(../images/icon_close.png);
+  background-image: url(../../images/icon_close.png);
   background-repeat: no-repeat;
   background-position: 11px 12px;
 }
@@ -898,7 +904,7 @@ header#mainHeader .headerGradient div:last-child {
   color: white;
   text-align: center;
   z-index: 5;
-  background-image: url(../images/icon_fold.png);
+  background-image: url(../../images/icon_fold.png);
   transition-property: "right, z-index";
   -moz-transition-property: "right, z-index";
   -webkit-transition-property: "right, z-index";
@@ -1046,7 +1052,7 @@ header#mainHeader .headerGradient div:last-child {
   margin-right: 10px;
 }
 #secondaryModal.closed ~ .foldButton {
-  background-image: url(../images/icon_unfold.png);
+  background-image: url(../../images/icon_unfold.png);
   right: 0;
 }
 #secondaryModal.closed ~ .topModal > #tabs > .tabButton:nth-child(2):after {
@@ -2002,5 +2008,13 @@ article.programDetails .programImage {
 @media screen and (max-height: 640px) {
   .channel .title {
     font-size: 160%;
+  }
+}
+@media (max-device-height: 660px) {
+  #channels {
+    padding-top: 0;
+  }
+  #mainHeader {
+    display: none !important;
   }
 }

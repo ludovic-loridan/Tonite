@@ -1,0 +1,68 @@
+/*======================
+  = Metrics of the app =
+  ====================== */
+/* Consider this file as a "palette of shared dimensions" */
+/*---------------------------------------------------
+    LESS Elements 0.6
+  ---------------------------------------------------
+    A set of useful LESS mixins by Dmitry Fadeyev
+    Special thanks for mixin suggestions to:
+      Kris Van Herzeele,
+      Benoit Adam,
+      Portenart Emile-Victor,
+      Ryan Faerman
+
+    More info at: http://lesselements.com
+-----------------------------------------------------*/
+@media screen and (max-width: 660px) {
+  body #primaryModal {
+    overflow: hidden;
+    width: 100%;
+  }
+  body #primaryModal > .content {
+    width: 100%;
+    padding-left: 20px;
+    margin-right: 0;
+    transition-property: left;
+    -moz-transition-property: left;
+    -webkit-transition-property: left;
+    -moz-transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    left: -100%;
+  }
+  body #primaryModal > .closeButton {
+    display: none;
+  }
+  body #primaryModal > .topModal {
+    height: 40px;
+  }
+  body #primaryModal > .topModal > .closeButton {
+    display: inline;
+  }
+  body #primaryModal .foldButton {
+    right: 100%;
+  }
+  body #tabs {
+    display: block;
+  }
+  body #secondaryModal {
+    display: block;
+    width: 100%;
+    right: -100%;
+  }
+  body #secondaryModal .content {
+    top: 60px;
+    left: 20px;
+  }
+  body #secondaryModal.closed {
+    right: -100%;
+    margin-right: 0;
+  }
+  body #secondaryModal.closed ~ .content {
+    left: 0;
+  }
+  body #secondaryModal.closed ~ .foldButton {
+    right: -10px;
+  }
+}

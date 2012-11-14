@@ -45,7 +45,6 @@
             var db = IndexedDBManager.database;
             var objectStore = db.transaction(["program"], "readwrite").objectStore("program");
             objectStore.put(program);
-            console.log("program stored");
         }
 
     };

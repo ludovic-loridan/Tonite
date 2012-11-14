@@ -74,7 +74,7 @@
 
         storeChannels: function(channelsList) {
             console.log("store data");
-            /*for(var i = 0; i < channelsList.length; i++) {
+            for(var i = 0; i < channelsList.length; i++) {
                 var channel = channelsList[i];
                 // store channel in indexedDB
                 ChannelModel.storeChannel(channel);
@@ -83,7 +83,7 @@
                     // store program in indexedDB
                     ProgramModel.storeProgram(program);
                 }
-            }*/
+            }
         }
     };
 

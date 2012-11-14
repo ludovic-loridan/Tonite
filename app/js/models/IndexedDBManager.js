@@ -34,7 +34,8 @@
                 IndexedDBManager.request.onerror = IndexedDBManager.errorHandler;
                 IndexedDBManager.request.onupgradeneeded = IndexedDBManager.upgradeDataBase; // called when db version changed
                 console.log("IndexedDB initialized");
-            } else window.alert("Your browser doesn't support a stable version of IndexedDB. Such and such feature will not be available.");
+            }
+            else callback();
         },
 
         upgradeDataBase: function(e) {
@@ -62,6 +63,10 @@
         errorHandler: function(e) {
             console.log("error")
             console.log(e);
+        },
+
+        available: function() {
+            return IndexedDBManager.database != null;
         }
 
     };

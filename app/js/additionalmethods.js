@@ -23,6 +23,12 @@ HTMLElement.prototype.addTransitionCallback = function (callback) {
     this.addEventListener('OTransitionEnd', callback, false);
 };
 
+Arguments = {
+    slice: function(args, index) {
+        return Array.prototype.slice.call(args, index);
+    }
+}
+
 /*  = String extensions = */
 
 String.prototype.startsWith = function (str) {

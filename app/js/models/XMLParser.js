@@ -35,14 +35,6 @@
         responseFromHttpRequest: function() {
             if(this.xmlParser.xmlhttp.readyState == 4) {
                 if(this.xmlParser.xmlhttp.status == 200) {
-
-                    /////////////////////////
-                    var date = new Date();
-                    var curDate = null;
-                    do { curDate = new Date(); }
-                    while(curDate-date < 3000);
-                    /////////////////////////
-
                     // if request finished and response ready
                     var xml = this.xmlParser.xmlhttp.responseXML;
                     var channels = xml.getElementsByTagName("channel");

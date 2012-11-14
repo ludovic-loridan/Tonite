@@ -19,11 +19,11 @@ var methods = {
 
     // -- Sync with Model --
     setChannelsList : function(newList) {
-        if (!(newList instanceof Array)) {
+        if ((newList !== null) && !(newList instanceof Array)) {
             throw "Error : Given object is not an array.";
         }
 
-        channelsList = newList;
+        channelsList = hasAValueOr(newList,[]);
         this.updateView();
     },
 
@@ -71,7 +71,7 @@ var methods = {
 
 var initializer = function (channelsList) {
     this.createView();
-    this.channelsList = channelsList;
+    this.channelsList = hasAValueOr(channelsList,[]);
 };
 
 var staticMethods = {

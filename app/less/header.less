@@ -7,6 +7,7 @@
 @import "constants.less";
 @import "zindexes.less";
 @import "header_colors.less";
+@import "elements.less";
 
 @catchLineColor: @lightGray;
 @logoWidth: 59px;
@@ -17,12 +18,14 @@ header#mainHeader {
     top: 0;
     left: 0;
 
-    width: @channelWidth;
+    min-width: 100%;
     height: @headerHeight;
 
     z-index: @z-header;
 
     .headerStencil {
+        
+
         &:before {
             position: absolute;
             top: 0;
@@ -74,7 +77,8 @@ header#mainHeader {
     }
 
     .headerGradient {
-
+        background: @gray;
+        min-width: 100%;
         font-size: 0;
         white-space: nowrap;
         height: @headerHeight;

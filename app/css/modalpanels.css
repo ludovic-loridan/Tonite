@@ -1,0 +1,772 @@
+/*======================
+  = Modal panels style =
+  ====================== */
+/*===================================
+  = Channel colors for modal panels =
+  =================================== */
+#primaryModal.channel1 > .topModal,
+.channel1 #primaryModal > .topModal {
+  background-color: #093764;
+}
+#primaryModal.channel1 > .topModal > .closeButton:hover,
+.channel1 #primaryModal > .topModal > .closeButton:hover {
+  background-color: #0b447b;
+}
+#primaryModal.channel1 #tabs .tabButton:hover,
+.channel1 #primaryModal #tabs .tabButton:hover {
+  background-color: #0b447b;
+}
+#primaryModal.channel1 #tabs .tabButton:after,
+.channel1 #primaryModal #tabs .tabButton:after {
+  border-top-color: #093764 !important;
+}
+#primaryModal.channel1 #tabs .tabButton:hover:after,
+.channel1 #primaryModal #tabs .tabButton:hover:after {
+  border-top-color: #0b447b !important;
+}
+#primaryModal.channel2 > .topModal,
+.channel2 #primaryModal > .topModal {
+  background-color: #a32921;
+}
+#primaryModal.channel2 > .topModal > .closeButton:hover,
+.channel2 #primaryModal > .topModal > .closeButton:hover {
+  background-color: #b82e25;
+}
+#primaryModal.channel2 #tabs .tabButton:hover,
+.channel2 #primaryModal #tabs .tabButton:hover {
+  background-color: #b82e25;
+}
+#primaryModal.channel2 #tabs .tabButton:after,
+.channel2 #primaryModal #tabs .tabButton:after {
+  border-top-color: #a32921 !important;
+}
+#primaryModal.channel2 #tabs .tabButton:hover:after,
+.channel2 #primaryModal #tabs .tabButton:hover:after {
+  border-top-color: #b82e25 !important;
+}
+#primaryModal.channel3 > .topModal,
+.channel3 #primaryModal > .topModal {
+  background-color: #1460af;
+}
+#primaryModal.channel3 > .topModal > .closeButton:hover,
+.channel3 #primaryModal > .topModal > .closeButton:hover {
+  background-color: #176dc6;
+}
+#primaryModal.channel3 #tabs .tabButton:hover,
+.channel3 #primaryModal #tabs .tabButton:hover {
+  background-color: #176dc6;
+}
+#primaryModal.channel3 #tabs .tabButton:after,
+.channel3 #primaryModal #tabs .tabButton:after {
+  border-top-color: #1460af !important;
+}
+#primaryModal.channel3 #tabs .tabButton:hover:after,
+.channel3 #primaryModal #tabs .tabButton:hover:after {
+  border-top-color: #176dc6 !important;
+}
+#primaryModal.channel4 > .topModal,
+.channel4 #primaryModal > .topModal {
+  background-color: #000000;
+}
+#primaryModal.channel4 > .topModal > .closeButton:hover,
+.channel4 #primaryModal > .topModal > .closeButton:hover {
+  background-color: #0d0d0d;
+}
+#primaryModal.channel4 #tabs .tabButton:hover,
+.channel4 #primaryModal #tabs .tabButton:hover {
+  background-color: #0d0d0d;
+}
+#primaryModal.channel4 #tabs .tabButton:after,
+.channel4 #primaryModal #tabs .tabButton:after {
+  border-top-color: #000000 !important;
+}
+#primaryModal.channel4 #tabs .tabButton:hover:after,
+.channel4 #primaryModal #tabs .tabButton:hover:after {
+  border-top-color: #0d0d0d !important;
+}
+#primaryModal.channel5 > .topModal,
+.channel5 #primaryModal > .topModal {
+  background-color: #57a92c;
+}
+#primaryModal.channel5 > .topModal > .closeButton:hover,
+.channel5 #primaryModal > .topModal > .closeButton:hover {
+  background-color: #61bd31;
+}
+#primaryModal.channel5 #tabs .tabButton:hover,
+.channel5 #primaryModal #tabs .tabButton:hover {
+  background-color: #61bd31;
+}
+#primaryModal.channel5 #tabs .tabButton:after,
+.channel5 #primaryModal #tabs .tabButton:after {
+  border-top-color: #57a92c !important;
+}
+#primaryModal.channel5 #tabs .tabButton:hover:after,
+.channel5 #primaryModal #tabs .tabButton:hover:after {
+  border-top-color: #61bd31 !important;
+}
+#primaryModal.channel6 > .topModal,
+.channel6 #primaryModal > .topModal {
+  background-color: #666666;
+}
+#primaryModal.channel6 > .topModal > .closeButton:hover,
+.channel6 #primaryModal > .topModal > .closeButton:hover {
+  background-color: #737373;
+}
+#primaryModal.channel6 #tabs .tabButton:hover,
+.channel6 #primaryModal #tabs .tabButton:hover {
+  background-color: #737373;
+}
+#primaryModal.channel6 #tabs .tabButton:after,
+.channel6 #primaryModal #tabs .tabButton:after {
+  border-top-color: #666666 !important;
+}
+#primaryModal.channel6 #tabs .tabButton:hover:after,
+.channel6 #primaryModal #tabs .tabButton:hover:after {
+  border-top-color: #737373 !important;
+}
+#primaryModal.channel7 > .topModal,
+.channel7 #primaryModal > .topModal {
+  background-color: #ec6a40;
+}
+#primaryModal.channel7 > .topModal > .closeButton:hover,
+.channel7 #primaryModal > .topModal > .closeButton:hover {
+  background-color: #ee7c57;
+}
+#primaryModal.channel7 #tabs .tabButton:hover,
+.channel7 #primaryModal #tabs .tabButton:hover {
+  background-color: #ee7c57;
+}
+#primaryModal.channel7 #tabs .tabButton:after,
+.channel7 #primaryModal #tabs .tabButton:after {
+  border-top-color: #ec6a40 !important;
+}
+#primaryModal.channel7 #tabs .tabButton:hover:after,
+.channel7 #primaryModal #tabs .tabButton:hover:after {
+  border-top-color: #ee7c57 !important;
+}
+#primaryModal.channel8 > .topModal,
+.channel8 #primaryModal > .topModal {
+  background-color: #000000;
+}
+#primaryModal.channel8 > .topModal > .closeButton:hover,
+.channel8 #primaryModal > .topModal > .closeButton:hover {
+  background-color: #0d0d0d;
+}
+#primaryModal.channel8 #tabs .tabButton:hover,
+.channel8 #primaryModal #tabs .tabButton:hover {
+  background-color: #0d0d0d;
+}
+#primaryModal.channel8 #tabs .tabButton:after,
+.channel8 #primaryModal #tabs .tabButton:after {
+  border-top-color: #000000 !important;
+}
+#primaryModal.channel8 #tabs .tabButton:hover:after,
+.channel8 #primaryModal #tabs .tabButton:hover:after {
+  border-top-color: #0d0d0d !important;
+}
+#primaryModal.channel9 > .topModal,
+.channel9 #primaryModal > .topModal {
+  background-color: #5c2b8b;
+}
+#primaryModal.channel9 > .topModal > .closeButton:hover,
+.channel9 #primaryModal > .topModal > .closeButton:hover {
+  background-color: #69319e;
+}
+#primaryModal.channel9 #tabs .tabButton:hover,
+.channel9 #primaryModal #tabs .tabButton:hover {
+  background-color: #69319e;
+}
+#primaryModal.channel9 #tabs .tabButton:after,
+.channel9 #primaryModal #tabs .tabButton:after {
+  border-top-color: #5c2b8b !important;
+}
+#primaryModal.channel9 #tabs .tabButton:hover:after,
+.channel9 #primaryModal #tabs .tabButton:hover:after {
+  border-top-color: #69319e !important;
+}
+#primaryModal.channel10 > .topModal,
+.channel10 #primaryModal > .topModal {
+  background-color: #c6342a;
+}
+#primaryModal.channel10 > .topModal > .closeButton:hover,
+.channel10 #primaryModal > .topModal > .closeButton:hover {
+  background-color: #d43f35;
+}
+#primaryModal.channel10 #tabs .tabButton:hover,
+.channel10 #primaryModal #tabs .tabButton:hover {
+  background-color: #d43f35;
+}
+#primaryModal.channel10 #tabs .tabButton:after,
+.channel10 #primaryModal #tabs .tabButton:after {
+  border-top-color: #c6342a !important;
+}
+#primaryModal.channel10 #tabs .tabButtone:hoverafter,
+.channel10 #primaryModal #tabs .tabButtone:hoverafter {
+  border-top-color: #d43f35;
+}
+#primaryModal.channel11 > .topModal,
+.channel11 #primaryModal > .topModal {
+  background-color: #e1961b;
+}
+#primaryModal.channel11 > .topModal > .closeButton:hover,
+.channel11 #primaryModal > .topModal > .closeButton:hover {
+  background-color: #e6a12f;
+}
+#primaryModal.channel11 #tabs .tabButton:hover,
+.channel11 #primaryModal #tabs .tabButton:hover {
+  background-color: #e6a12f;
+}
+#primaryModal.channel11 #tabs .tabButton:after,
+.channel11 #primaryModal #tabs .tabButton:after {
+  border-top-color: #e1961b !important;
+}
+#primaryModal.channel11 #tabs .tabButtone:hoverafter,
+.channel11 #primaryModal #tabs .tabButtone:hoverafter {
+  border-top-color: #e6a12f;
+}
+#primaryModal.channel12 > .topModal,
+.channel12 #primaryModal > .topModal {
+  background-color: #eb5733;
+}
+#primaryModal.channel12 > .topModal > .closeButton:hover,
+.channel12 #primaryModal > .topModal > .closeButton:hover {
+  background-color: #ed6a4a;
+}
+#primaryModal.channel12 #tabs .tabButton:hover,
+.channel12 #primaryModal #tabs .tabButton:hover {
+  background-color: #ed6a4a;
+}
+#primaryModal.channel12 #tabs .tabButton:after,
+.channel12 #primaryModal #tabs .tabButton:after {
+  border-top-color: #eb5733 !important;
+}
+#primaryModal.channel12 #tabs .tabButtone:hoverafter,
+.channel12 #primaryModal #tabs .tabButtone:hoverafter {
+  border-top-color: #ed6a4a;
+}
+#primaryModal.channel13 > .topModal,
+.channel13 #primaryModal > .topModal {
+  background-color: #1460af;
+}
+#primaryModal.channel13 > .topModal > .closeButton:hover,
+.channel13 #primaryModal > .topModal > .closeButton:hover {
+  background-color: #176dc6;
+}
+#primaryModal.channel13 #tabs .tabButton:hover,
+.channel13 #primaryModal #tabs .tabButton:hover {
+  background-color: #176dc6;
+}
+#primaryModal.channel13 #tabs .tabButton:after,
+.channel13 #primaryModal #tabs .tabButton:after {
+  border-top-color: #1460af !important;
+}
+#primaryModal.channel13 #tabs .tabButtone:hoverafter,
+.channel13 #primaryModal #tabs .tabButtone:hoverafter {
+  border-top-color: #176dc6;
+}
+#primaryModal.channel14 > .topModal,
+.channel14 #primaryModal > .topModal {
+  background-color: #623669;
+}
+#primaryModal.channel14 > .topModal > .closeButton:hover,
+.channel14 #primaryModal > .topModal > .closeButton:hover {
+  background-color: #723f7a;
+}
+#primaryModal.channel14 #tabs .tabButton:hover,
+.channel14 #primaryModal #tabs .tabButton:hover {
+  background-color: #723f7a;
+}
+#primaryModal.channel14 #tabs .tabButton:after,
+.channel14 #primaryModal #tabs .tabButton:after {
+  border-top-color: #623669 !important;
+}
+#primaryModal.channel14 #tabs .tabButtone:hoverafter,
+.channel14 #primaryModal #tabs .tabButtone:hoverafter {
+  border-top-color: #723f7a;
+}
+#primaryModal.channel15 > .topModal,
+.channel15 #primaryModal > .topModal {
+  background-color: #ef8733;
+}
+#primaryModal.channel15 > .topModal > .closeButton:hover,
+.channel15 #primaryModal > .topModal > .closeButton:hover {
+  background-color: #f1954b;
+}
+#primaryModal.channel15 #tabs .tabButton:hover,
+.channel15 #primaryModal #tabs .tabButton:hover {
+  background-color: #f1954b;
+}
+#primaryModal.channel15 #tabs .tabButton:after,
+.channel15 #primaryModal #tabs .tabButton:after {
+  border-top-color: #ef8733 !important;
+}
+#primaryModal.channel15 #tabs .tabButtone:hoverafter,
+.channel15 #primaryModal #tabs .tabButtone:hoverafter {
+  border-top-color: #f1954b;
+}
+#primaryModal.channel16 > .topModal,
+.channel16 #primaryModal > .topModal {
+  background-color: #000000;
+}
+#primaryModal.channel16 > .topModal > .closeButton:hover,
+.channel16 #primaryModal > .topModal > .closeButton:hover {
+  background-color: #0d0d0d;
+}
+#primaryModal.channel16 #tabs .tabButton:hover,
+.channel16 #primaryModal #tabs .tabButton:hover {
+  background-color: #0d0d0d;
+}
+#primaryModal.channel16 #tabs .tabButton:after,
+.channel16 #primaryModal #tabs .tabButton:after {
+  border-top-color: #000000 !important;
+}
+#primaryModal.channel16 #tabs .tabButtone:hoverafter,
+.channel16 #primaryModal #tabs .tabButtone:hoverafter {
+  border-top-color: #0d0d0d;
+}
+#primaryModal.channel17 > .topModal,
+.channel17 #primaryModal > .topModal {
+  background-color: #733d8c;
+}
+#primaryModal.channel17 > .topModal > .closeButton:hover,
+.channel17 #primaryModal > .topModal > .closeButton:hover {
+  background-color: #82459e;
+}
+#primaryModal.channel17 #tabs .tabButton:hover,
+.channel17 #primaryModal #tabs .tabButton:hover {
+  background-color: #82459e;
+}
+#primaryModal.channel17 #tabs .tabButton:after,
+.channel17 #primaryModal #tabs .tabButton:after {
+  border-top-color: #733d8c !important;
+}
+#primaryModal.channel17 #tabs .tabButtone:hoverafter,
+.channel17 #primaryModal #tabs .tabButtone:hoverafter {
+  border-top-color: #82459e;
+}
+#primaryModal.channel18 > .topModal,
+.channel18 #primaryModal > .topModal {
+  background-color: #57a800;
+}
+#primaryModal.channel18 > .topModal > .closeButton:hover,
+.channel18 #primaryModal > .topModal > .closeButton:hover {
+  background-color: #64c200;
+}
+#primaryModal.channel18 #tabs .tabButton:hover,
+.channel18 #primaryModal #tabs .tabButton:hover {
+  background-color: #64c200;
+}
+#primaryModal.channel18 #tabs .tabButton:after,
+.channel18 #primaryModal #tabs .tabButton:after {
+  border-top-color: #57a800 !important;
+}
+#primaryModal.channel18 #tabs .tabButtone:hoverafter,
+.channel18 #primaryModal #tabs .tabButtone:hoverafter {
+  border-top-color: #64c200;
+}
+#primaryModal.channel19 > .topModal,
+.channel19 #primaryModal > .topModal {
+  background-color: #ce7a2b;
+}
+#primaryModal.channel19 > .topModal > .closeButton:hover,
+.channel19 #primaryModal > .topModal > .closeButton:hover {
+  background-color: #d6873c;
+}
+#primaryModal.channel19 #tabs .tabButton:hover,
+.channel19 #primaryModal #tabs .tabButton:hover {
+  background-color: #d6873c;
+}
+#primaryModal.channel19 #tabs .tabButton:after,
+.channel19 #primaryModal #tabs .tabButton:after {
+  border-top-color: #ce7a2b !important;
+}
+#primaryModal.channel19 #tabs .tabButtone:hoverafter,
+.channel19 #primaryModal #tabs .tabButtone:hoverafter {
+  border-top-color: #d6873c;
+}
+/*======================
+  = Metrics of the app =
+  ====================== */
+/* Consider this file as a "palette of shared dimensions" */
+/*---------------------------------------------------
+    LESS Elements 0.6
+  ---------------------------------------------------
+    A set of useful LESS mixins by Dmitry Fadeyev
+    Special thanks for mixin suggestions to:
+      Kris Van Herzeele,
+      Benoit Adam,
+      Portenart Emile-Victor,
+      Ryan Faerman
+
+    More info at: http://lesselements.com
+-----------------------------------------------------*/
+@media screen and (max-width: 660px) {
+  body #primaryModal {
+    overflow: hidden;
+    width: 100%;
+  }
+  body #primaryModal > .content {
+    width: 100%;
+    padding-left: 20px;
+    margin-right: 0;
+    transition-property: left;
+    -moz-transition-property: left;
+    -webkit-transition-property: left;
+    -moz-transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    left: -100%;
+  }
+  body #primaryModal > .closeButton {
+    display: none;
+  }
+  body #primaryModal > .topModal {
+    height: 40px;
+  }
+  body #primaryModal > .topModal > .closeButton {
+    display: inline;
+  }
+  body #primaryModal .foldButton {
+    right: 100%;
+  }
+  body #tabs {
+    display: block;
+  }
+  body #secondaryModal {
+    display: block;
+    width: 100%;
+    right: -100%;
+  }
+  body #secondaryModal .content {
+    top: 60px;
+    left: 20px;
+  }
+  body #secondaryModal.closed {
+    right: -100%;
+    margin-right: 0;
+  }
+  body #secondaryModal.closed ~ .content {
+    left: 0;
+  }
+  body #secondaryModal.closed ~ .foldButton {
+    right: -10px;
+  }
+}
+/*======================
+  = Metrics of the app =
+  ====================== */
+/* Consider this file as a "palette of shared dimensions" */
+/*---------------------------------------------------
+    LESS Elements 0.6
+  ---------------------------------------------------
+    A set of useful LESS mixins by Dmitry Fadeyev
+    Special thanks for mixin suggestions to:
+      Kris Van Herzeele,
+      Benoit Adam,
+      Portenart Emile-Victor,
+      Ryan Faerman
+
+    More info at: http://lesselements.com
+-----------------------------------------------------*/
+@media screen and (max-width: 800px) {
+  body #primaryModal {
+    width: 100%;
+  }
+}
+/*======================
+  = Modal panels style =
+  ====================== */
+/*=======================
+  = Channel main colors =
+  ======================= */
+/*===========================
+  = Application main colors =
+  =========================== */
+/*======================
+  = Metrics of the app =
+  ====================== */
+/* Consider this file as a "palette of shared dimensions" */
+/*======================
+  = Put z-indexes here =
+  ====================== */
+/*---------------------------------------------------
+    LESS Elements 0.6
+  ---------------------------------------------------
+    A set of useful LESS mixins by Dmitry Fadeyev
+    Special thanks for mixin suggestions to:
+      Kris Van Herzeele,
+      Benoit Adam,
+      Portenart Emile-Victor,
+      Ryan Faerman
+
+    More info at: http://lesselements.com
+-----------------------------------------------------*/
+/*======================================
+  = Modal panels transitions durations =
+  ====================================== */
+#primaryModal {
+  position: fixed;
+  width: 90%;
+  height: 100%;
+  max-width: 1200px;
+  top: 0;
+  z-index: 5;
+  background-color: #ffffff;
+}
+#primaryModal > .topModal {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background-color: #444444;
+  z-index: 7;
+}
+#primaryModal > .topModal > .closeButton {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  padding: 0;
+  background: transparent url(../images/icon_close_w.png) center center no-repeat;
+  display: none;
+}
+#primaryModal > .topModal > .closeButton:hover {
+  cursor: pointer;
+  background-color: #515151;
+}
+#primaryModal > .closeButton {
+  position: absolute;
+  width: 34px;
+  height: 36px;
+  top: 30px;
+  left: 0;
+  background-color: #eeeeee;
+  border: 0;
+  background-image: url(../images/icon_close.png);
+  background-repeat: no-repeat;
+  background-position: 11px 12px;
+}
+#primaryModal > .closeButton:hover {
+  cursor: pointer;
+  background-color: #e6e6e6;
+}
+#primaryModal > .title {
+  display: none;
+}
+#primaryModal > .content {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  right: 0;
+  padding: 30px 20px 0 50px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  margin-right: 330px;
+  transition-property: margin-right;
+  -moz-transition-property: margin-right;
+  -webkit-transition-property: margin-right;
+  -moz-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -webkit-transition-timing-function: ease-out;
+}
+#secondaryModal {
+  position: fixed;
+  width: 330px;
+  height: 100%;
+  top: 4px;
+  z-index: 6;
+  background: #eeeeee;
+}
+#secondaryModal > .title {
+  display: none;
+}
+#secondaryModal > .content {
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 30px;
+  right: 20px;
+}
+#primaryModal > .foldButton {
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  top: 0;
+  right: 330px;
+  background-color: #e1e1e1;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: 0;
+  padding: 0;
+  font-size: 15px;
+  color: white;
+  text-align: center;
+  z-index: 5;
+  background-image: url(../images/icon_fold.png);
+  transition-property: "right, z-index";
+  -moz-transition-property: "right, z-index";
+  -webkit-transition-property: "right, z-index";
+  -moz-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -webkit-transition-timing-function: ease-out;
+  transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+}
+#primaryModal > .foldButton:hover {
+  background-color: #d5d5d5;
+  cursor: pointer;
+}
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: black;
+  z-index: 4;
+}
+#tabs {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 40px;
+  display: none;
+  font-size: 0;
+  white-space: nowrap;
+}
+#tabs > .tabButton {
+  width: 50%;
+  height: 40px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  color: white;
+  font-size: 16px;
+  background-color: transparent;
+  white-space: nowrap;
+  position: relative;
+  display: inline-block;
+}
+#tabs > .tabButton:hover {
+  cursor: pointer;
+  background-color: #515151;
+}
+.tabActive {
+  position: absolute;
+  content: " ";
+  width: 0;
+  height: 0;
+  left: 50%;
+  bottom: -6px;
+  margin-left: -6px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #444444;
+}
+.tabInactive {
+  display: none;
+}
+#primaryModal {
+  display: none;
+  right: -100%;
+  transition-property: "right";
+  -moz-transition-property: "right";
+  -webkit-transition-property: "right";
+  -moz-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -webkit-transition-timing-function: ease-out;
+}
+#secondaryModal {
+  display: none;
+  right: -330px;
+  transition-property: "right, margin-right";
+  -moz-transition-property: "right, margin-right";
+  -webkit-transition-property: "right, margin-right";
+  -moz-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -webkit-transition-timing-function: ease-out;
+}
+#overlay {
+  display: none;
+  opacity: 0;
+  cursor: pointer;
+  transition-property: opacity;
+  -moz-transition-property: opacity;
+  -webkit-transition-property: opacity;
+  -moz-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -webkit-transition-timing-function: ease-out;
+}
+.modalDisplayed {
+  overflow-x: hidden;
+}
+.modalDisplayed #primaryModal,
+.modalDisplayed #secondaryModal,
+.modalDisplayed #overlay {
+  display: block;
+}
+.modalVisible #primaryModal {
+  right: 0;
+}
+.modalVisible #secondaryModal {
+  right: 0;
+}
+.modalVisible .foldButton {
+  z-index: 6;
+}
+.modalVisible #overlay {
+  opacity: 0.75;
+}
+#tabs .tabButton:nth-child(2):after {
+  position: absolute;
+  content: " ";
+  width: 0;
+  height: 0;
+  left: 50%;
+  bottom: -6px;
+  margin-left: -6px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #444444;
+}
+#secondaryModal.closed {
+  right: -330px;
+}
+#secondaryModal.closed ~ .content {
+  margin-right: 10px;
+}
+#secondaryModal.closed ~ .foldButton {
+  background-image: url(../images/icon_unfold.png);
+  right: 0;
+}
+#secondaryModal.closed ~ .topModal > #tabs > .tabButton:nth-child(2):after {
+  display: none;
+}
+#secondaryModal.closed ~ .topModal > #tabs > .tabButton:first-child:after {
+  position: absolute;
+  content: " ";
+  width: 0;
+  height: 0;
+  left: 50%;
+  bottom: -6px;
+  margin-left: -6px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #444444;
+}

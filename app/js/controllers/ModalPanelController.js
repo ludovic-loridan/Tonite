@@ -327,7 +327,9 @@
         // --               --
         initialState : function () {
             this.isOpened = false;
+            this.userWantsSecondaryOpened = true;
             this.secondaryIsOpened = true;
+
         }
     };
 

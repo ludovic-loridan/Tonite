@@ -45,6 +45,9 @@
 body {
   background: #ffffff;
 }
+.notDisplayed {
+  display: none;
+}
 /*===============
   = Header.less =
   =============== */
@@ -238,11 +241,23 @@ body {
   background: -ms-linear-gradient(right, #57a800, #ce7a2b);
   background: -moz-linear-gradient(center left, #57a800 0%, #ce7a2b 100%);
 }
+/*---------------------------------------------------
+    LESS Elements 0.6
+  ---------------------------------------------------
+    A set of useful LESS mixins by Dmitry Fadeyev
+    Special thanks for mixin suggestions to:
+      Kris Van Herzeele,
+      Benoit Adam,
+      Portenart Emile-Victor,
+      Ryan Faerman
+
+    More info at: http://lesselements.com
+-----------------------------------------------------*/
 header#mainHeader {
   position: absolute;
   top: 0;
   left: 0;
-  width: 440px;
+  min-width: 100%;
   height: 50px;
   z-index: 3;
 }
@@ -285,6 +300,8 @@ header#mainHeader .headerStencil .catchLine {
   background-color: #ffffff;
 }
 header#mainHeader .headerGradient {
+  background: #444444;
+  min-width: 100%;
   font-size: 0;
   white-space: nowrap;
   height: 50px;

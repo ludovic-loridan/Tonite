@@ -60,6 +60,10 @@
             if (hasAValue(this.program.duration)) {
                 this.HTMLCharacteristics.addListItem(this.program.duration);
             }
+
+            if (hasAValue(this.program.year)) {
+                this.HTMLCharacteristics.addListItem(this.program.year);
+            }
         },
 
         getStatusText : function () {
@@ -111,8 +115,13 @@
         // - Sync of the image --
 
         updateImage : function () {
-            this.HTMLImage.setAttribute("alt", this.program.title);
-            this.HTMLImage.setAttribute("src", this.program.imageURL);
+            if (this.program.imageURL !== null) {
+                this.HTMLImage.classList.remove("notDisplayed");
+                this.HTMLImage.setAttribute("alt", this.program.title);
+                this.HTMLImage.setAttribute("src", this.program.imageURL);
+            } else {
+                this.HTMLImage.classList.add("notDisplayed");
+            }
         },
 
         // -- Auto update --

@@ -218,12 +218,7 @@
         // --                 --
         openRelatedProgramDetails : function (evt) {
             var relatedProgram = evt.target.controller.program;
-            var pdc = new ProgramDetailsController(relatedProgram);
-            var mpc = ModalPanelController.getController();
-
-            mpc.primaryController = pdc;
-            mpc.CSSClass = "channel" + relatedProgram.channel_id;
-            mpc.openPrimary();
+            ProgramDetailsController.openDetailsForProgram(relatedProgram);
         }
 
     };

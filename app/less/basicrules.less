@@ -4,6 +4,7 @@
 
 @import "../fonts/roboto.less";
 @import "palette.less";
+@import "modalpanels_transitions.less";
 
 // Base font
 * {
@@ -16,4 +17,8 @@ body {
 
 .notDisplayed {
     display: none;
+}
+
+.transitionDisabled {
+    .transition-duration(0.001s) !important;
 }

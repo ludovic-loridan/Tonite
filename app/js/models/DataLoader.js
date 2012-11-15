@@ -65,7 +65,7 @@
                 console.log("data loaded from xml because IndexedDB not supported");
                 var xmlparser = new XMLParser();
                 // set listeners
-                xmlparser.addEventListener("dataParsed", callbacksucces);
+                xmlparser.addEventListener("dataParsed", callbacksuccess);
                 xmlparser.addEventListener("error", callbackerror);
                 // parse data
                 xmlparser.parseData(date);

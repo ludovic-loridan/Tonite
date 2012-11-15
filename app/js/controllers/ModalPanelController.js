@@ -306,7 +306,7 @@
             var animationDisablingFunction = getThisCallingFunction(this, "temporarlyDisableAnimations");
             window.addEventListener("resize", animationDisablingFunction);
 
-            
+            window.addEventListener("resize", KeyBindingsController.temporarlyDisableKeyBindings);
         },
 
 
@@ -433,6 +433,14 @@
 
         isSplit : function () {
             return !(ModalPanelController.isTabbed());
+        },
+
+        close : function () {
+            return ModalPanelController.getController().closePrimary();
+        },
+
+        open : function () {
+            return ModalPanelController.getController().openPrimary();
         }
 
     };

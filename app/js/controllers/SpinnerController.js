@@ -1,11 +1,11 @@
 /*
-    =======================
-    = HeaderController.js =
-    =======================
+    ========================
+    = SpinnerController.js =
+    ========================
 
-    Generates Tonite's header
+    This class represents a canvas spinner
 
-    Author : Ludovic Loridan
+    Author : Alexis Camus
 
 */
 

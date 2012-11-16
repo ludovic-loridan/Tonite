@@ -14,7 +14,8 @@
 URLHashController = {
 
     hashActions : {
-        program : ProgramDetailsController.openDetailsForProgramById
+        program : ProgramDetailsController.openDetailsForProgramById,
+        mainPage : ModalPanelController.close
     },
 
     // Hash Actions Management
@@ -37,16 +38,39 @@ URLHashController = {
     },
 
     // Hash param
-    getHashParams : function () {
-        var hashValue = location.hash.substring(1);
+    getHashParamsFromString : function (hashValue) {
         var hashParams = hashValue.split(".",2);
         return {actionName : hashParams[0], param: hasAValueOr(hashParams[1], null)};
     },
 
+    getHashParamsFromURL : function () {
+        var hashValue = location.hash.substring(1);
+        return URLHashController.getHashParamsFromString(hashValue);
+    },
+
+    callHashActionFromString: function(hashValue) {
+        var hash = URLHashController.getHashParamsFromString(hashValue);
+        URLHashController.callHashAction(hash.actionName,hash.param);
+    },
+
     callHashActionFromURL : function () {
-        var hash = URLHashController.getHashParams();
+        var hash = URLHashController.getHashParamsFromURL();
         URLHashController.callHashAction(hash.actionName,hash.param);
     }
 
 
+};
+
+// Handle "back" events
+window.onpopstate = function (e) {
+    if (hasAValue(e.state)) {
+        console.log("Popped " + e.state);
+        URLHashController.callHashActionFromString(e.state);
+    } else {
+        try {
+            URLHashController.callHashActionFromURL();
+        } catch (exc) {
+
+        }
+    }
 };

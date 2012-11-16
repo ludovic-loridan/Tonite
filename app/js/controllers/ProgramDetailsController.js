@@ -189,6 +189,11 @@
         },
 
         openDetailsForProgram : function (program) {
+            this.openModalPanelWithChannelDetails(program);
+        },
+
+        // private
+        openModalPanelWithChannelDetails : function (program) {
             var pdc = new ProgramDetailsController(program);
             var mpc = ModalPanelController.getController();
 

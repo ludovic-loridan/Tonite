@@ -216,9 +216,20 @@
         // --                 --
         // -- Event listeners --
         // --                 --
+
+
         openRelatedProgramDetails : function (evt) {
             var relatedProgram = evt.target.controller.program;
+            TileController.pushProgramDetailsVisitInHistory(relatedProgram);
             ProgramDetailsController.openDetailsForProgram(relatedProgram);
+        },
+
+        // private
+        pushProgramDetailsVisitInHistory : function (program) {
+            var state = "program."+program.id;
+            var newURL = location.pathname+"#"+state;
+            console.log("pushed program");
+            history.pushState(state,"program",newURL);
         }
 
     };

@@ -19,11 +19,12 @@ function main() {
 function success(data) {
     var header = new HeaderController(data);
     var clc = new ChannelsListController(data);
-    var modal = new ModalPanelController();
 
     document.body.appendChild(header.view);
     document.body.appendChild(clc.view);
     clc.centerView();
+
+    URLHashController.callHashActionFromURL();
 }
 
 function failure() {

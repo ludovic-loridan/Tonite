@@ -15,7 +15,7 @@ KeyBindingsController = {
     enabled : true,
 
     keyActions : {
-        27 : ModalPanelController.close // Escape key
+        27 : ModalPanelController.closeAndLogInHistory // Escape key
     },
 
     hasKeyActionForKeyCode : function (keyCode) {
@@ -27,7 +27,7 @@ KeyBindingsController = {
     },
 
     doKeyActionForKeyCode : function (keyCode) {
-        if (KeyBindingsController.enabled && 
+        if (KeyBindingsController.enabled &&
             KeyBindingsController.hasKeyActionForKeyCode(keyCode)) {
 
             KeyBindingsController.getKeyActionForKeyCode(keyCode).call(this);

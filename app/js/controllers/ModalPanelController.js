@@ -35,12 +35,18 @@
         // -- ModalPanel open/close --
         // --                       --
 
-        openPrimary : function (animated) {
+        openPrimary : function () {
             this.isOpened = true;
         },
 
         closePrimary : function () {
             this.isOpened = false;
+        },
+
+        closePrimaryAndLogInHistory : function () {
+            this.closePrimary();
+            console.log("pushed mainpage");
+            history.pushState("mainPage","mainPage",location.origin+location.pathname);
         },
 
         setIsOpened : function (newValue) {
@@ -288,7 +294,7 @@
         installButtonsListeners : function () {
             this.HTMLFoldButton.addEventListener("click", getThisCallingFunction(this, "toggleSecondary"));
 
-            var closePrimaryFunction = getThisCallingFunction(this, "closePrimary");
+            var closePrimaryFunction = getThisCallingFunction(this, "closePrimaryAndLogInHistory");
             this.HTMLCloseButton.addEventListener("click", closePrimaryFunction);
             this.HTMLCloseButtonTop.addEventListener("click", closePrimaryFunction);
             this.HTMLOverlay.addEventListener("click", closePrimaryFunction);
@@ -424,7 +430,7 @@
         },
 
         hasBeenInstanced : function () {
-            return (ModalPanelController.singleton !== null);
+            return (hasAValue(ModalPanelController.singleton));
         },
 
         isTabbed : function () {
@@ -441,6 +447,10 @@
 
         open : function () {
             return ModalPanelController.getController().openPrimary();
+        },
+
+        closeAndLogInHistory : function () {
+            return ModalPanelController.getController().closePrimaryAndLogInHistory();
         }
 
     };

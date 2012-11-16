@@ -57,7 +57,6 @@ var methods = {
     },
 
     stop : function () {
-        console.log("stop");
         clearInterval(this.timeInfosUpdateInterval);
         this.timeInfosUpdateInterval = null;
     }

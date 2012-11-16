@@ -67,14 +67,10 @@ var methods = {
     // -- HTML Generation --
     createView : function() {
         this.view = document.createElementWithAttributes("div","class","progressBar");
-        
         this.HTMLStartString = this.view.addElement("span","class","startString");
-
         var bar = this.view.addElement("div","class","bar");
         this.HTMLCompletion = bar.addElement("div","class","completion");
-
         this.HTMLStopString = this.view.addElement("span","class","stopString");
-        
         this.view.controller = this;
     }
 

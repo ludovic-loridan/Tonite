@@ -52,7 +52,6 @@ var methods = {
     },
 
     start : function() {
-        //this.drawSpinner();
         var updateFunction = getThisCallingFunction(this, "drawSpinner");
         this.timeInfosUpdateInterval = setInterval(updateFunction, 70);
     },

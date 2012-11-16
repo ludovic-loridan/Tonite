@@ -9,64 +9,65 @@
 
 */
 
-(function () {
+(function() {
 
-var className = "ChannelsListController";
+    var className = "ChannelsListController";
 
-var properties = ["channelsList","view"];
+    var properties = ["channelsList", "view", "realView"];
 
-var methods = {
+    var methods = {
 
-    // -- Sync with Model --
-    setChannelsList : function(newList) {
-        if (!(newList instanceof Array)) {
-            throw "Error : Given object is not an array.";
+        // -- Sync with Model --
+        setChannelsList: function(newList) {
+            if(!(newList instanceof Array)) {
+                throw "Error : Given object is not an array.";
+            }
+
+            channelsList = newList;
+            this.updateView();
+        },
+
+        getView: function() {
+            var func = getThisCallingFunction(this, "showView");
+            this.timeInfosUpdateInterval = setTimeout(func, 10);
+            return this.realView;
+        },
+
+        updateView: function() {
+            this.clearView();
+            this.addChannelsFromModel();
+        },
+
+        clearView: function() {
+            this.realView.removeAllChildren();
+        },
+
+        addChannelsFromModel: function() {
+            for(var i = 0; i < this.channelsList.length; i++) {
+                var channelController = new ChannelController(this.channelsList[i]);
+                this.realView.appendChild(channelController.view);
+            }
+        },
+
+        createView: function() {
+            this.realView = document.createElementWithAttributes("div", "id", "channels", "class", "vcenter");
+            this.realView.controller = this;
+        },
+
+        showView: function() {
+            this.realView.addLoadedClass();
         }
+    };
 
-        channelsList = newList;
-        this.updateView();
-    },
+    var initializer = function(channelsList) {
+            this.createView();
+            this.channelsList = channelsList;
+        };
 
-    updateView : function () {
-        this.clearView();
-        this.addChannelsFromModel();
-    },
+    var staticMethods = {};
 
-    clearView : function() {
-        this.view.removeAllChildren();
-    },
+    var staticProperties = {};
 
-    addChannelsFromModel : function () {
-        for (var i = 0; i < this.channelsList.length; i++) {
-            var channelController = new ChannelController(this.channelsList[i]);
-            this.view.appendChild(channelController.view);
-        }
-    },
-
-    // -- HTML Generation --
-    createView : function() {
-        this.view = document.createElementWithAttributes("div","id","channels", "class", "vcenter");
-        this.view.controller = this;
-    },
-
-    showView : function() {
-        this.view.addLoadedClass();
-    }
-};
-
-var initializer = function (channelsList,view) {
-    this.createView();
-    this.channelsList = channelsList;
-};
-
-var staticMethods = {
-
-
-
-};
-
-var staticProperties = {};
-
-Class.create(className,properties,methods,initializer,staticMethods,staticProperties);
+    Class.create(className, properties, methods, initializer, staticMethods, staticProperties);
 
 })();

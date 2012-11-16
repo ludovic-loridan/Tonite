@@ -49,7 +49,7 @@
         },
 
         channelNameFromId: function(id) {
-            return Channel.channelList[id];
+            return Channel.channelList[id-1];
         },
 
         // returns id of the new channel name

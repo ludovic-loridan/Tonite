@@ -1,3 +1,15 @@
+/*
+    =====================
+    = verticalCenter.js =
+    =====================
+
+    This function, when called or when the browser is resised centers
+    all the elements with the vcenter class
+
+    Author : Alexis Camus
+
+*/
+
 function centerElementsVertically() {
     var elements = document.getElementsByClassName('vcenter');
     for(var i = 0; i < elements.length; i++) {

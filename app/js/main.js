@@ -31,6 +31,8 @@ function success(data) {
     centerElementsVertically();
 
     URLHashController.callHashActionFromURL();
+
+    DataLoader.loadDataForTheNextDays((new Date()).toISO(8));
 }
 
 function failure() {

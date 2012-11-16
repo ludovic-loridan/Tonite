@@ -33,7 +33,7 @@ URLHashController = {
             hashAction.call(this,param);
             return true;
         } else {
-            return false;
+            return URLHashController.callHashAction("mainPage","");
         }
     },
 

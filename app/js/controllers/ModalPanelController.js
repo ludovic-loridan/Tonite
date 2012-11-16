@@ -37,6 +37,9 @@
 
         openPrimary : function () {
             this.isOpened = true;
+            if (ModalPanelController.isTabbed()) {
+                this.secondaryIsOpened = false;
+            }
         },
 
         closePrimary : function () {
@@ -201,7 +204,7 @@
 
             this.disableAnimations();
             clearTimeout(ModalPanelController.animationDisabler);
-            ModalPanelController.animationDisabler = setTimeout(enablerFunction,100);
+            ModalPanelController.animationDisabler = setTimeout(enablerFunction,300);
         },
 
         // --                           --

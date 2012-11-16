@@ -11,23 +11,31 @@ function hasAValueOr(obj, defaultValue) {
     }
 }
 
+Arguments = {
+    slice: function(args, index) {
+        return Array.prototype.slice.call(args, index);
+    }
+};
+
 // Returns a function that call the function named "fun" on object
 function getThisCallingFunction(object, fun) {
     return function (evt) {(object[fun])(evt); };
 }
 
-/*  = Help for implementing transitions callbacks = */
+/*  = Transitions extensions = */
 HTMLElement.prototype.addTransitionCallback = function (callback) {
     this.addEventListener('webkitTransitionEnd', callback, false);
     this.addEventListener('transitionend', callback, false);
     this.addEventListener('OTransitionEnd', callback, false);
 };
 
-Arguments = {
-    slice: function(args, index) {
-        return Array.prototype.slice.call(args, index);
-    }
-}
+HTMLElement.prototype.disableTransition = function () {
+    this.classList.add("transitionDisabled");
+};
+
+HTMLElement.prototype.enableTransition = function () {
+    this.classList.remove("transitionDisabled");
+};
 
 /*  = String extensions = */
 
@@ -51,7 +59,7 @@ String.prototype.addZeros = function (nbDigits) {
 /*  = Element extensions = */
 Element.prototype.getData = function () {
     return this.childNodes[0].data;
-}
+};
 
 /*  = Maths extensions = */
 Math.naturalRandom = function (end) {
@@ -100,7 +108,7 @@ Math.naturalRandom = function (end) {
 
         var iso = year.toString() + month.toString() + day.toString() + hour.toString() + minute.toString();
         return iso.substr(0, limit);
-    }
+    };
 
     Date.prototype.getHoursMinutesString = function (separator) {
         if (!hasAValue(separator)) {separator = ":"; }

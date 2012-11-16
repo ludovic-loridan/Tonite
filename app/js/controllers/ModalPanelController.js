@@ -19,6 +19,7 @@
     var className = "ModalPanelController";
 
     var properties = ["primaryController", "secondaryController", "view", "CSSClass",
+                      "primaryIsAnimated","secondaryIsAnimated",
                       "isOpened", "secondaryIsOpened", "userWantsSecondaryOpened",
                       "view",
                       "HTMLOverlay", "HTMLPrimary", "HTMLSecondary",
@@ -36,10 +37,19 @@
 
         openPrimary : function () {
             this.isOpened = true;
+            if (ModalPanelController.isTabbed()) {
+                this.secondaryIsOpened = false;
+            }
         },
 
         closePrimary : function () {
             this.isOpened = false;
+        },
+
+        closePrimaryAndLogInHistory : function () {
+            this.closePrimary();
+            console.log("pushed mainpage");
+            history.pushState("mainPage","mainPage",location.origin+location.pathname);
         },
 
         setIsOpened : function (newValue) {
@@ -135,13 +145,67 @@
 
         updateSecondaryModalState: function () {
             if (this.secondaryIsOpened) {
-                console.log("is closed");
                 this.HTMLSecondary.classList.remove("closed");
             } else {
                 this.HTMLSecondary.classList.add("closed");
             }
         },
 
+        // --                      --
+        // -- Animation management --
+        // --                      --
+
+        setPrimaryIsAnimated : function (newAnimationParameter) {
+            primaryIsAnimated = newAnimationParameter;
+            this.updatePrimaryAnimation();
+        },
+
+        setSecondaryIsAnimated : function (newAnimationParameter) {
+            secondaryIsAnimated = newAnimationParameter;
+            this.updateSecondaryAnimation();
+        },
+
+        updatePrimaryAnimation: function () {
+            if (this.primaryIsAnimated) {
+                this.HTMLPrimary.enableTransition();
+                this.HTMLOverlay.enableTransition();
+            } else {
+                this.HTMLPrimary.disableTransition();
+                this.HTMLOverlay.disableTransition();
+            }
+
+            this.updateSecondaryAnimation();
+        },
+
+        updateSecondaryAnimation : function () {
+            if (this.primaryIsAnimated && this.secondaryIsAnimated) {
+                this.HTMLSecondary.enableTransition();
+                this.HTMLPrimaryContent.enableTransition();
+                this.HTMLFoldButton.enableTransition();
+            } else {
+                this.HTMLSecondary.disableTransition();
+                this.HTMLPrimaryContent.disableTransition();
+                this.HTMLFoldButton.disableTransition();
+            }
+        },
+
+        disableAnimations : function() {
+            this.primaryIsAnimated = false;
+            this.secondaryIsAnimated = false;
+        },
+
+        enableAnimations : function () {
+            this.primaryIsAnimated = true;
+            this.secondaryIsAnimated = true;
+        },
+
+        temporarlyDisableAnimations : function () {
+            var enablerFunction = getThisCallingFunction(this,"enableAnimations");
+
+            this.disableAnimations();
+            clearTimeout(ModalPanelController.animationDisabler);
+            ModalPanelController.animationDisabler = setTimeout(enablerFunction,300);
+        },
 
         // --                           --
         // -- Setting of  Controllers   --
@@ -210,6 +274,8 @@
             this.updateSecondaryView();
             this.updatePrimaryModalState();
             this.updateSecondaryModalState();
+            this.updatePrimaryAnimation();
+            this.updateSecondaryAnimation();
         },
 
 
@@ -220,7 +286,7 @@
         installEventListeners: function () {
             this.installTransitionEventListener();
             this.installButtonsListeners();
-            this.installSplitStatusCheckingListeners();
+            this.installResizeListeners();
         },
 
         installTransitionEventListener : function () {
@@ -231,7 +297,7 @@
         installButtonsListeners : function () {
             this.HTMLFoldButton.addEventListener("click", getThisCallingFunction(this, "toggleSecondary"));
 
-            var closePrimaryFunction = getThisCallingFunction(this, "closePrimary");
+            var closePrimaryFunction = getThisCallingFunction(this, "closePrimaryAndLogInHistory");
             this.HTMLCloseButton.addEventListener("click", closePrimaryFunction);
             this.HTMLCloseButtonTop.addEventListener("click", closePrimaryFunction);
             this.HTMLOverlay.addEventListener("click", closePrimaryFunction);
@@ -242,9 +308,14 @@
             this.HTMLSecondaryTab.addEventListener("click", switchSecondaryFunction);
         },
 
-        installSplitStatusCheckingListeners : function () {
+        installResizeListeners : function () {
             var checkSplitStatusChangeFunction = getThisCallingFunction(this, "checkSplitStatusChange");
             window.addEventListener("resize", checkSplitStatusChangeFunction);
+
+            var animationDisablingFunction = getThisCallingFunction(this, "temporarlyDisableAnimations");
+            window.addEventListener("resize", animationDisablingFunction);
+
+            window.addEventListener("resize", KeyBindingsController.temporarlyDisableKeyBindings);
         },
 
 
@@ -266,11 +337,13 @@
         },
 
         splitStatusHasChanged : function() {
+
             if (this.isSplit) {
                 this.secondaryIsOpened = this.userWantsSecondaryOpened;
             } else {
                 this.secondaryIsOpened = false;
             }
+            
         },
         
 
@@ -329,7 +402,8 @@
             this.isOpened = false;
             this.userWantsSecondaryOpened = true;
             this.secondaryIsOpened = true;
-
+            this.primaryIsAnimated = true;
+            this.secondaryIsAnimated = true;
         }
     };
 
@@ -359,15 +433,27 @@
         },
 
         hasBeenInstanced : function () {
-            return (ModalPanelController.singleton !== null);
+            return (hasAValue(ModalPanelController.singleton));
         },
 
         isTabbed : function () {
-            return (document.body.offsetWidth <= 660);
+            return (window.innerWidth <= 660);
         },
 
         isSplit : function () {
             return !(ModalPanelController.isTabbed());
+        },
+
+        close : function () {
+            return ModalPanelController.getController().closePrimary();
+        },
+
+        open : function () {
+            return ModalPanelController.getController().openPrimary();
+        },
+
+        closeAndLogInHistory : function () {
+            return ModalPanelController.getController().closePrimaryAndLogInHistory();
         }
 
     };

@@ -183,7 +183,24 @@
 
     var staticMethods = {
 
+        openDetailsForProgramById : function (program_id) {
+            var program = Program.programFromId(program_id);
+            ProgramDetailsController.openDetailsForProgram(program);
+        },
 
+        openDetailsForProgram : function (program) {
+            this.openModalPanelWithChannelDetails(program);
+        },
+
+        // private
+        openModalPanelWithChannelDetails : function (program) {
+            var pdc = new ProgramDetailsController(program);
+            var mpc = ModalPanelController.getController();
+
+            mpc.primaryController = pdc;
+            mpc.CSSClass = "channel" + program.channel_id;
+            mpc.openPrimary();
+        }
 
     };
 

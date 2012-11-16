@@ -216,14 +216,20 @@
         // --                 --
         // -- Event listeners --
         // --                 --
+
+
         openRelatedProgramDetails : function (evt) {
             var relatedProgram = evt.target.controller.program;
-            var pdc = new ProgramDetailsController(relatedProgram);
-            var mpc = ModalPanelController.getController();
+            TileController.pushProgramDetailsVisitInHistory(relatedProgram);
+            ProgramDetailsController.openDetailsForProgram(relatedProgram);
+        },
 
-            mpc.primaryController = pdc;
-            mpc.CSSClass = "channel" + relatedProgram.channel_id;
-            mpc.openPrimary();
+        // private
+        pushProgramDetailsVisitInHistory : function (program) {
+            var state = "program."+program.id;
+            var newURL = location.pathname+"#"+state;
+            console.log("pushed program");
+            history.pushState(state,"program",newURL);
         }
 
     };

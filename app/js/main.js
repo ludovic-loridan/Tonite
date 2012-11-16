@@ -24,6 +24,8 @@ function success(data) {
     var clc = new ChannelsListController(data);
     document.body.appendChild(clc.view);
     clc.centerView();
+
+    URLHashController.callHashActionFromURL();
 }
 
 function failure() {

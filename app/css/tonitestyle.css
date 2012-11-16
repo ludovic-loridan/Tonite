@@ -48,6 +48,11 @@ body {
 .notDisplayed {
   display: none;
 }
+.transitionDisabled {
+  -moz-transition-duration: 0.001s !important;
+  -webkit-transition-duration: 0.001s !important;
+  transition-duration: 0.001s !important;
+}
 /*===============
   = Header.less =
   =============== */

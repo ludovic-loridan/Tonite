@@ -19,11 +19,35 @@
     var methods = {
 
         loadProgramsFromXML: function(programs) {
+            var longProgramThreshold = 20; // threshold in minutes to determin the long programs
+            var allPrograms = []; // will contain all entity programs
+            var longPograms = []; // will contain only the entity of the long programs
 
+            // creates program entities and feed both arrays
             for(var i = 0; i < programs.length; i++) {
-                if(i < 3) {
-                    program = Program.programFromXML(this.id, programs[i]);
-                    this.programs.push(program);
+                var program = Program.programFromXML(this.id, programs[i]);
+                allPrograms.push(program);
+                if(program.getMDuration() > 20)
+                    longPograms.push(program);
+            }
+
+            // if we have 3 long programs or more, then we take the first 3
+            if(longPograms.length >= 3) {
+                this.programs = longPograms.slice(0, 3);
+            }
+            // otherwise we get shortest programs as well
+            else {
+                // calculates how many short programs we can take
+                var freeSpot = 3 - longPograms.length;
+                // iterate through all the programs entities we saved earlier
+                for(var i = 0; i < allPrograms.length; i++) {
+                    var program = allPrograms[i];
+                    if(program.getMDuration() > 20)
+                        this.programs.push(program);
+                    else if(freeSpot > 0) {
+                        this.programs.push(program);
+                        freeSpot--;
+                    }
                 }
             }
         }

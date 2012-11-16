@@ -58,6 +58,11 @@
             throw "Not Implemented";
         },
 
+        getMDuration: function() {
+            var duration = new Date(this.stop - this.start);
+            return duration/60000;
+        },
+
         getDate: function() {
             return this.start.toISO(8).substr(0, 8);
         },

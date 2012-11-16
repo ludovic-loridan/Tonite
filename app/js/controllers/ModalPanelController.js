@@ -48,8 +48,7 @@
 
         closePrimaryAndLogInHistory : function () {
             this.closePrimary();
-            console.log("pushed mainpage");
-            history.pushState("mainPage","mainPage",location.origin+location.pathname);
+            history.pushState("mainPage","mainPage", urlWithoutHash(location.href) );
         },
 
         setIsOpened : function (newValue) {

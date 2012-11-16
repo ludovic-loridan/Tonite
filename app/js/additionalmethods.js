@@ -56,6 +56,12 @@ String.prototype.addZeros = function (nbDigits) {
     return string;
 };
 
+/*  = URL extensions = */
+function urlWithoutHash(url) {
+    var urlParts = url.split("#",2);
+    return urlParts[0];
+}
+
 /*  = Element extensions = */
 Element.prototype.getData = function () {
     return this.childNodes[0].data;

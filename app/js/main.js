@@ -13,18 +13,30 @@ function main() {
     window.header = new HeaderController();
     document.body.appendChild(window.header.view);
 
-    // TODO put a progressbar
-    IndexedDBManager.initialize(function() {
-        DataLoader.getDataForTonite(success, failure);
-    });
+    window.spinner = new SpinnerController();
+    document.body.appendChild(window.spinner.view);
+        centerElementsVertically();
+    window.spinner.start();
+
+    window.setTimeout(test,1000);
+
+    function test() {
+        IndexedDBManager.initialize(function() {
+            DataLoader.getDataForTonite(success, failure);
+        });
+    }
+    
 }
 
 function success(data) {
+    window.spinner.removeView();
+
     window.header.channelsList = data;
     var clc = new ChannelsListController(data);
     document.body.appendChild(clc.view);
-    clc.centerView();
-
+    setTimeout(function() {clc.showView();}, 10);
+    centerElementsVertically();
+    
     URLHashController.callHashActionFromURL();
 }
 

@@ -2004,10 +2004,16 @@ article.programDetails .programImage {
 -----------------------------------------------------*/
 #channels {
   position: absolute;
-  top: 50%;
   left: 0;
   white-space: nowrap;
   padding-top: 50px;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease-out;
+  -moz-transition: opacity 0.5s ease-out;
+  transition: opacity 0.5s ease-out;
+}
+#channels.loaded {
+  opacity: 1;
 }
 .channel {
   display: inline-block;

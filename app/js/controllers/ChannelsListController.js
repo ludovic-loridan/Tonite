@@ -45,20 +45,12 @@ var methods = {
 
     // -- HTML Generation --
     createView : function() {
-        this.view = document.createElementWithAttributes("div","id","channels");
-        this.addAutoCentering();
+        this.view = document.createElementWithAttributes("div","id","channels", "class", "vcenter");
         this.view.controller = this;
     },
 
-    addAutoCentering : function() {
-        var autoCenterFunction = getThisCallingFunction(this,"centerView");
-        window.addEventListener("resize",autoCenterFunction);
-    },
-
-    centerView : function() {
-        var height = this.view.offsetHeight;
-        var newMarginTop = - height / 2;
-        this.view.style.setProperty("margin-top",newMarginTop+"px","important");
+    showView : function() {
+        this.view.addLoadedClass();
     }
 };
 

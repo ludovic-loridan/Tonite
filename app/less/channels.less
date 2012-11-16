@@ -9,11 +9,18 @@
 
 #channels {
     position: absolute;
-    top: 50%;
     left: 0;
     white-space: nowrap;
-
     padding-top: @headerHeight;
+    opacity: 0;
+
+    .transition-property(opacity);
+    .transition-timing-function(ease-out);
+    .transition-duration(0.5s);
+
+    &.loaded {
+      opacity: 1;
+    }
 }
 
 .channel {

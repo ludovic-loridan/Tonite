@@ -48,7 +48,7 @@
         display: none;
         .rotation(45deg);
 
-        z-index: @z-tileContent;
+        z-index: @z-nowFlag;
     }
 
     &.now:before {
@@ -65,6 +65,9 @@
 
         position: relative;
         z-index: @z-tileContent;
+
+        overflow-x: hidden;
+        text-overflow: ellipsis;
     }
 
     @characteristicHeight : 25px;

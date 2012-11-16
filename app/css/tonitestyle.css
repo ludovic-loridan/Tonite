@@ -1914,7 +1914,7 @@ article.programDetails .programImage {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   transform: rotate(45deg);
-  z-index: 2;
+  z-index: 3;
 }
 .tile.now:before {
   display: block;
@@ -1927,6 +1927,8 @@ article.programDetails .programImage {
   font-size: 170%;
   position: relative;
   z-index: 2;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
 }
 .tile .characteristics {
   list-style: none;

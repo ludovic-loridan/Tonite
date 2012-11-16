@@ -10,6 +10,9 @@
 */
 
 function main() {
+    window.header = new HeaderController();
+    document.body.appendChild(window.header.view);
+
     // TODO put a progressbar
     IndexedDBManager.initialize(function() {
         DataLoader.getDataForTonite(success, failure);
@@ -17,11 +20,8 @@ function main() {
 }
 
 function success(data) {
-    var header = new HeaderController(data);
+    window.header.channelsList = data;
     var clc = new ChannelsListController(data);
-    var modal = new ModalPanelController();
-
-    document.body.appendChild(header.view);
     document.body.appendChild(clc.view);
     clc.centerView();
 }

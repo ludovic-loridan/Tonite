@@ -45,6 +45,7 @@ URLHashController = {
 
     getHashParamsFromURL : function () {
         var hashValue = location.hash.substring(1);
+        hashValue = hashValue.split('?',1)[0];
         return URLHashController.getHashParamsFromString(hashValue);
     },
 

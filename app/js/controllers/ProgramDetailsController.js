@@ -194,11 +194,15 @@
 
         // private
         openModalPanelWithChannelDetails : function (program) {
-            var pdc = new ProgramDetailsController(program);
             var mpc = ModalPanelController.getController();
-
-            mpc.primaryController = pdc;
             mpc.CSSClass = "channel" + program.channel_id;
+
+            var pdc = new ProgramDetailsController(program);
+            mpc.primaryController = pdc;
+
+            var ctc = new ChatThreadController(); // TODO : Link with a model
+            mpc.secondaryController = ctc;
+            
             mpc.openPrimary();
         }
 

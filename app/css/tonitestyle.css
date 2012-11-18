@@ -1712,6 +1712,7 @@ article.programDetails .programImage {
   position: absolute;
   top: 0;
   bottom: 55px;
+  width: 100%;
   box-sizing: border-box;
   padding: 0px;
   overflow-y: auto;

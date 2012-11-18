@@ -44,6 +44,10 @@ HTMLElement.prototype.enableTransition = function() {
 
 /*  = String extensions = */
 
+function isANonEmptyString(str) {
+    return (typeof(str) === 'string' && str.length > 0);
+}
+
 String.prototype.startsWith = function(str) {
     var prefix = this.substring(0, str.length);
     return str === prefix;
@@ -124,7 +128,7 @@ Math.naturalRandom = function(end) {
     };
 
     Date.prototype.addDays = function(days) {
-        var dat = new Date(this.valueOf())
+        var dat = new Date(this.valueOf());
         dat.setDate(dat.getDate() + days);
         return dat;
     };

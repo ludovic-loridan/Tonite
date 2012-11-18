@@ -5,7 +5,7 @@
 
     Entity that represents a single TV Program.
 
-    Author : Ludovic Loridan
+    Author : Ludovic Loridan & Alexis Camus
 
 */
 
@@ -121,6 +121,7 @@
                         break;
                     case "category":
                         instance.category = instance.category ? instance.category + " : " + childs[i].getData() : childs[i].getData();
+                        break; // Alexis : JSHint says me there was no break here, so I added it. Was it helpful ?
                     case "icon":
                         instance.imageURL = childs[i].getAttribute("src");
                         break;
@@ -140,7 +141,7 @@
         programFromIndexedDB: function(program) {
             var instance = new Program(program.title, program.start, program.stop, program.channel_id);
             for(var key in program) {
-                if(key != "id" && key != "date" && key != "duration")
+                if(key !== "id" && key !== "date" && key !== "duration")
                     instance[key] = program[key];
             }
             return instance;

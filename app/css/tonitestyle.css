@@ -1733,6 +1733,9 @@ article.programDetails .programImage {
   margin: 0;
   padding: 10px;
 }
+.chatBubble p .nickname:after {
+  content: " : ";
+}
 .chatBubble:first-child {
   margin-top: 20px;
 }

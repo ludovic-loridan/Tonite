@@ -83,6 +83,11 @@ Math.naturalRandom = function(end) {
     return Math.round(random);
 };
 
+Math.randomTrueFalse = function () {
+    var random = Math.naturalRandom(1);
+    return (random === 1);
+};
+
 /*  = Date extensions = */
 (function() {
 

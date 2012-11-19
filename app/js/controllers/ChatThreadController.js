@@ -16,7 +16,7 @@
     var properties = ["model", // TODO : What the fuck will be the model ?!?
     // ChatThreadController could listen to this model to see if there is new messages
                       "view",
-                      "HTMLChatBubbles","HTMLForm"];
+                      "HTMLChatBubbles","HTMLForm","HTMLInput"];
 
     var methods = {
 
@@ -37,19 +37,51 @@
 
             var cmc = new ChatMessageController(chatMessage);
             this.HTMLChatBubbles.appendChild(cmc.view);
+            
+        },
+
+        scrollThreadToBottom : function () {
+            this.HTMLChatBubbles.scrollTop = this.HTMLChatBubbles.scrollHeight - this.HTMLChatBubbles.offsetHeight;
         },
 
         // -- Fake conversation --
         fillWithAFunFakeConversation: function () {
-            var cm = new ChatMessage("Ludovic","Coucou", new Date(), true);
-            var cm2 = new ChatMessage("Alexis","Salut ça va ?", new Date(), false);
-            var cm3 = new ChatMessage("Ludovic","Ouais, ouais génial ! :)", new Date(), true);
-
-            this.addMessage(cm);
-            this.addMessage(cm2);
-            this.addMessage(cm3);
+            for (var i = 0 ; i < 5; i++ ) {
+                var cm = new ChatMessage("Ludovic","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla volutpat aliquam nulla, a iaculis ipsum posuere quis.", new Date(), Math.randomTrueFalse());
+                this.addMessage(cm);
+            }
         },
 
+        // -- Chat handling --
+
+        messageHasBeenReceived : function (chatMessageObject) {
+            this.addMessage(cm);
+            this.scrollThreadToBottom();
+        },
+
+        // Called when the user has used the form to send a message
+        messageHasBeenSent : function (stringMessage) {
+            // TODO : this is still a fake method !
+            var cm = new ChatMessage("HommOursPorc",stringMessage, new Date(), false);
+            this.addMessage(cm);
+            this.emptyInput();
+            this.scrollThreadToBottom();
+        },
+
+        // -- Input management --
+        emptyInput : function () {
+            this.HTMLInput.value = "";
+        },
+
+        installFormEventListener : function () {
+            this.HTMLForm.addEventListener("submit", { handleEvent: ChatThreadController.formHasBeenSubmit,
+                                             chatThreadController : this});
+        },
+
+        // -- Event listeners --
+        installEventListeners : function () {
+            this.installFormEventListener();
+        },
 
         // -- Create view --
 
@@ -57,7 +89,7 @@
             this.view = document.createElementWithAttributes("div", "class", "chatWidget");
             this.HTMLChatBubbles = this.view.addElement("div","class","chatBubbles");
             this.HTMLForm = this.view.addElement("form","class","chatForm");
-            this.HTMLForm.addElement("input","type","text",
+            this.HTMLInput = this.HTMLForm.addElement("input","type","text",
                                              "class","chatInput",
                                              "placeholder","Entrez votre message");
 
@@ -68,10 +100,22 @@
     var initializer = function(model) {
         this.createView();
         this.fillWithAFunFakeConversation();
+        this.installEventListeners();
+
+        this.title = "Live chat";
         this.model = model;
     };
 
-    var staticMethods = {};
+    var staticMethods = {
+
+        formHasBeenSubmit : function (evt) {
+            var ctc = this.chatThreadController;
+            ctc.messageHasBeenSent(ctc.HTMLInput.value);
+            evt.preventDefault();
+        }
+
+
+    };
 
     var staticProperties = {};
 

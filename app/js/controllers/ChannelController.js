@@ -84,8 +84,9 @@ var methods = {
 
     // -- HTML Generation --
     createView : function() {
-        this.view = document.createElementWithAttributes("div","class","channel");
-        this.HTMLTitle = this.view.addElement("div","class","title");
+        this.view = document.createElementWithAttributes("section","class","channel");
+        var header = this.view.addElement("header");
+        this.HTMLTitle = header.addElement("h2");
         this.HTMLTiles = this.view.addElement("div","class","tiles");
         this.view.controller = this;
     }

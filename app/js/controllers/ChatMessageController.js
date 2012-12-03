@@ -56,7 +56,7 @@
         // -- Create view --
 
         createView: function() {
-            this.view = document.createElementWithAttributes("div", "class", "chatBubble");
+            this.view = document.createElementWithAttributes("article", "class", "chatBubble");
             var p = this.view.addElement("p");
             this.HTMLNickname = p.addElement("strong","class","nickname");
             this.HTMLMessage = p.addElement("span","class","message");

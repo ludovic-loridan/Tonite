@@ -86,8 +86,8 @@
         // -- Create view --
 
         createView: function() {
-            this.view = document.createElementWithAttributes("div", "class", "chatWidget");
-            this.HTMLChatBubbles = this.view.addElement("div","class","chatBubbles");
+            this.view = document.createElementWithAttributes("section", "class", "chatWidget");
+            this.HTMLChatBubbles = this.view.addElement("article","class","chatBubbles");
             this.HTMLForm = this.view.addElement("form","class","chatForm");
             this.HTMLInput = this.HTMLForm.addElement("input","type","text",
                                              "class","chatInput",

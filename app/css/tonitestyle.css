@@ -323,6 +323,9 @@ header#mainHeader .headerStencil .catchLine {
   color: #adadad;
   background-color: #ffffff;
 }
+header#mainHeader .headerStencil h1 {
+  margin: 0;
+}
 header#mainHeader .headerGradient {
   background: #444444;
   min-width: 100%;
@@ -1141,187 +1144,187 @@ header#mainHeader .headerGradient div:last-child {
 /*======================================
   = Channel colors for Program Details =
   ====================================== */
-.channel1 article.programDetails > .programDescription > h1,
-article.programDetails.channel1 > .programDescription > h1 {
+.channel1 article.programDetails > .programDescription > header > h1,
+article.programDetails.channel1 > .programDescription > header > h1 {
   color: #093764;
 }
-.channel1 article.programDetails > .programDescription > .status,
-article.programDetails.channel1 > .programDescription > .status {
+.channel1 article.programDetails > .programDescription > header > .status,
+article.programDetails.channel1 > .programDescription > header > .status {
   background-color: #093764;
 }
-.channel2 article.programDetails > .programDescription > h1,
-article.programDetails.channel2 > .programDescription > h1 {
+.channel2 article.programDetails > .programDescription > header > h1,
+article.programDetails.channel2 > .programDescription > header > h1 {
   color: #a32921;
 }
-.channel2 article.programDetails > .programDescription > .status,
-article.programDetails.channel2 > .programDescription > .status {
+.channel2 article.programDetails > .programDescription > header > .status,
+article.programDetails.channel2 > .programDescription > header > .status {
   background-color: #a32921;
 }
-.channel3 article.programDetails > .programDescription > h1,
-article.programDetails.channel3 > .programDescription > h1 {
+.channel3 article.programDetails > .programDescription > header > h1,
+article.programDetails.channel3 > .programDescription > header > h1 {
   color: #1460af;
 }
-.channel3 article.programDetails > .programDescription > .status,
-article.programDetails.channel3 > .programDescription > .status {
+.channel3 article.programDetails > .programDescription > header > .status,
+article.programDetails.channel3 > .programDescription > header > .status {
   background-color: #1460af;
 }
-.channel4 article.programDetails > .programDescription > h1,
-article.programDetails.channel4 > .programDescription > h1 {
+.channel4 article.programDetails > .programDescription > header > h1,
+article.programDetails.channel4 > .programDescription > header > h1 {
   color: #000000;
 }
-.channel4 article.programDetails > .programDescription > .status,
-article.programDetails.channel4 > .programDescription > .status {
+.channel4 article.programDetails > .programDescription > header > .status,
+article.programDetails.channel4 > .programDescription > header > .status {
   background-color: #000000;
 }
-.channel5 article.programDetails > .programDescription > h1,
-article.programDetails.channel5 > .programDescription > h1 {
+.channel5 article.programDetails > .programDescription > header > h1,
+article.programDetails.channel5 > .programDescription > header > h1 {
   color: #57a92c;
 }
-.channel5 article.programDetails > .programDescription > .status,
-article.programDetails.channel5 > .programDescription > .status {
+.channel5 article.programDetails > .programDescription > header > .status,
+article.programDetails.channel5 > .programDescription > header > .status {
   background-color: #57a92c;
 }
-.channel6 article.programDetails > .programDescription > h1,
-article.programDetails.channel6 > .programDescription > h1 {
+.channel6 article.programDetails > .programDescription > header > h1,
+article.programDetails.channel6 > .programDescription > header > h1 {
   color: #666666;
 }
-.channel6 article.programDetails > .programDescription > .status,
-article.programDetails.channel6 > .programDescription > .status {
+.channel6 article.programDetails > .programDescription > header > .status,
+article.programDetails.channel6 > .programDescription > header > .status {
   background-color: #666666;
 }
-.channel7 article.programDetails > .programDescription > h1,
-article.programDetails.channel7 > .programDescription > h1 {
+.channel7 article.programDetails > .programDescription > header > h1,
+article.programDetails.channel7 > .programDescription > header > h1 {
   color: #ec6a40;
 }
-.channel7 article.programDetails > .programDescription > .status,
-article.programDetails.channel7 > .programDescription > .status {
+.channel7 article.programDetails > .programDescription > header > .status,
+article.programDetails.channel7 > .programDescription > header > .status {
   background-color: #ec6a40;
 }
-.channel8 article.programDetails > .programDescription > h1,
-article.programDetails.channel8 > .programDescription > h1 {
+.channel8 article.programDetails > .programDescription > header > h1,
+article.programDetails.channel8 > .programDescription > header > h1 {
   color: #000000;
 }
-.channel8 article.programDetails > .programDescription > .status,
-article.programDetails.channel8 > .programDescription > .status {
+.channel8 article.programDetails > .programDescription > header > .status,
+article.programDetails.channel8 > .programDescription > header > .status {
   background-color: #000000;
 }
-.channel9 article.programDetails > .programDescription > h1,
-article.programDetails.channel9 > .programDescription > h1 {
+.channel9 article.programDetails > .programDescription > header > h1,
+article.programDetails.channel9 > .programDescription > header > h1 {
   color: #5c2b8b;
 }
-.channel9 article.programDetails > .programDescription > .status,
-article.programDetails.channel9 > .programDescription > .status {
+.channel9 article.programDetails > .programDescription > header > .status,
+article.programDetails.channel9 > .programDescription > header > .status {
   background-color: #5c2b8b;
 }
-.channel10 article.programDetails > .programDescription > h1,
-article.programDetails.channel10 > .programDescription > h1 {
+.channel10 article.programDetails > .programDescription > header > h1,
+article.programDetails.channel10 > .programDescription > header > h1 {
   color: #c6342a;
 }
-.channel10 article.programDetails > .programDescription > .status,
-article.programDetails.channel10 > .programDescription > .status {
+.channel10 article.programDetails > .programDescription > header > .status,
+article.programDetails.channel10 > .programDescription > header > .status {
   background-color: #c6342a;
 }
-.channel11 article.programDetails > .programDescription > h1,
-article.programDetails.channel11 > .programDescription > h1 {
+.channel11 article.programDetails > .programDescription > header > h1,
+article.programDetails.channel11 > .programDescription > header > h1 {
   color: #e1961b;
 }
-.channel11 article.programDetails > .programDescription > .status,
-article.programDetails.channel11 > .programDescription > .status {
+.channel11 article.programDetails > .programDescription > header > .status,
+article.programDetails.channel11 > .programDescription > header > .status {
   background-color: #e1961b;
 }
-.channel12 article.programDetails > .programDescription > h1,
-article.programDetails.channel12 > .programDescription > h1 {
+.channel12 article.programDetails > .programDescription > header > h1,
+article.programDetails.channel12 > .programDescription > header > h1 {
   color: #eb5733;
 }
-.channel12 article.programDetails > .programDescription > .status,
-article.programDetails.channel12 > .programDescription > .status {
+.channel12 article.programDetails > .programDescription > header > .status,
+article.programDetails.channel12 > .programDescription > header > .status {
   background-color: #eb5733;
 }
-.channel13 article.programDetails > .programDescription > h1,
-article.programDetails.channel13 > .programDescription > h1 {
+.channel13 article.programDetails > .programDescription > header > h1,
+article.programDetails.channel13 > .programDescription > header > h1 {
   color: #1460af;
 }
-.channel13 article.programDetails > .programDescription > .status,
-article.programDetails.channel13 > .programDescription > .status {
+.channel13 article.programDetails > .programDescription > header > .status,
+article.programDetails.channel13 > .programDescription > header > .status {
   background-color: #1460af;
 }
-.channel14 article.programDetails > .programDescription > h1,
-article.programDetails.channel14 > .programDescription > h1 {
+.channel14 article.programDetails > .programDescription > header > h1,
+article.programDetails.channel14 > .programDescription > header > h1 {
   color: #623669;
 }
-.channel14 article.programDetails > .programDescription > .status,
-article.programDetails.channel14 > .programDescription > .status {
+.channel14 article.programDetails > .programDescription > header > .status,
+article.programDetails.channel14 > .programDescription > header > .status {
   background-color: #623669;
 }
-.channel15 article.programDetails > .programDescription > h1,
-article.programDetails.channel15 > .programDescription > h1 {
+.channel15 article.programDetails > .programDescription > header > h1,
+article.programDetails.channel15 > .programDescription > header > h1 {
   color: #ef8733;
 }
-.channel15 article.programDetails > .programDescription > .status,
-article.programDetails.channel15 > .programDescription > .status {
+.channel15 article.programDetails > .programDescription > header > .status,
+article.programDetails.channel15 > .programDescription > header > .status {
   background-color: #ef8733;
 }
-.channel16 article.programDetails > .programDescription > h1,
-article.programDetails.channel16 > .programDescription > h1 {
+.channel16 article.programDetails > .programDescription > header > h1,
+article.programDetails.channel16 > .programDescription > header > h1 {
   color: #000000;
 }
-.channel16 article.programDetails > .programDescription > .status,
-article.programDetails.channel16 > .programDescription > .status {
+.channel16 article.programDetails > .programDescription > header > .status,
+article.programDetails.channel16 > .programDescription > header > .status {
   background-color: #000000;
 }
-.channel17 article.programDetails > .programDescription > h1,
-article.programDetails.channel17 > .programDescription > h1 {
+.channel17 article.programDetails > .programDescription > header > h1,
+article.programDetails.channel17 > .programDescription > header > h1 {
   color: #733d8c;
 }
-.channel17 article.programDetails > .programDescription > .status,
-article.programDetails.channel17 > .programDescription > .status {
+.channel17 article.programDetails > .programDescription > header > .status,
+article.programDetails.channel17 > .programDescription > header > .status {
   background-color: #733d8c;
 }
-.channel18 article.programDetails > .programDescription > h1,
-article.programDetails.channel18 > .programDescription > h1 {
+.channel18 article.programDetails > .programDescription > header > h1,
+article.programDetails.channel18 > .programDescription > header > h1 {
   color: #57a800;
 }
-.channel18 article.programDetails > .programDescription > .status,
-article.programDetails.channel18 > .programDescription > .status {
+.channel18 article.programDetails > .programDescription > header > .status,
+article.programDetails.channel18 > .programDescription > header > .status {
   background-color: #57a800;
 }
-.channel19 article.programDetails > .programDescription > h1,
-article.programDetails.channel19 > .programDescription > h1 {
+.channel19 article.programDetails > .programDescription > header > h1,
+article.programDetails.channel19 > .programDescription > header > h1 {
   color: #ce7a2b;
 }
-.channel19 article.programDetails > .programDescription > .status,
-article.programDetails.channel19 > .programDescription > .status {
+.channel19 article.programDetails > .programDescription > header > .status,
+article.programDetails.channel19 > .programDescription > header > .status {
   background-color: #ce7a2b;
 }
 article.programDetails > .programDescription {
   width: 58%;
   float: left;
 }
-article.programDetails > .programDescription > h1 {
+article.programDetails > .programDescription > header > h1 {
   font-size: 35px;
   color: #444444;
   margin: 0 0 7px 0;
   font-weight: bold;
 }
-article.programDetails > .programDescription > ul.programCharacteristics {
+article.programDetails > .programDescription > header > ul.programCharacteristics {
   font-size: 16px;
   font-weight: bold;
   margin: 7px 0;
   padding: 0;
 }
-article.programDetails > .programDescription > ul.programCharacteristics li {
+article.programDetails > .programDescription > header > ul.programCharacteristics li {
   display: inline-block;
   list-style: none;
   margin-right: 5px;
 }
-article.programDetails > .programDescription > ul.programCharacteristics li:before {
+article.programDetails > .programDescription > header > ul.programCharacteristics li:before {
   content: "|";
   margin-right: 5px;
 }
-article.programDetails > .programDescription > ul.programCharacteristics li:first-child:before {
+article.programDetails > .programDescription > header > ul.programCharacteristics li:first-child:before {
   content: none;
 }
-article.programDetails > .programDescription > .status {
+article.programDetails > .programDescription > header > .status {
   display: inline-block;
   background-color: #444444;
   color: white;
@@ -1330,7 +1333,7 @@ article.programDetails > .programDescription > .status {
   padding: 5px 25px;
   margin: 7px 0;
 }
-article.programDetails > .programDescription > .progressBar {
+article.programDetails > .programDescription > header > .progressBar {
   width: 100%;
   max-width: 400px;
   height: 20px;
@@ -1340,20 +1343,20 @@ article.programDetails > .programDescription > .progressBar {
   font-size: 12px;
   font-weight: bold;
 }
-article.programDetails > .programDescription > .progressBar .startString {
+article.programDetails > .programDescription > header > .progressBar .startString {
   position: absolute;
   top: 0;
   left: 0;
   width: 50px;
 }
-article.programDetails > .programDescription > .progressBar .stopString {
+article.programDetails > .programDescription > header > .progressBar .stopString {
   position: absolute;
   top: 0;
   right: 0;
   width: 50px;
   text-align: right;
 }
-article.programDetails > .programDescription > .progressBar .bar {
+article.programDetails > .programDescription > header > .progressBar .bar {
   position: relative;
   height: 8px;
   top: 5px;
@@ -1361,7 +1364,7 @@ article.programDetails > .programDescription > .progressBar .bar {
   margin-right: 50px;
   background: #eeeeee;
 }
-article.programDetails > .programDescription > .progressBar .bar .completion {
+article.programDetails > .programDescription > header > .progressBar .bar .completion {
   background: #444444;
   height: 8px;
 }
@@ -1369,6 +1372,15 @@ article.programDetails .programSynopsis {
   font-size: 13px;
   line-height: 1.4;
   color: #444444;
+}
+article.programDetails .programSynopsis > .subtitle {
+  font-weight: bold;
+  font-size: 120%;
+  margin-bottom: 10px;
+  display: block;
+}
+article.programDetails .programSynopsis > .subtitle:after {
+  content: " ";
 }
 article.programDetails .programImage {
   float: right;
@@ -1926,7 +1938,7 @@ article.programDetails .programImage {
 .tile.past {
   opacity: 0.7;
 }
-.tile .title {
+.tile > header {
   font-weight: bold;
   font-size: 170%;
   position: relative;
@@ -2080,9 +2092,11 @@ article.programDetails .programImage {
   font-size: 14px;
   vertical-align: top;
 }
-.channel > .title {
+.channel > header > h2 {
+  font-weight: normal;
+  margin: 0;
   font-size: 250%;
-  color: #444444;
+  color: black;
 }
 @media screen and (max-width: 340px) {
   .channel {

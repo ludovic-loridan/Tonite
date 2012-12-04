@@ -63,7 +63,8 @@ var methods = {
         this.view = document.createElementWithAttributes("header","id","mainHeader");
         this.HTMLGradient = this.view.addElement("div","class","headerGradient");
         this.HTMLStencil = this.view.addElement("div","class","headerStencil");
-        this.HTMLStencil.addElement("img","class","logo","src","images/tonitestencillogo.png","alt","tonite");
+        var h1 = this.HTMLStencil.addElement("h1");
+        h1.addElement("img","class","logo","src","images/tonitestencillogo.png","alt","tonite");
         this.HTMLCatchLine = this.HTMLStencil.addElement("p","class","catchLine");
         this.view.controller = this;
     }

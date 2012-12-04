@@ -14,8 +14,8 @@
     var className = "ProgramDetailsController";
 
     var properties = ["program", "view", "title",
-                      "HTMLDescription",  "HTMLTitle", "HTMLCharacteristics", "HTMLStatus", "HTMLProgress",
-                      "HTMLSynopsis", "HTMLImage",
+                      "HTMLDescription", "HTMLHeader", "HTMLTitle", "HTMLCharacteristics", "HTMLStatus", "HTMLProgress",
+                      "HTMLSynopsis", "HTMLImage", "HTMLSubtitle", "HTMLDescription",
                       "timeInfosUpdateInterval"];
 
     var methods = {
@@ -42,6 +42,7 @@
             this.updateStatus();
             this.updateProgress();
             this.updateSynopsis();
+            this.updateSubtitle();
         },
 
         updateTitle : function () {
@@ -109,7 +110,12 @@
 
         updateSynopsis : function () {
             var synopsis = this.program.description;
-            this.HTMLSynopsis.setText(synopsis);
+            this.HTMLDescription.setText(synopsis);
+        },
+
+        updateSubtitle : function () {
+            var subtitle = hasAValueOr(this.program.subtitle, "");
+            this.HTMLSubtitle.setText(subtitle);
         },
 
         // - Sync of the image --
@@ -152,19 +158,24 @@
 
         createDescriptionPart : function () {
             this.HTMLDescription     = this.view.addElement("div", "class", "programDescription");
-            this.HTMLTitle           = this.HTMLDescription.addElement("h1");
-            this.HTMLCharacteristics = this.HTMLDescription.addElement("ul", "class", "programCharacteristics");
-            this.HTMLStatus          = this.HTMLDescription.addElement("p", "class", "status");
+
+            this.HTMLHeader          = this.HTMLDescription.addElement("header");
+
+            this.HTMLTitle           = this.HTMLHeader.addElement("h1");
+            this.HTMLCharacteristics = this.HTMLHeader.addElement("ul", "class", "programCharacteristics");
+            this.HTMLStatus          = this.HTMLHeader.addElement("p", "class", "status");
 
             this.createProgressBar();
 
             this.HTMLSynopsis        = this.HTMLDescription.addElement("p", "class", "programSynopsis");
+            this.HTMLSubtitle        = this.HTMLSynopsis.addElement("span", "class", "subtitle");
+            this.HTMLDescription     = this.HTMLSynopsis.addElement("span", "class", "description");
         },
 
         createProgressBar : function () {
             var barController = new ProgressBarController("--", "--", 0);
             this.HTMLProgress = barController.view;
-            this.HTMLDescription.appendChild(this.HTMLProgress);
+            this.HTMLHeader.appendChild(this.HTMLProgress);
         },
 
         createImagePart : function () {

@@ -185,14 +185,14 @@
 
         // -- HTML Generation --
         createView : function () {
-            this.view = document.createElementWithAttributes("div", "class", "tile");
+            this.view = document.createElementWithAttributes("article", "class", "tile");
             
             this.HTMLImage = this.view.addElement("img", "alt", "", "class", "background");
             this.HTMLImage.addClassWhenLoaded();
 
-            this.HTMLTitle = this.view.addElement("div", "class", "title");
+            this.HTMLTitle = this.view.addElement("header");
             this.HTMLCharacteristics = this.view.addElement("ul", "class", "characteristics");
-            this.HTMLTimeInfos = this.view.addElement("div", "class", "time");
+            this.HTMLTimeInfos = this.view.addElement("footer", "class", "time");
             this.view.controller = this;
             return this.view;
         }
@@ -228,7 +228,6 @@
         pushProgramDetailsVisitInHistory : function (program) {
             var state = "program."+program.id;
             var newURL = location.pathname+"#"+state;
-            console.log("pushed program");
             history.pushState(state,"program",newURL);
         }
 

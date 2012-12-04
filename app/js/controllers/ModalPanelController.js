@@ -301,6 +301,7 @@
             this.HTMLCloseButtonTop.addEventListener("click", closePrimaryFunction);
             this.HTMLOverlay.addEventListener("click", closePrimaryFunction);
 
+
             var switchPrimaryFunction = getThisCallingFunction(this, "switchToPrimaryTab");
             var switchSecondaryFunction = getThisCallingFunction(this, "switchToSecondaryTab");
             this.HTMLPrimaryTab.addEventListener("click", switchPrimaryFunction);

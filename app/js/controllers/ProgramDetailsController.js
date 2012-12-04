@@ -200,7 +200,9 @@
             var pdc = new ProgramDetailsController(program);
             mpc.primaryController = pdc;
 
-            var ctc = new ChatThreadController(); // TODO : Link with a model
+            var wsc = WebSocketController.getInstance('ws://127.0.0.1:9300');
+
+            var ctc = new ChatThreadController(wsc);
             mpc.secondaryController = ctc;
             
             mpc.openPrimary();

@@ -12,6 +12,11 @@ function hasAValueOr(obj, defaultValue) {
     }
 }
 
+function strJsonToObject(strJson) {
+    obj = eval('(' + strJson + ')');
+    return obj;
+}
+
 Arguments = {
     slice: function(args, index) {
         return Array.prototype.slice.call(args, index);

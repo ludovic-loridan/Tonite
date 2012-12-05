@@ -27,10 +27,10 @@ websocket_server/
 <https://docs.google.com/spreadsheet/pub?key=0AtA3JSG0H-nUdE9iZWJsUG9ybVpuMjNMSmlnVU1JdkE&single=true&gid=0&output=html>
 
 ## Screenshots
-![Ecran principal](https://github.com/ludovic-loridan/Tonite/blob/master/images/1.png)
+![Ecran principal](https://github.com/ludovic-loridan/Tonite/raw/master/images/1.png)
 
-![Détail du programme](https://github.com/ludovic-loridan/Tonite/blob/master/images/2.png)
+![Détail du programme](https://github.com/ludovic-loridan/Tonite/raw/master/images/2.png)
 
-![Ecran de détail (Mode mini)](https://github.com/ludovic-loridan/Tonite/blob/master/images/3.png)
+![Ecran de détail (Mode mini)](https://github.com/ludovic-loridan/Tonite/raw/master/images/3.png)
 
-![Ecran de chat (Mode mini)](https://github.com/ludovic-loridan/Tonite/blob/master/images/4.png)
+![Ecran de chat (Mode mini)](https://github.com/ludovic-loridan/Tonite/raw/master/images/4.png)

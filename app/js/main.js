@@ -19,6 +19,7 @@ function main() {
     window.spinner.start();
 
     IndexedDBManager.initialize(function() {
+        // FileSystemManager.initialize(); // fs API testing
         DataLoader.getDataForTonite(success, failure);
     });
 }
@@ -36,7 +37,7 @@ function success(data) {
 }
 
 function failure() {
-    console.log("error");
+    console.log("an error occured when loading the data");
 }
 
 window.addEventListener("load", main);

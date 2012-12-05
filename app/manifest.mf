@@ -37,24 +37,34 @@ images/icon_time.png
 images/icon_unfold.png
 images/tonitelogo.png
 images/tonitestencillogo.png
-js/dommethods.js
 js/additionalmethods.js
 js/class.js
+js/controller.js
+js/dommethods.js
+js/main.js
+js/verticalCenter.js
 js/entities/Channel.js
 js/entities/Program.js
-js/controllers/ProgressBarController.js
-js/controllers/ProgramDetailsController.js
-js/controllers/TileController.js
+js/entities/ChatMessage.js
 js/controllers/ChannelController.js
 js/controllers/ChannelsListController.js
+js/controllers/ChatMessageController.js
+js/controllers/ChatThreadController.js
 js/controllers/HeaderController.js
+js/controllers/KeyBindingsController.js
 js/controllers/ModalPanelController.js
-js/models/IndexedDBManager.js
+js/controllers/ProgramDetailsController.js
+js/controllers/ProgressBarController.js
+js/controllers/SpinnerController.js
+js/controllers/TileController.js
+js/controllers/URLHashController.js
+js/controllers/WebSocketController.js
 js/models/ChannelModel.js
-js/models/ProgramModel.js
 js/models/DataLoader.js
+js/models/FileSystemManager.js
+js/models/IndexedDBManager.js
+js/models/ProgramModel.js
 js/models/XMLParser.js
-js/main.js
 
 
 # Resources that require the user to be online.
